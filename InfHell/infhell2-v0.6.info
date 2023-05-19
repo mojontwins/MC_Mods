@@ -1,0 +1,10 @@
+release-date:1684522446000
+compile-date:1684522445000
+launch-method:indev
+launch-method-link:
+url:https://www.mojontwins.com/infhell/infhell2-v0.6.jar
+proxy-args:-Dhttp.proxyHost=betacraft.uk -Dhttp.proxyPort=11705
+other-name:
+protocolVersion:14
+base-version:b1.7.3
+file-ver:1
