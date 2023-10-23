@@ -1,0 +1,10 @@
+release-date:1698067601000
+compile-date:1698067600000
+launch-method:indev
+launch-method-link:
+url:https://www.mojontwins.com/infhell/infhell2-v0.7pre1--client.zip
+proxy-args:-Dhttp.proxyHost=betacraft.uk -Dhttp.proxyPort=11705
+other-name:
+protocolVersion:14
+base-version:b1.7.3
+file-ver:1
