@@ -1,0 +1,10 @@
+release-date:1717079197000
+compile-date:1717079196000
+launch-method:indev
+launch-method-link:
+url:https://github.com/mojontwins/MC_Mods/raw/master/InfHell/infhell2-v0.9_1--client.zip
+proxy-args:-Dhttp.proxyHost=betacraft.uk -Dhttp.proxyPort=11705
+other-name:
+protocolVersion:14
+base-version:b1.7.3
+file-ver:1
