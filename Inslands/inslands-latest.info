@@ -1,8 +1,8 @@
-release-date:1722954323000
-compile-date:1722954322000
+release-date:1722954355000
+compile-date:1722954354000
 launch-method:indev
 launch-method-link:
-url:https://github.com/mojontwins/MC_Mods/raw/master/Inslands/inslands-v240607--client.zip
+url:https://github.com/mojontwins/MC_Mods/raw/master/Inslands/inslands-v240625--client.zip
 proxy-args:-Dhttp.proxyHost=betacraft.uk -Dhttp.proxyPort=11705
 other-name:
 protocolVersion:14
