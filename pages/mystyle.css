@@ -1,0 +1,30 @@
+
+body {
+	background-image: url("water.png");
+}
+
+#content {
+	margin: auto;
+	width: 852px;
+	font-family: sans-serif;
+	font-size: 14px;
+	color: white;
+}
+
+h1, h2 {
+	background-color: black;
+}
+
+img {
+	display: block; margin: auto;
+}
+
+a {
+	color:yellow;
+}
+
+pre {
+	width: 80ch;
+	margin: auto;
+	padding: 1em;
+}
