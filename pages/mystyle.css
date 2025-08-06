@@ -1,6 +1,6 @@
 
 body {
-	background-image: url("water.png");
+	background-image: url("dirt.png");
 }
 
 #content {
@@ -9,6 +9,7 @@ body {
 	font-family: sans-serif;
 	font-size: 14px;
 	color: white;
+	background: url("stone.png");
 }
 
 h1, h2 {
