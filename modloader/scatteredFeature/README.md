@@ -19,3 +19,8 @@ This mod adds three new blocks from 1.3.2 with IDs 128, 131 and 132. If you find
 # Sources
 
 You can find the sources in `[1.2.5]-ScatteredFeature-1.0_src.zip`.
+
+# Resources
+
+* ModLoader https://mcarchive.net/mods/modloader
+* ModLoaderMP / ModLoaderMP_Server https://mcarchive.net/mods/modloadermp
