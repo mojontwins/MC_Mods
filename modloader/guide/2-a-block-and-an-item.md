@@ -16,15 +16,118 @@ In this chapter we'll add new blocks and the mushroom item.
 
 ## Adding blocks
 
-ModLoader is rather barebones. It provides a number of hooks so you can add stuff to the game, and nothing else really. For example, to add blocks you just create new objects of a class that extends (or *is*) `Block` the same way normal blocks are defined. The only difference is that you define and instantiate them in your mod class, and that you have to call the ModLoader API so they get added to the right parts of the Minecraft engine.
+ModLoader is rather barebones. It provides a number of hooks so you can add stuff to the game, and nothing else really. The most knowledge you need for creating mods using ModLoader is of the actual Minecraft engine and how it works. The best practice is keep the classes involved open for reference. 
+
+For example, to add blocks you just create new objects of a class that extends (or *is*) `Block` the same way normal blocks are defined. The only difference is that you define and instantiate them in your mod class, and that you have to call the ModLoader API so they get added to the right parts of the Minecraft engine, which is called *registering the block*.
 
 An instance of the class `Block` is a basic, opaque, one texture for all faces block that drops itself when broken. If you want to extend or modify this you have to implement your own class that extends `Block`. Basic blocks, tho, have several properties you can modify via method chaining upon instantiation, something that looks like this:
 
 ```java
-
+	public static final Block cobblestone = new Block(4, 16, Material.rock)
+		.setHardness(2.0F)
+		.setResistance(10.0F)
+		.setStepSound(soundStoneFootstep)
+		.setBlockName("stonebrick");    
 ```
 
+The basic `Block` constructor takes three parameters: 
+
+* A unique `blockID`, which can be 0-4095 (or 0-255 before r1.2), although only values ranging from 0 to 255 can be used for terrain generation as only byte arrays are used during that stage. 
+* A texture index `blockIndexInTexture`, which locates the block texture in the texture atlas `terrain.png` which contains all 256 textures.
+* The block material `blockMaterial`, which is an object of the class `Material`, indicating what the block is made of. Some available materials are `grass`, `ground`, `wood`, `rock`, `iron`, `water`, `lava`, `leaves`... open the `Material` class to get a full list. 
+
+So the above example for the vanilla cobblestone block (that you can find in `Block.java`) will define `cobblestone` as a new block with ID 4, texture index 16, and made of `Material.rock`.
+
+After the constructor there's a series of chained setters to give the new block some properties like hardness, blast resistance, associated sounds, and block name. `.setBlockName` which gives the new block a name, is **mandatory** if you are using `ModLoader`. Available setters are:
+
+* `public Block setBlockName(String name)` gives this block a name. This is needed by `ModLoader`. It won't let you register a block if it doesn't have a name.
+
+* `protected Block setStepSound(StepSound s)` sets the sounds associated with the block. It says "step" but it's also "break". Available sounds are instances of `StepSound` such as `soundStoneFootstep`, `soundWoodFootstep`, `soundGrassFootstep`... etc. Again, check the `Block` class for a full list, as they are defined in there. 
+
+* `protected Block setLightOpacity(int value)`, with value ranging from 0 to 255, defines how much light this block "blocks" (sorry). A transparent block (like air, or glass), or blocks like flowers or tall grass won't block light at all, so this will be 0. Opaque blocks like planks or dirt will block light completely, so this will be 255. That is done automaticly by the `Block` constructor. If you need a different value you have to define it explicitly using this setters. Blocks with special values are, for example, leaves, which have a value of `1` (that's why shadows under trees are *soft*) or water, which has a value of `3` (that's why the deeper, the darker).
+
+* `protected Block setLightValue(float light)` defines the amount of light this block **emits**. This is represented by a value of 0 to 1. Default is 0, which means that the block does not emit light. Torches have a light value of `0.9375F`, redstone torches `0.625F` and lava and fire a value of `1`. Brown mushrooms emit some light (value `0.125F`). Active furnaces have a value of `0.875F`.
+
+* `protected Block setResistance(float resistance)` defines the block's blast resistance, i.e. how much it resists explosions. To find the right value for your block just look around the vanilla blocks for reference.
+
+* `protected Block setHardness(float hardness)` defines the block's hardness, i.e. how hard it is to break. To find the right value for your block just look around the vanilla blocks for reference. A value of `-1` makes the block indestructible.
+
+* `protected Block setBlockUnbreakable()` is an alias for `setHardness(-1)`.
+
+* `protected Block setTickOnLoad(boolean shouldTick)` tells the engine it should tick this block automaticly. This is used for blocks which need to change their state or do something over time, such as leaves decaying, sand falling, fire, crops growing or water spreading.
+
+* `protected Block disableStats()` the engine will not keep stats for this block.
+
+If you need to customize your block further than that (which will be true in most cases) you'll have to extend `Block` with a new class and override a number of methods. Listing all of them here will get boring very soon. We'll talk about some as we are adding stuff to the mod, and a comprehensive list will come eventually. The most common methods to be overriden when you extend `Block` are follwing. Don't worry if you don't get some concepts, we'll get to them. You can use this as a reference in the future:
+
+* `public boolean renderAsNormalBlock()`, default true, i.e. the block is a opaque cube that covers the whole space. If you are using a special render, this should be overriden to return false.
+
+* `public int getRenderType()`, default 0. The block renderer uses different renderers for different block types. General render types are those (I'm listing some you will be reusing most likely; there's more - study `RenderBlocks` for the full list):
+	* Type 0 is for cubic blocks.
+	* Type 1 is for "crossed squares" (used in flowers, mushrooms, tall grass or saplings).
+	* Type 2 is used for torches.
+	* Type 3 is that of fire.
+	* Type 4 is used by fluids (water and lava).
+	* Type 5 is redstone wire.
+	* Type 6 is for crops (two planes intersecting two planes).
+	* Type 7 is used for doors.
+	* Type 8 is used with ladders.
+	* Type 9 renders minecart tracks.
+	* Type 10 is used by stairs.
+	* Type 11 is used by fences.
+	* Type 13 is used by cacti.
+
+* `public int getRenderBlockPass()` - Minecraft sorts and renders blocks in two passes. Pass 0 is for solid blocks, and pass 1 is for traslucent blocks such as ice or water. By default it returns 0. Override to return 1 if you are implementing a traslucent block.
+
+* `public boolean shouldSideBeRendered(IBlockAccess world, int x, int y, int z, int side)` tells the renderer if a side should be rendered or not. By default, a side will be rendered if the block next to it is not opaque or of such face doesn't touch the block boundaries. For example, the top side of a slab will always be rendered no matter which block is on top, as that face doesn't touch the block upper boundary, but the right side of a dirt block shouldn't be rendered if another dirt block, which is opaque, is to its right. Few vanilla blocks override this method, most of them being transparent or traslucent blocks.
+
+* `public int getBlockTextureFromSideAndMetadata(int side, int metadata)` returns the index in the texture atlas for the block, depending on the side and the metadata associated with the block position in the world. By default, it returns `blockIndexInTexture`, i.e. the same texture for all faces. If you want a different texture for each face or different textures depending on metadata (think on stone brick variants) you have to override this method.
+
+* `public boolean isOpaqueCube()` tells if the block is Opaque, meaning that the block takes the full space and blocks light. It returns true by default. If you are adding a flower you'll have to override it to return false, for instance.
+
+* `public boolean canPlaceBlockAt(World world, int x, int y, int z)` returns true if you can place the block at (x, y, z). This is overriden for plants, for example, to check if there's valid ground beneath (although if you extend `BlockPlant` there's a number of different methods to keep in mind - don't worry, we'll be adding a plant in a future chapter).
+
+* `public boolean canPlaceBlockOnSide(World world, int x, int y, int z, int side)` think of this as a more specific version of the method above, which also gets the side of the block you want to attach your block at. (x, y, z) is where your block would be if this would success.  By default, this calls `canPlaceBlockAt` ignoring the side.
+
+* `public void onNeighborBlockChange(World world, int x, int y, int z, int blockID)` imagine that your block is at (x, y, z). If a block next to it changes (is removed or added, for example). Then this method is called, with the (x, y, z) coordinate **where your block is located** and the blockID of the changed block. Please remember this, (x, y, z) is YOUR BLOCK, not the block which changed. This is done to react to nearby changes. For example if you want to destroy your block if the ground below disappears, you check what's in (x, y - 1, z) and act accordingly.
+
+* `public void onBlockDestroyedByPlayer(World world, int x, int y, int z, int metadata)` is called when a player destroys the block. It gets the coordinates and the metadata it had before disappearing. By default it does nothing.
+
+* `public void onBlockDestroyedByExplosion(World world, int x, int y, int z)` is called when an explosion destroys the block. By default it does nothing.
+
+* `public void onBlockAdded(World world, int x, int y, int z)` is called when your block is added to the world - for example when you place it. (x, y, z) is where it has been added. Concretely, it is called by the `Chunk` class when (x, y, z) is set to a block ID which is not 0 (air).
+
+* `public void onBlockRemoved(World world, int x, int y, int z)` is called when your block is removed from the world - for example when you destroy it. (x, y, z) is where it was. Concretely, it is called by the `Chunk` class when (x, y, z) is set to 0 (air).
+
+* `public void onBlockPlaced(World world, int x, int y, int z, int side)` is called when a player right-clicks to place a block. It's usually used to set metadata, for instance to attach a torch to a wall.
+
+* `public void onBlockPlacedBy(World world, int x, int y, int z, EntityLiving entity)` is called right after the above, this time passing the entity (i.e. the player) who placed the block. It can be used, for example, to check where the entity is facing and place the block facing the entity (as in furnaces).
+
+* `public int quantityDropped(Random rand)` returns is the amount of items the block drops when broken. By default this method returns 1. 
+
+* `public int idDropped(int meta, Random rand)` returns the ID of the item the block drops when broken. By default this is the blockID, which means a block will drop itself by default. `meta` contains the metadata associated before breaking.
+
+* `protected int damageDropped(int metadata)` `damage` is a VERY bad name for what it is. Granted, that value is used for damage, but it is also used for dye color, wood type and many other things. This method gets the metadata the block had before being broken and returns a value based on that. By default this is 0. For example, in `BlockLog` that represent logs, metadata is used to store wood type (and later, orientation). If this method wasn't overriden in `BlockLog` all logs would drop oak logs. Rather, this block is overriden and it returns `metadata & 3` which produces 0, 1, 2 representing oak, dark or birch. 
+
+* `public void dropBlockAsItemWithChance(World world, int x, int y, int z, int metadata, float chance)` contains the code that executes when a block breaks. By default it will drop `quantityDropped` item stacks of `idDropped` with `damageDropped(metadata)`. You can override this for complex block drops, but most of the time it will suffice to change `idDropped`, `quantityDropped` and `damageDropped`. 
+
+* `public void updateTick(World world, int x, int y, int z, Random rand)` if you called `setTickOnLoad` this method will be called when the block is ticked. This is where you implement crop growing, fire spreading and stuff like that. By default this method is empty.
+
+* `public void randomDisplayTick(World world, int x, int y, int z, Random rand)` in the client, every game tick, 1000 random blocks around the player are selected and this method is called for them. This is used to display special stuff such as particles (think of smoke in torches). By default this method is empty.
+
+* `public boolean blockActivated(World world, int x, int y, int z, EntityPlayer thePlayer)` is called when `thePlayer` right-clicks on your block. (x, y, z) is where your block is. By default this does nothing.
+
+* `public void onBlockClicked(World world, int x, int y, int z, EntityPlayer thePlayer)`  is called when `thePlayer` left-clicks on your block. (x, y, z) is where your block is. By default this does nothing.
+
+* `public void onEntityWalking(World world, int x, int y, int z, Entity entity)` is called when `entity` steps over your block, which is placed at (x, y, z). This is used for example for trampling tilled field.
+
+* `public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z)` is called by several processes and lets you adjust the size of the block's bounding box before it's going to be used for something. If the block's bounding box depends on metadata which may change (for example) this is where you check metadata at (x, y, z) and update the bounding box (for example calling `this.setBlockBounds` with the new dimensions).
+
+ 
+
 ### Podzol
+
+Podzol is a very basic, opaque block but it needs three different textures (top, bottom and sides), so you'll have to extend `Block` with your own class that implements that feature. The renderer calls `getBlockTextureFromSideAndMetadata` to get the block texture, so that's the method you'll need to override.
 
 ### Big mushroom block (only for b1.7.3)
 
@@ -35,4 +138,13 @@ An instance of the class `Block` is a basic, opaque, one texture for all faces b
 ## Now port it to the server
 
 ## Generating your mod for the first time
+
+## Notes about placing blocks
+
+When you right-click to place a block, `ItemBlock` does this, in order:
+
+* It checks if the block can be placed, which may include a call to `canPlaceBlockOnSide`. 
+* It places the block in the world, which produces a call to `onBlockAdded`.
+* Then `onBlockPlaced` is called passing x, y, z of the placed block and the side that was right-clicked.
+* Then `onBlockPlacedBy` is called, passing x, y, z of the placed block and the player who right-clicked.
 
