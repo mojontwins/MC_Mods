@@ -6,7 +6,34 @@ In this chapter we'll learn how to start a new mod, how to add blocks and items,
 
 To create a new mod you basicly start by extending the BaseModMP class. Modloader scans the minecraft.jar and the mods folder to find clases that extend BaseModMP and, if they are correct, hey load them as mods. There's a startup method you have to implement plus several other things to override to get what you want.
 
+The easiest way to extend BaseModMP is right-clicking on the `net.minecraft.src` package in the client and selecting New - Class. This will pop up a dialog. Enter your mod name (which should be `mod_Whatever`, for example `mod_fungalCalamity`) in the "Name" field, enter "BaseModMP" in the "Superclass" field, and then make sure to check "Constructors from superclass" and "Inherited abstract methods". Click "Finish" and you should get something like this:
 
+```java
+	package net.minecraft.src;
+
+	public class mod_fungalCalamity extends BaseModMp {
+
+		public mod_fungalCalamity() {
+			// TODO Auto-generated constructor stub
+		}
+
+		@Override
+		public String Version() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+	}
+```
+
+This is where we start. Edit the `Version` method to return a proper string
+
+```java
+	@Override
+	public String Version() {
+		return "Fungal Calamity v1.0";
+	}
+```
 
 ## Our mod
 
@@ -39,6 +66,8 @@ The basic `Block` constructor takes three parameters:
 So the above example for the vanilla cobblestone block (that you can find in `Block.java`) will define `cobblestone` as a new block with ID 4, texture index 16, and made of `Material.rock`.
 
 After the constructor there's a series of chained setters to give the new block some properties like hardness, blast resistance, associated sounds, and block name. `.setBlockName` which gives the new block a name, is **mandatory** if you are using `ModLoader`. Available setters are:
+
+(NOTE, when I talk about `side` that's 0 bottom, 1 top, 2 north, 3 south, 4 east, 5 west)
 
 * `public Block setBlockName(String name)` gives this block a name. This is needed by `ModLoader`. It won't let you register a block if it doesn't have a name.
 
@@ -87,6 +116,8 @@ If you need to customize your block further than that (which will be true in mos
 
 * `public boolean canPlaceBlockAt(World world, int x, int y, int z)` returns true if you can place the block at (x, y, z). This is overriden for plants, for example, to check if there's valid ground beneath (although if you extend `BlockPlant` there's a number of different methods to keep in mind - don't worry, we'll be adding a plant in a future chapter).
 
+* `public boolean canBlockStay(World world, int x, int y, int z)` is called to check if the block can stay in (x, y, z) depending on the surroundings. For example, a flower could not stay if the block beneath was removed. This method is also used by world generators, wich are the classes that populate chunks after they have been generated (they add trees, flowers...)
+
 * `public boolean canPlaceBlockOnSide(World world, int x, int y, int z, int side)` think of this as a more specific version of the method above, which also gets the side of the block you want to attach your block at. (x, y, z) is where your block would be if this would success.  By default, this calls `canPlaceBlockAt` ignoring the side.
 
 * `public void onNeighborBlockChange(World world, int x, int y, int z, int blockID)` imagine that your block is at (x, y, z). If a block next to it changes (is removed or added, for example). Then this method is called, with the (x, y, z) coordinate **where your block is located** and the blockID of the changed block. Please remember this, (x, y, z) is YOUR BLOCK, not the block which changed. This is done to react to nearby changes. For example if you want to destroy your block if the ground below disappears, you check what's in (x, y - 1, z) and act accordingly.
@@ -121,9 +152,25 @@ If you need to customize your block further than that (which will be true in mos
 
 * `public void onEntityWalking(World world, int x, int y, int z, Entity entity)` is called when `entity` steps over your block, which is placed at (x, y, z). This is used for example for trampling tilled field.
 
+* `public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity)` called when `entity` collides with our block, which is at (x, y, z). This used by cactus to cause damage or by pressure plates to get pressed.
+
 * `public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z)` is called by several processes and lets you adjust the size of the block's bounding box before it's going to be used for something. If the block's bounding box depends on metadata which may change (for example) this is where you check metadata at (x, y, z) and update the bounding box (for example calling `this.setBlockBounds` with the new dimensions).
 
- 
+* `public int getRenderColor(int metadata)` returns a color in ARGB format. This is used for example to give special colors to grass and leaves. By default it returns white.
+
+* `public int colorMultiplier(IBlockAccess world, int x, int y, int z)` that's the same but it is called by the world renderer so grass and leaves can have a different color per x, z coordinate (for example). By default it returns white.
+
+* `public boolean canProvidePower()` returns if the block is a redstone power source. By default returns false.
+
+** TODO: Check those two again
+
+* `public boolean isPoweringTo(IBlockAccess world, int x, int y, int z, int side)` returns true if this block at (x, y, z) is providing power to its side `side`.
+
+* `public boolean isIndirectlyPoweringTo(World world, int x, int y, int z, int side)` returns true if this block at (x, y, z) is providing power to its side `side`.
+
+** EOTODO
+
+
 
 ### Podzol
 
