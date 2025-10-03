@@ -18,7 +18,11 @@ In this chapter we'll add new blocks and the mushroom item.
 
 ModLoader is rather barebones. It provides a number of hooks so you can add stuff to the game, and nothing else really. For example, to add blocks you just create new objects of a class that extends (or *is*) `Block` the same way normal blocks are defined. The only difference is that you define and instantiate them in your mod class, and that you have to call the ModLoader API so they get added to the right parts of the Minecraft engine.
 
+An instance of the class `Block` is a basic, opaque, one texture for all faces block that drops itself when broken. If you want to extend or modify this you have to implement your own class that extends `Block`. Basic blocks, tho, have several properties you can modify via method chaining upon instantiation, something that looks like this:
 
+```java
+
+```
 
 ### Podzol
 
