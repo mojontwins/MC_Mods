@@ -60,7 +60,9 @@ An instance of the class `Block` is a basic, opaque, one texture for all faces b
 The basic `Block` constructor takes three parameters: 
 
 * A unique `blockID`, which can be 0-4095 (or 0-255 before r1.2), although only values ranging from 0 to 255 can be used for terrain generation as only byte arrays are used during that stage. 
+
 * A texture index `blockIndexInTexture`, which locates the block texture in the texture atlas `terrain.png` which contains all 256 textures.
+
 * The block material `blockMaterial`, which is an object of the class `Material`, indicating what the block is made of. Some available materials are `grass`, `ground`, `wood`, `rock`, `iron`, `water`, `lava`, `leaves`... open the `Material` class to get a full list. 
 
 So the above example for the vanilla cobblestone block (that you can find in `Block.java`) will define `cobblestone` as a new block with ID 4, texture index 16, and made of `Material.rock`.
@@ -110,7 +112,9 @@ If you need to customize your block further than that (which will be true in mos
 
 * `public boolean shouldSideBeRendered(IBlockAccess world, int x, int y, int z, int side)` tells the renderer if a side should be rendered or not. By default, a side will be rendered if the block next to it is not opaque or of such face doesn't touch the block boundaries. For example, the top side of a slab will always be rendered no matter which block is on top, as that face doesn't touch the block upper boundary, but the right side of a dirt block shouldn't be rendered if another dirt block, which is opaque, is to its right. Few vanilla blocks override this method, most of them being transparent or traslucent blocks.
 
-* `public int getBlockTextureFromSideAndMetadata(int side, int metadata)` returns the index in the texture atlas for the block, depending on the side and the metadata associated with the block position in the world. By default, it returns `blockIndexInTexture`, i.e. the same texture for all faces. If you want a different texture for each face or different textures depending on metadata (think on stone brick variants) you have to override this method.
+* `public int getBlockTextureFromSideAndMetadata(int side, int metadata)` returns the index in the texture atlas for the block, depending on the side and the metadata associated with the block position in the world. By default, it returns `blockIndexInTexture`, i.e. the same texture for all faces. If you want a different texture for each face or different textures depending on metadata (think on stone brick variants, or furnaces facing different directions) you have to override this method.
+
+* `public int getBlockTextureFromSide(int side)` is the version of the above called generally to render the block in the inventory when metadata makes no sense. It's up to the block class to "assume" a metadata. Generally 0. Note that if you don't need metadata to select textures you can implement this method only, as `getBlockTextureFromSideAndMetadata` just calls `getBlockTextureFromSide` in `Block`.
 
 * `public boolean isOpaqueCube()` tells if the block is Opaque, meaning that the block takes the full space and blocks light. It returns true by default. If you are adding a flower you'll have to override it to return false, for instance.
 
@@ -170,13 +174,159 @@ If you need to customize your block further than that (which will be true in mos
 
 ** EOTODO
 
-
-
 ### Podzol
 
 Podzol is a very basic, opaque block but it needs three different textures (top, bottom and sides), so you'll have to extend `Block` with your own class that implements that feature. The renderer calls `getBlockTextureFromSideAndMetadata` to get the block texture, so that's the method you'll need to override.
 
+I like to keep all mod classes together in their package. Right click on Client and select New - Package. Create a new package called `org.mojontwins.minecraft.fungalcalamity`. Now right click on the package and select New - Class. Type `BlockPodzòl` the "Name" field, `net.minecraft.src.Block` in the "Superclass" field, and then make sure to check "Constructors from superclass" and "Inherited abstract methods". Click "Finish". Here it is, your new block class:
+
+```java
+	package org.mojontwins.minecraft.fungalcalamity;
+
+	import net.minecraft.src.Block;
+	import net.minecraft.src.Material;
+
+	public class BlockPodzol extends Block {
+
+		public BlockPodzol(int var1, Material var2) {
+			super(var1, var2);
+			// TODO Auto-generated constructor stub
+		}
+
+		public BlockPodzol(int var1, int var2, Material var3) {
+			super(var1, var2, var3);
+			// TODO Auto-generated constructor stub
+		}
+
+	}
+```
+
+Delete both constructors, we'll need something much simpler, as we won't be reusing this class for anything else. Add this new constructor. `Material.ground` will be marked as an error as eclipse is not able to find it. Just press Ctrl+Shift+O and eclipse will add the required import:
+
+```java
+	package org.mojontwins.minecraft.fungalcalamity;
+
+	import net.minecraft.src.Block;
+	import net.minecraft.src.Material;
+
+	public class BlockPodzol extends Block {
+
+		public BlockPodzol(int blockID) {
+			super(blockID, Material.ground);
+		}
+
+	}
+```
+
+We'll customise this block later. Now get back to `mod_FungalCalamity`.
+
+Podzol will act like Mycelium. It will spread to nearby dirt or grass tiles. That will need to call `setTickOnLoad` on instantiation.
+
+First of all create a class attribute for the block.
+
+```java
+	public static Block bolckPodzol;
+````
+
+Remember that blocks need a block ID. We could choose a free block ID, but that could conflict with another block ID in another mod so it is good practice to let the player configure your mod to choose the block ID theyself. To do that, we add an anotated attribute. ModLoader will find these attributes and create a configuration file for them automaticly. What we assign here is a default value:
+
+```java
+	@MLProp(name="blockPodzolID", info="Custom block ID for the Podzol block")
+	public static int blockPodzolID = 140;
+```
+
+We need to create attributes to store the texture IDs. We'll need three texture indexes for the pozdol block:
+
+```java
+	public static int texIdxPodzolTop;
+	public static int texIdxPodzolBottom;
+	public static int texIdxPodzolSides;
+```
+
+We have everything we need to instantiate `blockPodzol`. We do this in the constructor (for b1.7.3) or in the load method (for r1.2.5):
+
+```java
+	public mod_fungalCalamity() {
+		bolckPodzol = new BlockPodzol(blockPodzolID).
+				setBlockName("Podzol").
+				setTickOnLoad(true);
+	}
+```
+
+Note how we use `blockPodzolID` as a block ID. If the player changed the ID in the automatic config file, the correct value will be already loaded before constructing the class. 
+
+And now we load our custom textures. We need to add "texPodzolTop.png" and "texPodzolSides.png" to the package. For the botom we'll be using the vanilla dirt texture. Then we load the new textures. Again, you wanna do this in the `load` method in r1.2.5, but it's done in the constructor in `b1.7.3`:
+
+```java
+	texIdxPodzolTop = ModLoader.addOverride(
+			"terrain.png", 
+			"/org/mojontwins/minecraft/fungalcalamity/texPodzolTop.png");
+	
+	texIdxPodzolBottom = 2; 	// This is the dirt texture in the atlas
+
+	texIdxPodzolSides = ModLoader.addOverride(
+			"terrain.png",
+			"/org/mojontwins/minecraft/fungalcalamity/texPodzolSides.png");
+```
+
+Now we have custom texture indexes, we get back to BlockPodzol to override a method:
+
+```java
+	@Override
+	public int getBlockTextureFromSide(int side) {
+        switch(side) {
+        case 0: return mod_fungalCalamity.texIdxPodzolBottom;
+        case 1: return mod_fungalCalamity.texIdxPodzolTop;
+        default: return mod_fungalCalamity.texIdxPodzolSides;
+        }
+    }
+```
+
+What does this do? When Minecraft needs to render a block, it calls `getBlockTextureFromSideAndMetadata`. In `Block`, this method ingores metadata and calls `getBlockTextureFromSide`. If we would have needed metadata, we should have overriden `getBlockTextureFromSideAndMetadata`. 
+
+Notice how we return a different texture based on which side the engine is calling. Side 0 is bottom and side 1 is top. For the rest of the cases (sides 2 to 5) we return the same texture.
+
+We need this block to extend to adjoining `dirt` or `grass` blocks if they are not covered. This will be attempted when the block is ticked (the game will tick a number of blocks at random each game tick). That's why we added `setTickOnLoad(true)` to the constructor, se the block is ticked.
+
+When a block is ticked, its `updateTick` is called. This is the next method we need to override. The code is taken and modified from vanilla `BlockGrass` but made simpler (and more aggressive). Note the `multiplayerWorld` check on World. This kind of stuff ensures that block updates only happen in the server on SMP (and get sent to the client).
+
+```java
+	@Override
+	public void updateTick(World world, int x, int y, int z, Random rand) {
+		// Attempt to expand if the world isn't remote
+		if(!world.multiplayerWorld) {
+			if(rand.nextInt(4) == 0) {
+				int xx = x + rand.nextInt(3) - 1;
+				int yy = y + rand.nextInt(5) - 3;
+				int zz = z + rand.nextInt(3) - 1;
+				
+				int blockID = world.getBlockId(xx, yy, zz);
+				
+				if(
+					(blockID == Block.dirt.blockID || blockID == Block.grass.blockID) && 
+					Block.lightOpacity[world.getBlockId(xx, yy + 1, zz)] < 2
+				) {
+					
+				}
+			}
+		}
+	}
+```
+
+Finally we have to *register* the block and give it a name. That integrates the block in the game.
+
+```java
+	ModLoader.RegisterBlock(blockPodzol);
+	ModLoader.AddName(blockPodzol, "Podzol");
+```
+
+And that's it! We got ourselves a new block.
+
 ### Big mushroom block (only for b1.7.3)
+
+We'll just grab the code for the mushroom block (`BlockMushroomCap`) and put it in our mod. Then we do the necessary steps to enable it in the mod class:
+
+
 
 ## Adding an item
 
