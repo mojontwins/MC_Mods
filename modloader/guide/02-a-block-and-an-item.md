@@ -41,6 +41,10 @@ Our goal is adding a big, branched mushroom (not unlike those in Twilight Forest
 
 In this chapter we'll add new blocks and the mushroom item.
 
+## Blocks
+
+The world is made of blocks. In every (x, y, z) there's a block and metadata. Such metadata is used to provide a state to the block, or to define a subtype. The growth of crops, different wool colors, wood types or flowing water direction are achieved with metadata. We call "Blockstate" to the pair formed by a block and its associated metadata.
+
 ## Adding blocks
 
 ModLoader is rather barebones. It provides a number of hooks so you can add stuff to the game, and nothing else really. The most knowledge you need for creating mods using ModLoader is of the actual Minecraft engine and how it works. The best practice is keep the classes involved open for reference. 
@@ -326,9 +330,64 @@ And that's it! We got ourselves a new block.
 
 We'll just grab the code for the mushroom block (`BlockMushroomCap`) and put it in our mod. Then we do the necessary steps to enable it in the mod class:
 
+## Notes about world
 
+The World class is pretty complex and has lots of useful methods you'll be using continuously. Some of the most used are:
+
+* `public int getBlockId(int x, int y, int z)` will return the block ID at (x, y, z) in the world.
+
+* `public Material getBlockMaterial(int x, int y, int z)` will return the material of the block at (x, y, z).
+
+* `public int getBlockMetadata(int x, int y, int z)` will return the metadata at (x, y, z).
+
+* `public boolean isAirBlock(int x, int y, int z)` will return true if there's air at (x, y, z).
+
+* `public boolean blockExists(int x, int y, int z)` will return true if the block at (x, y, z) exists (that part of the world has been generated).
+
+* `public boolean setBlockAndMetadata(int x, int y, int z, int blockID, int meta)` will place block with blockID at (x, y, z) with metadata and return true if that was successful.
+
+* `public boolean setBlockAndMetadata(int x, int y, int z, int blockID)` will just set the block ID.
+
+* `public boolean setBlockMetadata(int x, int y, int z, int meta)` will just change the metadata.
+
+* `public boolean setBlockAndMetadataWithNotify(int x, int y, int z, int blockID, int metadata)` will set new blockID and metadata and will notify adjoining blocks. That notification will trigger each adjoining block's `onNeighborBlockChange` method. 
+
+* `public boolean setBlockWithNotify(int x, int y, int z, int blockID)` will set a new blockID and notify the adjoining blocks.
+
+* `public void setBlockMetadataWithNotify(int x, int y, int z, int meta)` will set new metadata and notify the adjoining blocks.
+
+* `public boolean canBlockSeeTheSky(int x, int y, int z)` will return true if the op face of (x, y, z) is exposed (i.e. there's "sky" above).
+
+* `public int getHeightValue(int x, int z)` will return the height of the world at (x, z) (i.e. the top "y" of the highest block that's not air).
+
+* `public boolean isDaytime()` returns true during daytime.
+
+There's many more but those will suffice for now.
 
 ## Adding an item
+
+We are adding a throwable mushroom item. It won't do much for the moment, just exist. In a future chapter we'll make it become a projectile upon usage.
+
+Items extend the `Item` class. Just like blocks, you can define some attributes by instantiating the `Item` class, but special stuff will need a subclass. The basic `Item` constructor just takes one parameter, the ID:
+
+```java
+	protected Item(int id);
+```
+
+Note that block and item IDs share he same space. The actual item ID is the one you pass to the constructor plus 256. That's why it's called `shiftedIndex`. So `Item flint = new Item(62)` will give flint a shifted index of 256 + 62. This made perfect sense in pre-Anvil minecraft which just had space for 256 blocks. So the first ID after the last block (256) was that of the first item. 
+
+Just like Blocks, Item have a number of setters you may call upon object creation:
+
+* `public Item setIconIndex(int texIdx)` will asign a texture index to the item. The atlas for items is `/gui/items.png`. 
+
+* `public Item setMaxStackSize(int stackSize)` will set the maximum number of the same item that can be stacked. This is, by default, 64.
+
+
+Once you decide to subclass `Item` with your own class there's a number of useful methods to override, for example:
+
+* `public int getIconFromDamage(int damage)` this is another instance of not very appropriate naming. Damage is something like "an item's metadata", a value that defines the state of the current item. Item instances exist in the world as ItemStacks, which define an item shiftedIndex, a stack size, and a "damage" or item state. It's called *damage* 'cause the first item states were used indicate tool damage, but they are used for all kind of state related stuff: dye colors being a good example. This method selects a different texture index based on the item state or *damage*.
+
+
 
 ## Let's test it in a cool way
 
