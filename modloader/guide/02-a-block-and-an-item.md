@@ -374,7 +374,7 @@ Items extend the `Item` class. Just like blocks, you can define some attributes 
 	protected Item(int id);
 ```
 
-Note that block and item IDs share he same space. The actual item ID is the one you pass to the constructor plus 256. That's why it's called `shiftedIndex`. So `Item flint = new Item(62)` will give flint a shifted index of 256 + 62. This made perfect sense in pre-Anvil minecraft which just had space for 256 blocks. So the first ID after the last block (256) was that of the first item. 
+Note that block and item IDs share he same space. The actual item ID is the one you pass to the constructor plus 256. That's why it's called `shiftedIndex`. So `Item flint = new Item(62)` will give flint a shifted index of 256 + 62. This made perfect sense in pre-Anvil minecraft which just had space for 256 blocks. So the first ID after the last block (256) was that of the first item. It is a bit cumbersome for post r1.2 though, where you have IDs 0 to 4095 for blocks but 256 onwards there's also Items sharing the same space.
 
 Just like Blocks, Item have a number of setters you may call upon object creation:
 
@@ -383,11 +383,16 @@ Just like Blocks, Item have a number of setters you may call upon object creatio
 * `public Item setMaxStackSize(int stackSize)` will set the maximum number of the same item that can be stacked. This is, by default, 64.
 
 
+
 Once you decide to subclass `Item` with your own class there's a number of useful methods to override, for example:
 
 * `public int getIconFromDamage(int damage)` this is another instance of not very appropriate naming. Damage is something like "an item's metadata", a value that defines the state of the current item. Item instances exist in the world as ItemStacks, which define an item shiftedIndex, a stack size, and a "damage" or item state. It's called *damage* 'cause the first item states were used indicate tool damage, but they are used for all kind of state related stuff: dye colors being a good example. This method selects a different texture index based on the item state or *damage*.
 
+* `public int getIconIndex(ItemStack stack)` is the method that's actually called by the rendering methods, and this by default calls `getIconFromDamage(stack.getItemDamage())`. 
 
+* `public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side)` is called with the player clicks on (x, y, z) and side with the item. Full item state is in the stack (`stack.itemID` should be this item's ID and `stack.getItemDamage()` is the current damage / state / whatever).
+
+We well be subclassing `Item` for the sake of it, just in case we need to customize something in the future:
 
 ## Let's test it in a cool way
 
