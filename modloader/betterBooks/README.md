@@ -1,8 +1,38 @@
 # Better than Books
 
-- Writable tomes, using the Tomes mod editor.
-- New book item with associated NBT to contain text.
-- New bookshelf block which can contain any book (empty, enchanted, written).
+This mod adds custom writable books and bookshelves to store them. It was inspired by both the old Tomes mod and the vanilla 1.3+ feature, but I've written everything myself from scratch. Source code is available in this folder.
+
+# Installation
+
+## Client
+
+Add ModLoader and ModLoaderMP to minecraft.jar, create a `mods` folder in `.minecraft` and put `[1.2.5]-ScatteredFeature-1.0.zip` inside. This mod should be compatible with other ModLoader mods.
+
+## Server
+
+Add ModLoaderMP_Server to minecraft_server.jar, create a `mods` folder in `.minecraft` and put `[1.2.5]-ScatteredFeature-1.0_server.zip` inside.
+
+## Conflicts
+
+This mod adds one block and one item. If you find conflict with your existing modpack, just edit the .cfg and assign different IDs.
+
+# Resources
+
+* ModLoader https://mcarchive.net/mods/modloader
+* ModLoaderMP / ModLoaderMP_Server https://mcarchive.net/mods/modloadermp
+
+# Recipes & help
+
+* Writable books recipe is shapeless ink sack, book, and feather. Books are given a random color on crafting but can be dyed.
+* Special bookshelves has the same recipe as vanilla but without the books, just the 6 planks ;). Right click on them to place books.
+* When editing a book you can set a title. Text will flow naturally. If you need you can add page breaks pressing CTRL+ENTER.
+* Writable books tooltip on GUIs will show the book title. This is useful when reviewing your bookshelves.
+
+# Help ME
+
+Please report every single glitch, bug or nuance. Or simply give feedback :)
+
+# Development diary
 
 ## The new bookshelf block
 
