@@ -675,5 +675,5 @@ Yay! Got it working.
 
 ## TODO
 
-* [ ] Solve "dyeable books" problem.
-* [ ] Add CTRL+V to the editor.
+* [X] Solve "dyeable books" problem.
+* [X] Add CTRL+V to the editor.
