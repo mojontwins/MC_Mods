@@ -143,6 +143,7 @@ public class RenderBlockBetterBookshelf {
 			break;
 		}
 		
+		block.setBlockBounds(0, 0, 0, 1, 1, 1);
 		return true;
 	}
 	
@@ -186,7 +187,7 @@ public class RenderBlockBetterBookshelf {
 					h = .8125F - (i % 7) * .125F;
 				}
 				
-				bookSize --;
+				if(bookSize > 0) bookSize --;
 				y1 = v; y2 = v + .250F + .0625F * bookSize;
 				
 				// Align to X or Z axis

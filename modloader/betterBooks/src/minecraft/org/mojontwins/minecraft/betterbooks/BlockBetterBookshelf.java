@@ -1,16 +1,23 @@
 package org.mojontwins.minecraft.betterbooks;
 
+import java.util.Random;
+
 import net.minecraft.src.BlockContainer;
+import net.minecraft.src.EntityItem;
 import net.minecraft.src.EntityLiving;
 import net.minecraft.src.EntityPlayer;
+import net.minecraft.src.ItemStack;
 import net.minecraft.src.Material;
 import net.minecraft.src.MathHelper;
 import net.minecraft.src.ModLoader;
+import net.minecraft.src.NBTTagCompound;
 import net.minecraft.src.TileEntity;
+import net.minecraft.src.TileEntityChest;
 import net.minecraft.src.World;
 import net.minecraft.src.mod_betterBooks;
 
 public class BlockBetterBookshelf extends BlockContainer {
+	private Random random = new Random();
 
 	public BlockBetterBookshelf(int blockID) {
 		super(blockID, 4, Material.wood);
@@ -69,5 +76,52 @@ public class BlockBetterBookshelf extends BlockContainer {
 
 			return true;
 		}
+	}
+	
+	/* Drop contents on break */
+	@Override
+	public void onBlockRemoval(World world, int x, int y, int z) {
+		TileEntityBetterBookshelf theShelf = (TileEntityBetterBookshelf) world.getBlockTileEntity(x, y, z);
+		float v, dx, dy, dz;
+		
+		if (theShelf != null) {
+			for (int i = 0; i < theShelf.getSizeInventory(); ++i) {
+				ItemStack stack = theShelf.getStackInSlot(i);
+
+				if (stack != null) {
+					dx = this.random.nextFloat() * 0.8F + 0.1F;
+					dy = this.random.nextFloat() * 0.8F + 0.1F;
+					dz = this.random.nextFloat() * 0.8F + 0.1F;
+							
+					EntityItem entityItem;
+
+					while(stack.stackSize > 0) {
+						
+						int randomAmount = this.random.nextInt(21) + 10;
+						if (randomAmount > stack.stackSize) {
+							randomAmount = stack.stackSize;
+						}
+						stack.stackSize -= randomAmount;
+						
+						entityItem = new EntityItem(world, x + dx, y + dy, z + dz, 
+								new ItemStack(stack.itemID, randomAmount, stack.getItemDamage())
+						);
+						
+						v = 0.05F;
+						entityItem.motionX = this.random.nextGaussian() * v;
+						entityItem.motionY = this.random.nextGaussian() * v + 0.2F;
+						entityItem.motionZ = this.random.nextGaussian() * v;
+
+						if (stack.hasTagCompound()) {
+							entityItem.item.setTagCompound((NBTTagCompound) stack.getTagCompound().copy());
+						}
+						
+						world.spawnEntityInWorld(entityItem);
+					}
+				}
+			}
+		}
+
+		super.onBlockRemoval(world, x, y, z);
 	}
 }

@@ -54,12 +54,12 @@ public class mod_betterBooks extends BaseModMp {
 		
 		// Instantiate items
 		itemWritableBook = (ItemBook) new ItemBook(itemWritableBookID, Block.blockSteel)
+				.setHasSubtypes(true)
 				.setItemName("writableBook");
 		itemWritableBook.setIconIndex(ModLoader
 				.addOverride("/gui/items.png", "/org/mojontwins/minecraft/betterbooks/ItemWritableBook.png"));
 		itemWritableBook.featherIconIndex = ModLoader
 				.addOverride("/gui/items.png", "/org/mojontwins/minecraft/betterbooks/ItemWritableBookFeather.png");
-		//ModLoader.addName(itemWritableBook, "Writable Book");
 		
 		// Add a special renderer for better bookshelves. `true` means `as 3D on the inventory`.
 		renderTypeBetterBookshelf =  ModLoader.getUniqueBlockModelID(this, true);
@@ -85,7 +85,7 @@ public class mod_betterBooks extends BaseModMp {
 			ModLoader.addShapelessRecipe(
 					new ItemStack(itemWritableBook, 1, i), 
 					new Object[] {
-						new ItemStack(Item.dyePowder, 1, BlockCloth.getBlockFromDye(i)), 
+						new ItemStack(Item.dyePowder, 1, i), 
 						new ItemStack(itemWritableBook, 1, -1)
 			});
         }
@@ -96,14 +96,25 @@ public class mod_betterBooks extends BaseModMp {
 	public void takenFromCrafting(EntityPlayer thePlayer, ItemStack theStack, IInventory craftMatrix) {
 		
 		if(theStack.itemID == itemWritableBook.shiftedIndex) {
-			int damage = theStack.getItemDamage();
-			int dye = damage & 15;
-			int size = (damage >> 4) & 3;
-			if(size == 0) {
-				// Hook here so I can give books random colors and sizes.
-				Random rand = new Random();
-				int bookType = 0; 				// This is for the future
-				size = rand.nextInt(8);		// Three sizes
+			
+			// Find original book values
+			ItemStack originalBook = null;
+			for(int i = 0; i < craftMatrix.getSizeInventory(); i ++) {
+				ItemStack tempStack = craftMatrix.getStackInSlot(i);
+				if(tempStack != null && tempStack.itemID == itemWritableBook.shiftedIndex) {
+					originalBook = tempStack;
+				}
+			}
+			
+			int dye; 
+			int size;
+			int bookType;
+			
+			if(originalBook == null) {
+				// No book in craft matrix, get values at random
+				
+				bookType = 0; 						// This is for the future
+				size = (new Random()).nextInt(8);	// Three sizes
 				if(size < 2) {
 					size = 1;
 				} else if(size < 4) {
@@ -112,11 +123,21 @@ public class mod_betterBooks extends BaseModMp {
 					size = 3;
 				}
 				
-				dye = 14; // rand.nextInt(16);
+				dye = 14;
+			} else {
+				// Book in craft matrix, get size & type from it,
+				// dye from crating results (set by recipe)
+				int damage = originalBook.getItemDamage();
+				bookType = damage >> 6;
+				size = (damage >> 4) & 3;
+				
+				// Dye from the crafting results
+				dye = theStack.getItemDamage() & 15;
+			}
+			
 				
 				// Encode as damage
 				theStack.setItemDamage(dye | size << 4 | bookType << 6);
-			}
 			
 		}
 	}
