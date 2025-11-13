@@ -182,7 +182,11 @@ If you need to customize your block further than that (which will be true in mos
 
 Podzol is a very basic, opaque block but it needs three different textures (top, bottom and sides), so you'll have to extend `Block` with your own class that implements that feature. The renderer calls `getBlockTextureFromSideAndMetadata` to get the block texture, so that's the method you'll need to override.
 
-I like to keep all mod classes together in their package. Right click on Client and select New - Package. Create a new package called `org.mojontwins.minecraft.fungalcalamity`. Now right click on the package and select New - Class. Type `BlockPodzòl` the "Name" field, `net.minecraft.src.Block` in the "Superclass" field, and then make sure to check "Constructors from superclass" and "Inherited abstract methods". Click "Finish". Here it is, your new block class:
+I like to keep all mod classes together in their package. Right click on Client and select New - Package. Create a new package called `org.mojontwins.minecraft.fungalcalamity`. 
+
+I also like to keep all my textures and icons together in a separate folder that's easy to move around as it will be easier to work with. This will make sense later. So I'll be putting all my files in `/fungalcalamity/`. You can just create another package called `fungalcalamity` from Eclipse.
+
+Now right click on the package and select New - Class. Type `BlockPodzòl` the "Name" field, `net.minecraft.src.Block` in the "Superclass" field, and then make sure to check "Constructors from superclass" and "Inherited abstract methods". Click "Finish". Here it is, your new block class:
 
 ```java
 	package org.mojontwins.minecraft.fungalcalamity;
@@ -264,13 +268,13 @@ And now we load our custom textures. We need to add "texPodzolTop.png" and "texP
 ```java
 	texIdxPodzolTop = ModLoader.addOverride(
 			"terrain.png", 
-			"/org/mojontwins/minecraft/fungalcalamity/texPodzolTop.png");
+			"/fungalcalamity/texPodzolTop.png");
 	
 	texIdxPodzolBottom = 2; 	// This is the dirt texture in the atlas
 
 	texIdxPodzolSides = ModLoader.addOverride(
 			"terrain.png",
-			"/org/mojontwins/minecraft/fungalcalamity/texPodzolSides.png");
+			"/fungalcalamity/texPodzolSides.png");
 ```
 
 Now we have custom texture indexes, we get back to BlockPodzol to override a method:
@@ -382,7 +386,7 @@ Just like Blocks, Item have a number of setters you may call upon object creatio
 
 * `public Item setMaxStackSize(int stackSize)` will set the maximum number of the same item that can be stacked. This is, by default, 64.
 
-
+* `public Item setItemName(String name)` ModLoader requires that items have a name.
 
 Once you decide to subclass `Item` with your own class there's a number of useful methods to override, for example:
 
@@ -394,7 +398,115 @@ Once you decide to subclass `Item` with your own class there's a number of usefu
 
 We well be subclassing `Item` for the sake of it, just in case we need to customize something in the future:
 
+```java
+	package org.mojontwins.minecraft.fungalcalamity;
+
+	import net.minecraft.src.Item;
+
+	public class ItemThrowableMushroom extends Item {
+
+		public ItemThrowableMushroom(int var1) {
+			super(var1);
+		}
+
+		// Nothing else, for the moment...
+	}
+```
+
+In the mod class we just instantiate it and give it a proper icon. Note how we are overriding `/gui/items.png` for item icons rather than `/terrain.png`
+
+```java
+	public static Item itemThrowableMushroom;
+
+	[...]
+
+	@MLProp(name="itemThrowableMushroomID", info="Custom item ID for the Throwable Mushroom item")
+	public static int itemThrowableMushroomID = 5000;
+
+	[...]
+
+	public mod_fungalCalamity() {
+		[...]
+
+		itemThrowableMushroom = new ItemThrowableMushroom(itemThrowableMushroomID)
+				.setIconIndex(ModLoader.addOverride("/gui/items.png", "/fungalcalamity/iconThrowableMushroom"))
+				.setMaxStackSize(16)
+				.setItemName("throwableItem");
+
+	]
+```
+
+This obviously, does nothing. But we'll need it soon. 
+
 ## Let's test it in a cool way
+
+As there's no creative mode in b1.7.3 we'll add a chest to the world spain point containing the new item and blocks so you can actually see them working ingame. This will show you how to add a chest, too.
+
+You can add stuff easily overriding BaseMod's `GenerateSurface`:
+
+```java
+	public void GenerateSurface(World world, Random random, int x0, int z0) {
+	}
+```
+
+This method will be called everytime the engine generates a new chunk. (x0, z0) are the base block coordinates in this chunk. To avoid chunk overflows, you shouldn't add blocks below x0 or z0, or above x0+31 or z0+31. When a chunk is populating (or decorating, i.e. adding trees, ores, and stuff) only that chunks (x, z) and chunks (x+1, z), (x, z+1) and (x+1, z+1) are guaranteed to exist. If you try to access a block that's off limits, the chunk containing it may not exist yet, so it will have to be provided, which in turn will need population. Launching the whole process in a recursive call in the middle of chunk population can be bad. Of course, many mods do this all the time - but it is bad practice. If you need to generate structures bigger than 2x2 chunks you'll have to think of a method that is able to generate them chunk by chunk.
+
+Anyway we just want to place a block: a chest. We want to create it at spawn. So the first step would be deciding if the chunk we are generating is the spawn chunk:
+
+```java
+	@Override
+	public void GenerateSurface(World world, Random random, int x0, int z0) {
+		int chestX = world.worldInfo.getSpawnX();
+		int chestZ = world.worldInfo.getSpawnZ();
+		
+		if(x0 >> 4 == chestX >> 4 && z0 >> 4 == chestZ >> 4) {
+			// Add a chest
+			
+		}
+	}
+```
+
+Chunks are 16x16. To go from tile coordinates to chunk coordinates you have to divide by 16. Right-shifting a number 4 times is the fast equivalent for integer values. So if we are in the spawn chunk, we just have to add a chest to the spawn coordinate and put stuff into it.
+
+Adding a chest automaticly creates a tile entity to represent it. The chest is just a block, but there's an associated tile entity that has an inventory. That's where we put the stuff. To get the tile entity, we ask the world (nicely).
+
+We talked about `ItemStack`s before. They represent items, their state, and a quantity of them. In this code we add 64 podzol bolocks, then 8 of each type of mushroom cap with random metadata (which, in this case, is used to render the inner and outter part of big mushrooms). Finally, we add 64 throwable mushrooms (which can't be thrown ... yet).
+
+```java
+	@Override
+	public void GenerateSurface(World world, Random rand, int x0, int z0) {
+		int chestX = world.worldInfo.getSpawnX();
+		int chestZ = world.worldInfo.getSpawnZ();
+		
+		if(x0 >> 4 == chestX >> 4 && z0 >> 4 == chestZ >> 4) {
+			// Add a chest
+			int chestY = world.getHeightValue(chestX, chestZ);
+			
+			// Place a chest
+			world.setBlockWithNotify(chestX, chestY, chestZ, Block.chest.blockID);
+			
+			// Placing a chest automaticly creates a chest tile entity.
+			// We get a reference to it from world:
+			TileEntityChest theChest = (TileEntityChest)world.getBlockTileEntity(chestX, chestY, chestZ);
+			
+			// And now we access its inventory and add our stuff.
+			// We check for null 'cause shit happens.
+			if (theChest != null) {
+				
+				int slot = 0;
+				theChest.setInventorySlotContents(slot ++, new ItemStack(blockPodzol, 64));
+				
+				for(int i = 0; i < 8; i ++) {
+					theChest.setInventorySlotContents(slot ++, new ItemStack(blockMushroomCapRed, 16, rand.nextInt(16)));
+					theChest.setInventorySlotContents(slot ++, new ItemStack(blockMushroomCapBrown, 16, rand.nextInt(16)));
+				}
+				theChest.setInventorySlotContents(0, new ItemStack(itemThrowableMushroom, 64));
+			}
+		}
+	}
+```
+
+Now press the PLAY button in eclipse and test it.
 
 ## Now port it to the server
 
