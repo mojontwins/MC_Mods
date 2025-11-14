@@ -332,7 +332,28 @@ And that's it! We got ourselves a new block.
 
 ### Big mushroom block (only for b1.7.3)
 
-We'll just grab the code for the mushroom block (`BlockMushroomCap`) and put it in our mod. Then we do the necessary steps to enable it in the mod class:
+We'll just grab the code for the mushroom block (`BlockMushroomCap`) from vanilla release 1.2.5 and put it in our mod. This block has some logic to select which texture (inside, stem or cap) to show in each side depending on the block state. 
+
+Once the new class is in place, we do the necessary steps to add it in the mod class. We have modified the constructor so it can receive the texture indexes that will be used. 
+
+```java
+	texMushroomStem = ModLoader.addOverride("/terrain.png", "/fungalcalamity/texMushroomStem.png");
+	texMushroomInner = ModLoader.addOverride("/terrain.png", "/fungalcalamity/texMushroomInner.png");
+	texMushroomBrown = ModLoader.addOverride("/terrain.png", "/fungalcalamity/texMushroomBrown.png");
+	texMushroomRed = ModLoader.addOverride("/terrain.png", "/fungalcalamity/texMushroomRed.png");
+
+	blockMushroomCapBrown = new BlockMushroomCap(blockMushroomCapBrownID, Material.wood, 0,
+			texMushroomBrown, texMushroomStem, texMushroomInner)
+		.setBlockName("mushroomCapBrown");
+	ModLoader.RegisterBlock(blockMushroomCapBrown);
+	ModLoader.AddName(blockMushroomCapBrown, "Mushroom Cap Brown");
+	
+	blockMushroomCapRed = new BlockMushroomCap(blockMushroomCapRedID, Material.wood, 1,
+			texMushroomRed, texMushroomStem, texMushroomInner)
+		.setBlockName("mushroomCapRed");
+	ModLoader.RegisterBlock(blockMushroomCapRed);
+	ModLoader.AddName(blockMushroomCapBrown, "Mushroom Cap Red");
+```
 
 ## Notes about world
 
@@ -429,7 +450,7 @@ In the mod class we just instantiate it and give it a proper icon. Note how we a
 		[...]
 
 		itemThrowableMushroom = new ItemThrowableMushroom(itemThrowableMushroomID)
-				.setIconIndex(ModLoader.addOverride("/gui/items.png", "/fungalcalamity/iconThrowableMushroom"))
+				.setIconIndex(ModLoader.addOverride("/gui/items.png", "/fungalcalamity/iconThrowableMushroom.png"))
 				.setMaxStackSize(16)
 				.setItemName("throwableItem");
 
@@ -496,6 +517,9 @@ We talked about `ItemStack`s before. They represent items, their state, and a qu
 				int slot = 0;
 				theChest.setInventorySlotContents(slot ++, new ItemStack(blockPodzol, 64));
 				
+				// Note that metadata will only make blocks look different in the chest. You can't place
+				// the special metadata as we haven't defined a special ItemBlock as it won't be needed 
+				// in the final version.
 				for(int i = 0; i < 8; i ++) {
 					theChest.setInventorySlotContents(slot ++, new ItemStack(blockMushroomCapRed, 16, rand.nextInt(16)));
 					theChest.setInventorySlotContents(slot ++, new ItemStack(blockMushroomCapBrown, 16, rand.nextInt(16)));
@@ -509,6 +533,17 @@ We talked about `ItemStack`s before. They represent items, their state, and a qu
 Now press the PLAY button in eclipse and test it.
 
 ## Now port it to the server
+
+Porting to the server has several quirks even thought ModLoaderMP makes it pretty easy, but not completely straightforward. That's why I wanted to address this topic from the beginning.
+
+The first thing you have to do is copy / paste `mod_FungalCalamity` and the whole `org.mojontwins.minecraft.fungalcalamity` to the server. Remeber that `mod_FungalCalamity.java` goes in `net.minecraft.src`. Don't copy the assets folder as it won't be needed in the server. You'll get a bunch of errors. Fear not, most are there 'cause you have to remove some stuff that doesn't make sense in the server. Some are 'cause some identifiers may have different names. Let's address the errors we get one by one (I'm covering the b1.7.3 version here as it will get more errors).
+
+* `multiplayerWorld cannot be resolved or is not a field` in `BlockPodzol.java` @ 28: Just find `multiplayerWorld` at line 28 and replace it with `singleplayerWorld`. 
+* `The method Addname(Block, String) is undefined for the type ModLoader` and `The method Addname(Item, String) is undefined for the type ModLoader` in `mod_FungalCalamity.java` - Blocks and Items don't need names in the server so these methods are not available. Just remove the lines where they are called.
+
+Once we keep making the mod more and more complex there will be new errors when porting.
+
+Now you can run your server, a client, connect and see that it is working.
 
 ## Generating your mod for the first time
 

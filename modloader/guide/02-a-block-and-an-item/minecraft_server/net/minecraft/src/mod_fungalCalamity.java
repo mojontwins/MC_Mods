@@ -35,7 +35,6 @@ public class mod_fungalCalamity extends BaseModMp {
 				.setBlockName("Podzol")
 				.setTickOnLoad(true);
 		ModLoader.RegisterBlock(blockPodzol);
-		ModLoader.AddName(blockPodzol, "Podzol");
 		
 		texMushroomStem = ModLoader.addOverride("/terrain.png", "/fungalcalamity/texMushroomStem.png");
 		texMushroomInner = ModLoader.addOverride("/terrain.png", "/fungalcalamity/texMushroomInner.png");
@@ -46,19 +45,16 @@ public class mod_fungalCalamity extends BaseModMp {
 				texMushroomBrown, texMushroomStem, texMushroomInner)
 			.setBlockName("mushroomCapBrown");
 		ModLoader.RegisterBlock(blockMushroomCapBrown);
-		ModLoader.AddName(blockMushroomCapBrown, "Mushroom Cap Brown");
 		
 		blockMushroomCapRed = new BlockMushroomCap(blockMushroomCapRedID, Material.wood, 1,
 				texMushroomRed, texMushroomStem, texMushroomInner)
 			.setBlockName("mushroomCapRed");
 		ModLoader.RegisterBlock(blockMushroomCapRed);
-		ModLoader.AddName(blockMushroomCapBrown, "Mushroom Cap Red");
 		
 		itemThrowableMushroom = new ItemThrowableMushroom(itemThrowableMushroomID)
 				.setIconIndex(ModLoader.addOverride("/gui/items.png", "/fungalcalamity/iconThrowableMushroom.png"))
 				.setMaxStackSize(16)
 				.setItemName("throwableItem");
-		ModLoader.AddName(itemThrowableMushroom, "Throwable mushroom");
 		
 	}
 	
