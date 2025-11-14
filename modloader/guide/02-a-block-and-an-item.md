@@ -547,6 +547,16 @@ Now you can run your server, a client, connect and see that it is working.
 
 ## Generating your mod for the first time
 
+Exit eclipse. Now get into the MCP folder and run `recompile.bat` and then run `reobfuscate.bat`. This will put the classes that are different to what was included when you ran `updatemd5.bat` (this is, your mod) in the `reobf` folder. Mind you, this only copies .class files. All your asses won't be copied and you will have to copy them yourself from the `src` folder. That's why I put them all together in the same folder, so I can just copy the forlder from `src/minecraft/` to `reobf/minecraft/`.
+
+Now you'll have to make two zip files: one with the contents of `/reobf/minecraft/` and another one with the contents of `/reobf/minecraft_server/`. You have to make them so the `mod_FungalCalamity.class` file is in the root of the ZIP, that is, get inside `/reobf/minecraft/` and create a zip called `mod_FungalCalamity_b173.zip` with what's inside, and then get inside `/reobf/minecraft_server/` and create another zip, this time called `mod_FungalCalamity_b173_server.zip` with what's inside. Those are your mod files.
+
+Usually, players will have to jar-mod minecraft.jar with ModLoader and ModLoaderMp (in that order), and minecraft_server.jar with ModLoaderMp_server. Once that's done, they will only have to create a `/mods/` folder inside `.minecraft` and put the mod zip inside. 
+
+## BEWARE!
+
+Beware, **never ever run `updatemd5.bat` again or you'll ruin the whole process**. If this happens to you, get your `src` folder and move it elsewheere. Then whipe out the mcp folder and set it up again as explained on chapter 1. Once you are done, copy your `src` back. 
+
 ## Notes about placing blocks
 
 When you right-click to place a block, `ItemBlock` does this, in order:
@@ -556,3 +566,4 @@ When you right-click to place a block, `ItemBlock` does this, in order:
 * Then `onBlockPlaced` is called passing x, y, z of the placed block and the side that was right-clicked.
 * Then `onBlockPlacedBy` is called, passing x, y, z of the placed block and the player who right-clicked.
 
+Knowing how some stuff works in the engine will help you figuring out how to implement new stuff.
