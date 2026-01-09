@@ -1,0 +1,1378 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"backg",
+				"background\tproperty"
+			],
+			[
+				"mail",
+				"mailroutingaddress\tabc"
+			],
+			[
+				"view",
+				"viewer"
+			],
+			[
+				"OC_USER",
+				"OC_USER_SAML_Hooks\tabc"
+			],
+			[
+				"file_list",
+				"file_list_filename\tabc"
+			],
+			[
+				"filename",
+				"filename_parts\tabc"
+			],
+			[
+				"acco",
+				"accounts_with_problems\tabc"
+			],
+			[
+				"fixed",
+				"fixed_filename\tabc"
+			],
+			[
+				"fix",
+				"fixed_filename\tabc"
+			],
+			[
+				"file",
+				"filename\tabc"
+			],
+			[
+				"mb_conv",
+				"mb_convert_encoding"
+			],
+			[
+				"fileOrDir",
+				"fileOrDirForceUTF8\tabc"
+			],
+			[
+				"ge",
+				"getMessage\t(Scan.php)"
+			],
+			[
+				"getc",
+				"get_class\t(Scan.php)"
+			],
+			[
+				"var",
+				"var_dump"
+			],
+			[
+				"write",
+				"writeLn\tabc"
+			],
+			[
+				"owncl",
+				"owncloud_name\t(AbstractMapping.php)"
+			],
+			[
+				"cal",
+				"calculateAttributes\tabc"
+			],
+			[
+				"LDAP",
+				"LDAPconfig\tabc"
+			],
+			[
+				"display",
+				"display_name\tabc"
+			],
+			[
+				"serverCo",
+				"serverConfig\tabc"
+			],
+			[
+				"bac",
+				"background-repeat\tproperty"
+			],
+			[
+				"ba",
+				"background-image\tproperty"
+			],
+			[
+				"MAIL",
+				"MAIL_SUBJECT\tabc"
+			],
+			[
+				"query",
+				"queryBuilder\tabc"
+			],
+			[
+				"Invalid",
+				"InvalidTokenException"
+			],
+			[
+				"userna",
+				"usernameMapping\t(user_saml.php)"
+			],
+			[
+				"check",
+				"checkPassword"
+			],
+			[
+				"scr",
+				"scroll_pos\t(game.h)"
+			],
+			[
+				"spli",
+				"split_on\t(main_loop.h)"
+			],
+			[
+				"upda",
+				"update_list"
+			],
+			[
+				"_",
+				"_vostok_sfx\t(definitions.h)"
+			],
+			[
+				"_vos",
+				"_vostok_pri\t(definitions.h)"
+			],
+			[
+				"binMem",
+				"binMemIdx"
+			],
+			[
+				"bim",
+				"binMemIdx"
+			],
+			[
+				"sclp",
+				"sclpGetValue"
+			],
+			[
+				"text_endi",
+				"text_ending0\t(game_text.h)"
+			],
+			[
+				"PEZON",
+				"PEZON_IDLE_CELL"
+			],
+			[
+				"crucifix",
+				"crucifix_y"
+			],
+			[
+				"ppu_",
+				"ppu_wait_nmi"
+			],
+			[
+				"ADD_",
+				"ADD_SIGN\t(definitions.h)"
+			],
+			[
+				"NAMETA",
+				"NAMETABLE_A_X_Y\t(definitions.h)"
+			],
+			[
+				"NAME",
+				"NAMETABLE_A"
+			],
+			[
+				"CRUCIFI",
+				"CRUCIFIX_INC_MAX_STEP"
+			],
+			[
+				"cruci",
+				"crucifix_state"
+			],
+			[
+				"CRUCIFIX",
+				"CRUCIFIX_DX\t(extra_vars.h)"
+			],
+			[
+				"plaunch",
+				"plaunch_crucifix\t(extra_vars.h)"
+			],
+			[
+				"cruc",
+				"crucifix_x"
+			],
+			[
+				"CRUCI",
+				"CRUCIFIX_INC_MAX_STEP\t(extra_functions.h)"
+			],
+			[
+				"crufi",
+				"crucifix_step"
+			],
+			[
+				"CRUFIX",
+				"CRUCIFIX_INC_MAX_STEP"
+			],
+			[
+				"PLAYER_VX",
+				"PLAYER_VX_MAX\t(player.h)"
+			],
+			[
+				"frame",
+				"frame_counter\t(game.h)"
+			],
+			[
+				"TENNIS_",
+				"TENNIS_PATTERN_BASE\t(extra_vars.h)"
+			],
+			[
+				"op",
+				"opballs\t(extra_vars.h)"
+			],
+			[
+				"phit",
+				"phitting"
+			],
+			[
+				"camera",
+				"camera_do"
+			],
+			[
+				"ENEMS_EN",
+				"ENEMS_ENABLE_FANTY\t(config.h)"
+			],
+			[
+				"GAME_RES_",
+				"GAME_RES_ENTER_DOOR\t(diario.md)"
+			],
+			[
+				"app",
+				"app-release-unsigned.apk"
+			],
+			[
+				"PLAYER_HIT_",
+				"PLAYER_HIT_FINAL_FRAMES\t(config.h)"
+			],
+			[
+				"PLAYER_ENABLE",
+				"PLAYER_ENABLE_FIXED_HITTER"
+			],
+			[
+				"PLAYER_ENA",
+				"PLAYER_ENABLE_BUTT"
+			],
+			[
+				"cm_two",
+				"cm_two_points_skip_1"
+			],
+			[
+				"top_strip",
+				"top_strip_collision_array\t(howto.md)"
+			],
+			[
+				"precalc",
+				"precalc_attr_bits0"
+			],
+			[
+				"appGetUserFrom",
+				"appGetUserFromUidAppId"
+			],
+			[
+				"get",
+				"getMessage"
+			],
+			[
+				"messag",
+				"messaging"
+			],
+			[
+				"clientePu",
+				"clientePush.get"
+			],
+			[
+				"System",
+				"System.currentTimeMillis\t(RegistroJDBC.java)"
+			],
+			[
+				"TRAN",
+				"TransmisorApps"
+			],
+			[
+				"Transmis",
+				"TransmisorApps"
+			],
+			[
+				"Gson",
+				"GsonBuilder"
+			],
+			[
+				"Gs",
+				"GsonBuilder"
+			],
+			[
+				"register",
+				"registerErrorClient"
+			],
+			[
+				"apnsClie",
+				"apnsClients"
+			],
+			[
+				"hilocon",
+				"hilosControlTransmisionPush"
+			],
+			[
+				"fire",
+				"firebaseApps"
+			],
+			[
+				"Trans",
+				"TransmisorApps\t(TransmisorApps.java)"
+			],
+			[
+				"contadorElem",
+				"contadorElementosPushApps"
+			],
+			[
+				"contadorEle",
+				"contadorElementosPush"
+			],
+			[
+				"contadorE",
+				"contadorElementosPush"
+			],
+			[
+				"Sy",
+				"System.currentTimeMillis"
+			],
+			[
+				"InternalEro",
+				"InternalErrorException"
+			],
+			[
+				"mensa",
+				"mensajeRaw"
+			],
+			[
+				"Intern",
+				"InternalErrorException"
+			],
+			[
+				"validacons",
+				"appValidaConsulta"
+			],
+			[
+				"ayt",
+				"ayuda.tar.gz"
+			],
+			[
+				"current",
+				"currentTimeMillis"
+			],
+			[
+				"pushyAPN",
+				"pushyAPNSSenderThread"
+			],
+			[
+				"cliente",
+				"clientePush"
+			],
+			[
+				"FireB",
+				"FirebaseMessagingException"
+			],
+			[
+				"Google",
+				"GoogleCredentials"
+			],
+			[
+				"Fireba",
+				"FirebaseMessagingException"
+			],
+			[
+				"mensae",
+				"mensajePush"
+			],
+			[
+				"alert",
+				"alertCtrl"
+			],
+			[
+				"addressboo",
+				"addressbook_export\t(export.inc)"
+			],
+			[
+				"bedework_rec",
+				"bedework_records_starting_with\t(simple_bedework_rest_client.php)"
+			],
+			[
+				"start",
+				"start_row"
+			],
+			[
+				"bedewo",
+				"bedework_client"
+			],
+			[
+				"allow",
+				"allow_report"
+			],
+			[
+				"bedew",
+				"bedework_client"
+			],
+			[
+				"bede",
+				"bedework_client"
+			],
+			[
+				"cookie",
+				"cookie_jar"
+			],
+			[
+				"curl",
+				"curl_setup"
+			],
+			[
+				"cooke",
+				"cookie_jar"
+			],
+			[
+				"coo",
+				"cookie_jar"
+			],
+			[
+				"getg",
+				"get_group\t(list.inc)"
+			],
+			[
+				"rcmail",
+				"rcmail::write_log"
+			],
+			[
+				"grou",
+				"group_id"
+			],
+			[
+				"vcard_",
+				"vcard_filename"
+			],
+			[
+				"toa",
+				"total_entries"
+			],
+			[
+				"webdav_abook",
+				"webdav_abook_user_url"
+			],
+			[
+				"u",
+				"uid\t(rcube_webdav_addressbook.php)"
+			],
+			[
+				"webdav_aboo",
+				"webdav_abook_dir"
+			],
+			[
+				"sande",
+				"rcube_sandetel"
+			],
+			[
+				"uploadf",
+				"uploadform\t(app.js)"
+			],
+			[
+				"back",
+				"background-position"
+			],
+			[
+				"upload_pr",
+				"upload_progress_start\t(app.js)"
+			],
+			[
+				"upload_progres",
+				"upload_progress_time\t(app.js)"
+			],
+			[
+				"async",
+				"async_upload_form_consigna"
+			],
+			[
+				"rcube",
+				"rcube_sandetel"
+			],
+			[
+				"wri",
+				"write_log"
+			],
+			[
+				"prefsf",
+				"prefs_file"
+			],
+			[
+				"rcu",
+				"rcube_sandetel"
+			],
+			[
+				"sqm",
+				"sqm_bookmarks_file"
+			],
+			[
+				"bookmar",
+				"bookmark_a"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "site/mc_mods/Gemfile",
+			"settings":
+			{
+				"buffer_size": 1310,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "site/mc_mods/assets/main.scss",
+			"settings":
+			{
+				"buffer_size": 165,
+				"encoding": "UTF-8",
+				"line_ending": "Windows",
+				"name": "main.scss"
+			}
+		},
+		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 604,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "site/mc_mods/index.md",
+			"settings":
+			{
+				"buffer_size": 541,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "site/mc_mods/_config.yml",
+			"settings":
+			{
+				"buffer_size": 2183,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "modloader/scatteredFeature/README.md",
+			"settings":
+			{
+				"buffer_size": 944,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "site/mc_mods/modloader.md",
+			"settings":
+			{
+				"buffer_size": 1719,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 162.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"toggle format o",
+				"phpfmt: toggle format on save"
+			],
+			[
+				"beauti",
+				"Beautify::Beautify File"
+			],
+			[
+				"mini",
+				"Minify::Default File Settings"
+			],
+			[
+				"format",
+				"Format: Javascript"
+			],
+			[
+				"boxy",
+				"Boxy Theme: Preferences"
+			],
+			[
+				"markdow",
+				"Set Syntax: Markdown Extended"
+			],
+			[
+				"remove ",
+				"Package Control: Remove Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"ter",
+				"Terminal: Open"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 462.0
+	},
+	"console":
+	{
+		"height": 118.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/git/MC_Mods",
+		"/C/git/MC_Mods/modloader",
+		"/C/git/MC_Mods/modloader/scatteredFeature",
+		"/C/git/MC_Mods/pages",
+		"/C/git/MC_Mods/site",
+		"/C/git/MC_Mods/site/mc_mods",
+		"/C/git/MC_Mods/site/mc_mods/_site",
+		"/C/git/MC_Mods/site/mc_mods/_site/assets",
+		"/C/git/MC_Mods/site/mc_mods/_site/assets/img",
+		"/C/git/MC_Mods/site/mc_mods/_site/modloader",
+		"/C/git/MC_Mods/site/mc_mods/assets",
+		"/C/git/MC_Mods/site/mc_mods/assets/img"
+	],
+	"file_history":
+	[
+		"/C/git/MC_Mods/README.md",
+		"/C/Proyectos/entregas/Entrega-FicherosJunta_2.0.0.0/instrucciones.md",
+		"/C/Proyectos/entregas/Entrega-FicherosJunta_2.0.0.0/instrucciones-v1.md",
+		"/C/Proyectos/entregas/Entrega-FicherosJunta_2.0.0.0/post-install.sh",
+		"/C/Proyectos/remote/desowncl02/nextcloud/themes/theme-new-jda/core/img/logo-icon.svg",
+		"/C/Proyectos/remote/desowncl02/nextcloud/themes/theme-new-jda/core/img/logo.svg",
+		"/C/Proyectos/2023/20230808 - Revision SMSWS en P3S/instrucciones2.txt",
+		"/C/Proyectos/2023/20230808 - Revision SMSWS en P3S/instrucciones.txt",
+		"/C/Proyectos/remote/desccobuz12/sftp-config.json",
+		"/C/Proyectos/remote/desccobuz11/sftp-config.json",
+		"/C/Users/jcastano/AppData/Local/Temp/7zO073B3E78/mod_ScatteredFeature.java",
+		"/C/Users/jcastano/Downloads/contacts (2).vcf",
+		"/C/Users/jcastano/Downloads/contacts (1).vcf",
+		"/C/Proyectos/entregas/Entrega-FicherosJunta_1.14.0.0/migration-diary.md",
+		"/C/Proyectos/2025/20251111 - Alta APP Carpeta Empresa en P3S/alta-carpetaempresa-pre.sql",
+		"/C/Users/jcastano/Downloads/instrucciones (5).txt",
+		"/C/Users/jcastano/AppData/Local/Temp/scp21206/var/tmp/google-services.carpetaciudadana.pre.json",
+		"/C/Users/jcastano/AppData/Local/Temp/scp21406/var/tmp/google-services.carpetaciudadana.pro.json",
+		"/C/Users/jcastano/AppData/Local/Temp/scp20270/var/tmp/google-services.carpetaempresa.json",
+		"/C/Proyectos/copias producción/p3s-20250425/keys/carpeta-ciudadana-firebase.json",
+		"/C/Proyectos/copias producción/p3s-20250425/keys/carpeta-ciudadana-firebase-pre.json",
+		"/C/Proyectos/copias producción/p3s-20250425/keys/google-services.carpetaciudadana.pro.json",
+		"/C/Proyectos/copias producción/p3s-20250425/keys/google-services.carpetaciudadana.pre.json",
+		"/C/Proyectos/remote/desowncl02/nextcloud/apps/text/appinfo/info.xml",
+		"/C/Proyectos/remote/desowncl02/nextcloud/apps/user_ldap/lib/ILDAPUserPlugin.php",
+		"/C/Proyectos/remote/desowncl02/nextcloud/apps/user_ldap/lib/LDAP.php",
+		"/C/Proyectos/remote/desowncl02/nextcloud/lib/base.php",
+		"/C/Proyectos/remote/desowncl02/nextcloud/apps/systemtags/lib/Activity/Listener.php",
+		"/C/Proyectos/remote/desowncl02/nextcloud/lib/private/App/AppManager.php",
+		"/C/Proyectos/remote/desowncl02/nextcloud/apps/text/appinfo/routes.php",
+		"/C/Proyectos/remote/desowncl02/nextcloud/apps/text/appinfo/signature.json",
+		"/C/Proyectos/remote/desowncl02/nextcloud/apps-external/user_saml/appinfo/info.xml",
+		"/C/Proyectos/remote/desowncl02/nextcloud/apps-external/user_saml/appinfo/app.php",
+		"/C/Users/jcastano/Downloads/metadata (2).xml",
+		"/C/Proyectos/remote/desowncl02/nextcloud/themes/theme-new-jda/core/templates/layout.guest.php",
+		"/C/Proyectos/entregas/Ayuda v2.0.0.0/diff/update_posts.sql",
+		"/C/Users/jcastano/Downloads/metadatoVeajaProduccion3.0.xml",
+		"/C/Users/jcastano/Desktop/alta_proxyclave.md",
+		"/C/Users/jcastano/Downloads/wp-config (1).php",
+		"/C/Users/jcastano/Downloads/Sql235738_3.sql",
+		"/C/Lair/temp/mojon/dev/wp-config.php",
+		"/C/Users/jcastano/AppData/Local/Temp/scp02993/www.mojontwins.com/dev/wp-includes/version.php",
+		"/C/Users/jcastano/AppData/Local/Temp/scp44546/www.mojontwins.com/dev/wp-config.php",
+		"/C/Users/jcastano/AppData/Local/Temp/scp50301/www.mojontwins.com/dev/readme.html",
+		"/C/Users/jcastano/AppData/Local/Temp/7zO47E582DE/qué seto.txt",
+		"/C/Users/jcastano/AppData/Local/Temp/scp49160/www.mojontwins.com/dev/license.txt",
+		"/C/Users/jcastano/AppData/Local/Temp/scp48724/www.mojontwins.com/dev/wp-admin/about.php",
+		"/C/Users/jcastano/AppData/Local/Temp/scp48521/www.mojontwins.com/dev/wp-admin/upgrade.php",
+		"/C/Users/jcastano/AppData/Local/Temp/7zO085EED73/CHANGELOG.md",
+		"/C/Proyectos/remote/desowncl02/nextcloud/themes/theme-new-jda/core/css/server.css",
+		"/C/Proyectos/remote/desowncl02/nextcloud/themes/theme-jda/core/templates/layout.guest.php",
+		"/C/Proyectos/remote/desowncl02/nextcloud/lib/private/legacy/template/functions.php",
+		"/C/Proyectos/remote/desowncl02/nextcloud/themes/theme-new-jda/login_prod/jquery.js",
+		"/C/Proyectos/remote/desowncl02/simplesamlphp/metadata/saml20-idp-remote.php",
+		"/C/Users/jcastano/Downloads/metadata (1).xml",
+		"/C/Proyectos/remote/desowncl02/owncloud--10.8.0.0/config/config.php",
+		"/C/Proyectos/remote/desowncl02/nextcloud/themes/theme-jda/core/templates/layout.base.php",
+		"/C/Users/jcastano/Downloads/metadata.xml",
+		"/C/Proyectos/remote/desowncl02/owncloud--10.8.0.0/orphans.php",
+		"/C/Proyectos/remote/desowncl02/nextcloud/themes/theme-new-jda/core/templates/layout.user.php",
+		"/C/Proyectos/remote/descon01/consigna/public/css/estilo.css",
+		"/C/Proyectos/remote/desowncl02/nextcloud/themes/theme-new-jda/core/css/variables.scss",
+		"/C/Proyectos/remote/descon01/consigna/app/views/cabecera.php",
+		"/C/Users/jcastano/AppData/Local/Temp/7zOC1298392/README.md",
+		"/C/Proyectos/remote/desowncl02/nextcloud/themes/theme-new-jda/defaults.php",
+		"/C/Proyectos/remote/desowncl02/nextcloud/config/config.php",
+		"/C/Cosas/check_mail_uid/check_mail_uid.php",
+		"/C/Proyectos/remote/desowncl02/nextcloud/themes/theme-new-jda/apps/files/img/app.svg",
+		"/C/Proyectos/remote/desowncl02/nextcloud/themes/theme-jda/defaults.php",
+		"/C/Proyectos/entregas/Entrega-FicherosJunta_1.6.0.0-REDIS/instrucciones.md",
+		"/C/Proyectos/remote/desowncl02/nextcloud/apps/text/l10n/es_EC.js",
+		"/C/Cosas/Sublime Text 3/Data/Packages/User/SFTP.errors.log",
+		"/C/git/bta175_modloader/mcp/src/minecraft/net/minecraft/src/SaveHandler.java",
+		"/C/git/bta175_modloader/dev_mods/src/minecraft/net/minecraft/src/SaveHandler.java",
+		"/C/git/bta175_modloader/mcp/src/minecraft/net/minecraft/src/BaseMod.java",
+		"/C/git/bta175_modloader/mcp/src/minecraft/net/minecraft/src/ModLoader.java",
+		"/C/Users/jcastano/Desktop/pikapika.txt",
+		"/C/Cosas/process_edificios_multisede/listaedificios.txt",
+		"/C/Cosas/process_edificios_multisede/procesa.php",
+		"/C/Cosas/process_edificios_multisede/multisedes.txt",
+		"/C/Users/jcastano/AppData/Local/Temp/7zO8B7C1458/instrucciones.txt",
+		"/C/Proyectos/entregas/Entrega-FicherosJunta_1.4.2.0/instrucciones.txt",
+		"/C/Proyectos/entregas/Entrega-FicherosJunta_1.4.4.0/instrucciones.txt",
+		"/C/Users/jcastano/AppData/Local/Temp/7zOCB9F6CE8/instrucciones.txt",
+		"/C/Users/jcastano/AppData/Local/Temp/7zO43022AA8/instrucciones.md",
+		"/C/Proyectos/2020/20201110a - Entrega Ficheros Junta 1.5.0.0/instrucciones--1.2--20201118a.txt",
+		"/C/Proyectos/2022/20220405a - Ficheros v1.8.0.0 - clamav, uidshort, tags, misc/instrucciones.md",
+		"/C/Users/jcastano/AppData/Local/Temp/7zO87605994/instrucciones.md",
+		"/C/Users/jcastano/Desktop/limbo/grupo-tecnicos.ldif",
+		"/C/Users/jcastano/Desktop/limbo/grupo-productividad.ldif",
+		"/C/Users/jcastano/Desktop/limbo/ficheros-groups.ldif",
+		"/C/Users/jcastano/Desktop/limbo/grupo1.ldif",
+		"/D/Proyectos/entregas/Entrega-FicherosJunta_1.13.0.0/instrucciones.md",
+		"/D/temp/Windows XP Professional SP3 x86 - Integral Edition 2024.6.6/Windows XP Professional SP3 x86 - Integral Edition 2024.6.6/Information/ReadMe.txt",
+		"/E/ReadMe.txt",
+		"/C/Users/jcastano/Desktop/limbo/administradores.ldif",
+		"/C/Users/jcastano/Desktop/LDAP Browser/administradores.pepe.grillo.ldif",
+		"/C/Users/jcastano/Desktop/LDAP Browser/__default__.ldif",
+		"/C/Users/jcastano/Desktop/LDAP Browser/__test__.ldif",
+		"/D/Proyectos/ionic/reservaRecursos/Generacion Keystore - Compilacion y Firmado.txt",
+		"/D/Proyectos/remote/desowncl02/owncloud--10.13.4.0/config/config.php",
+		"/D/Proyectos/entregas/Entrega-FicherosJunta_1.12.0.0/owncloud-vanilla/CHANGELOG.md",
+		"/D/Proyectos/entregas/Entrega-FicherosJunta_1.12.0.0/modificaciones/lib/private/User/SyncService.php",
+		"/D/Proyectos/remote/desowncl02/owncloud--10.13.4.0/apps-external/theme-jda/core/templates/layout.user.php",
+		"/D/Proyectos/remote/desowncl02/limpia_LDAPP/config.php",
+		"/D/Proyectos/remote/desowncl02/limpia_LDAPP/test_paged.php",
+		"/D/temp/__VIEHO/Disco1/LBASIC6.BAS",
+		"/D/temp/__VIEHO/Disco1/c437.py",
+		"/D/temp/__VIEHO/Disco1/LBASDEMO.BAS",
+		"/D/Proyectos/remote/desowncl02/owncloud--10.13.4.0/orphans.php",
+		"/D/Proyectos/remote/desowncl02/owncloud--10.13.4.0/apps-external/theme-jda/core/templates/layout.guest.php",
+		"/C/Users/jcastano/Downloads/instrucciones(2).txt",
+		"/D/Proyectos/2024/20240412b - Webmail - Corrección de problemas de seguridad/update/config/config.inc.php",
+		"/C/Users/jcastano/Downloads/webutils_pl",
+		"/C/Users/jcastano/Downloads/LBASIC.DOC",
+		"/D/git/LBasic/legacy/LBASBLO1.003",
+		"/D/git/LBasic/legacy/NADIA.LBS",
+		"/C/Users/jcastano/Desktop/LDAP Browser/ldapescritura.andaluciajunta.es - admin.cfg",
+		"/D/temp/__VIEHO/LBASIC8/LBASIC8.BAS",
+		"/D/temp/__VIEHO/Disco1/TBS.BAS",
+		"/D/temp/__VIEHO/Disco1/TBS.005",
+		"/C/Users/jcastano/Downloads/LBASIC6.BAS",
+		"/D/temp/__VIEHO/Disco1/TBS.000",
+		"/D/temp/__VIEHO/Disco1/TBS.004",
+		"/D/Proyectos/remote/desowncl02/owncloud--10.13.4.0/.htaccess",
+		"/D/Proyectos/entregas/Entrega-FicherosJunta_1.10.0.0/modificaciones/.htaccess",
+		"/D/Proyectos/entregas/Entrega-FicherosJunta_1.12.0.0/modificaciones/apps-external/theme-jda/core/templates/layout.guest.php",
+		"/D/Proyectos/remote/desowncl02/simplesamlphp/lib/SAML2/Binding.php"
+	],
+	"find":
+	{
+		"height": 38.0
+	},
+	"find_in_files":
+	{
+		"height": 134.0,
+		"where_history":
+		[
+			"C:\\Proyectos\\remote\\desowncl02\\nextcloud\\apps\\user_saml",
+			"C:\\Proyectos\\remote\\desowncl02\\nextcloud\\apps\\user_ldap",
+			"C:\\Proyectos\\remote\\desowncl02\\nextcloud\\apps",
+			"C:\\Proyectos\\remote\\desowncl02\\nextcloud",
+			"C:\\Proyectos\\remote\\desowncl02\\nextcloud\\lib",
+			"C:\\Proyectos\\remote\\desowncl02\\nextcloud\\lib\\private\\App",
+			"C:\\Proyectos\\remote\\desowncl02\\nextcloud\\apps",
+			"C:\\Proyectos\\remote\\desowncl02\\nextcloud\\lib",
+			"C:\\Proyectos\\remote\\desowncl02\\nextcloud\\apps\\settings\\templates",
+			"C:\\Proyectos\\remote\\desowncl02\\nextcloud",
+			"C:\\Proyectos\\remote\\desowncl02\\nextcloud\\core",
+			"C:\\Proyectos\\remote\\desowncl02\\nextcloud",
+			"D:\\Proyectos\\remote\\desowncl02",
+			"D:\\Proyectos\\remote\\desowncl02\\owncloud--10.13.4.0\\apps-external",
+			"D:\\Proyectos\\remote\\desowncl02\\owncloud--10.13.0.0",
+			"D:\\Proyectos\\remote\\desowncl02\\owncloud--10.13.0.0\\apps-external\\user_saml",
+			"D:\\Proyectos\\remote\\desowncl02\\owncloud--10.13.0.0",
+			"D:\\Proyectos\\remote\\desowncl02\\owncloud--10.13.0.0\\apps-external\\user_saml",
+			"D:\\Proyectos\\remote\\desowncl02\\simplesamlphp",
+			"D:\\Proyectos\\remote\\desowncl02\\owncloud--10.8.0.0",
+			"D:\\Proyectos\\remote\\desowncl02\\simplesamlphp",
+			"D:\\Proyectos\\remote\\desowncl02\\owncloud--10.13.0.0\\core",
+			"D:\\Proyectos\\remote\\desowncl02\\owncloud--10.13.0.0",
+			"D:\\Proyectos\\remote\\desowncl02\\owncloud--10.13.0.0\\lib",
+			"D:\\Proyectos\\remote\\desowncl02\\owncloud--10.13.0.0\\core",
+			"D:\\Proyectos\\remote\\desowncl02\\owncloud--10.13.0.0",
+			"D:\\Proyectos\\remote\\desowncl02\\owncloud--10.13.0.0\\core",
+			"D:\\Proyectos\\remote\\desowncl02\\owncloud--10.13.0.0",
+			"D:\\Proyectos\\remote\\desowncl02\\owncloud--10.13.0.0\\core",
+			"D:\\Proyectos\\remote\\desowncl02\\owncloud--10.13.0.0\\apps-external\\theme-jda",
+			"D:\\Proyectos\\remote\\desowncl02\\owncloud--10.13.0.0\\apps-external\\theme-jda\\core",
+			"D:\\Proyectos\\remote\\desowncl02\\owncloud--10.13.0.0\\apps-external\\theme-jda",
+			"D:\\Proyectos\\remote\\desowncl02\\owncloud--10.13.0.0",
+			"D:\\Proyectos\\remote\\desowncl02\\owncloud--10.13.0.0\\core",
+			"D:\\Proyectos\\remote\\desowncl02\\owncloud--10.13.0.0\\apps",
+			"D:\\Proyectos\\remote\\desowncl02\\owncloud--10.13.0.0",
+			"D:\\Proyectos\\remote\\desowncl02\\owncloud--10.13.0.0\\apps-external\\theme-jda",
+			"D:\\Proyectos\\remote\\desowncl02\\owncloud--10.13.0.0\\core",
+			"D:\\Proyectos\\remote\\desowncl02\\owncloud--10.13.0.0",
+			"D:\\Proyectos\\remote\\desowncl02\\owncloud--10.13.0.0\\apps-external\\theme-jda",
+			"D:\\Proyectos\\remote\\desowncl02\\owncloud--10.10.0.0\\core\\templates",
+			"D:\\Proyectos\\remote\\desowncl02\\owncloud--10.10.0.0",
+			"D:\\Proyectos\\remote\\desowncl02\\owncloud--10.10.0.0\\apps-external\\user_saml",
+			"D:\\Proyectos\\remote\\desowncl02\\owncloud--10.10.0.0",
+			"D:\\Proyectos\\remote\\desowncl02\\owncloud--10.6.0.0",
+			"D:\\Proyectos\\remote\\desowncl02",
+			"D:\\Proyectos\\remote\\desowncl02\\owncloud--10.6.0.0",
+			"D:\\Proyectos\\remote\\desowncl02\\owncloud--10.6.0.0\\core\\templates",
+			"D:\\Proyectos\\remote\\desowncl02\\owncloud--10.6.0.0\\core",
+			"D:\\Proyectos\\remote\\desowncl02\\owncloud--10.6.0.0",
+			"D:\\Proyectos\\remote\\desowncl02\\owncloud--10.6.0.0\\core\\templates",
+			"D:\\Proyectos\\remote\\desowncl02\\owncloud--10.6.0.0\\apps-external\\user_saml",
+			"D:\\Proyectos\\remote\\desowncl02\\owncloud--10.6.0.0\\lib",
+			"D:\\Proyectos\\remote\\desowncl02\\owncloud--10.6.0.0\\core",
+			"D:\\Proyectos\\remote\\desowncl02\\owncloud--10.6.0.0",
+			"D:\\Proyectos\\remote\\desowncl02\\owncloud--10.6.0.0\\apps-external\\user_saml",
+			"D:\\Proyectos\\remote\\desowncl02\\owncloud--10.6.0.0",
+			"D:\\Proyectos\\remote\\desowncl02\\owncloud--10.6.0.0\\core\\vendor\\select2",
+			"D:\\Proyectos\\remote\\desowncl02\\owncloud--10.6.0.0",
+			"D:\\Proyectos\\remote\\desowncl02\\owncloud--10.6.0.0\\apps",
+			"D:\\Proyectos\\remote\\desowncl02\\owncloud--10.6.0.0"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"acceso-alternativo",
+			"notProvisioned",
+			"notprovisioned",
+			"Account not provisioned",
+			"provisioned",
+			"Account not provisioned",
+			"is not provisioned",
+			"Your account is not provisioned",
+			"2024-",
+			"2023",
+			"provisioned",
+			"OC_User_Backend",
+			"settings",
+			"admin",
+			"registeradmin",
+			"AppManager",
+			"isEnabled",
+			"\\OCP\\App",
+			"\\OCP\\",
+			"isEnabled",
+			"registerAdmin",
+			"mojontwins.com",
+			"emit_script_loading_tags",
+			"/apps-external/theme-jda/",
+			"external",
+			"storages",
+			"/fonts/",
+			"appbar-button",
+			"/img/interfaz/",
+			"left__appmenu",
+			"dafault.css",
+			"margin",
+			"body",
+			"body-height",
+			"ficheros-logo",
+			"%;",
+			"appmenu",
+			"app-menu",
+			"app-menu-entry",
+			"listas o enlaces",
+			"Custom Cloud",
+			"AddAllRenderers",
+			"ldap_set_option ($ldh, LDAP_OPT_PROTOCOL_VERSION, 3);",
+			"redis",
+			"grupos",
+			"agenda.",
+			"cayetano.garcia",
+			"carlos.benitez",
+			"carlos.baena",
+			"color",
+			"c2",
+			"c1",
+			"draw",
+			"centra",
+			"cursor",
+			"demo",
+			"rundraw",
+			"dra",
+			"bep",
+			"beep",
+			"demo",
+			"/owncloud",
+			"backend",
+			"saml",
+			"change_backend",
+			"token",
+			"login",
+			"trying",
+			"checkPassword",
+			"login failed",
+			"password empty",
+			"owncloud-pru.vir",
+			"http://owncloud-pru.vir",
+			"Unable to find the current binding",
+			"overwriteprotocol",
+			"owncloud-public",
+			"link",
+			"publicUploadEnabled",
+			"allow-public-upload",
+			"isPublicUploadEnabled",
+			"_isPublicFolderUploadPossible",
+			"publicUploadFilePossible",
+			"public-link-modal",
+			"534",
+			"label-alternativo",
+			"login-new-big-button",
+			"googleapis",
+			"url\\(.+\\)",
+			"background.png",
+			"basic-light",
+			"_require_queue",
+			"sandetel.js",
+			"grupos",
+			"usuarios",
+			"localSharesLabel",
+			"subtab-localshare",
+			"shareLabel",
+			"subtab-localshare",
+			"User and Groups",
+			"\"User and Groups\"",
+			"usuarios y grupos",
+			"grupos",
+			"app-settings",
+			"Content-Security-Policy",
+			"opensans",
+			"opensans regular",
+			"texgyreheros",
+			"gettitle",
+			"acceso alternativo",
+			"10.10.0",
+			"10.8",
+			"10.240.243.167",
+			"getiOSClientUrl",
+			"defaultiOSClientUrl",
+			"descargado no coincide con",
+			"El archivo descargado no coincide con el archivo de comprobación",
+			"423",
+			"is currently locked",
+			"bloqueado",
+			"saml",
+			"crumb",
+			"getapppath",
+			"\\\\\\/",
+			"\\\\\\\\",
+			"\\\\\\\\n",
+			"getAppPath",
+			"log",
+			"getAppPath"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"/themes/theme-new-jda/",
+			"/themes/theme-new-jda/core/fonts/",
+			"/themes/theme-new-jda/core/img/apps/",
+			"Ficheros Junta",
+			"textc2",
+			"textc1",
+			"enlace",
+			"",
+			"10.13.0.0",
+			"10.10",
+			"/",
+			"\\",
+			"\\n",
+			"/",
+			"\\n"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "site/mc_mods/Gemfile",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1310,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								500,
+								500
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Ruby/Ruby.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "site/mc_mods/assets/main.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 165,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								165,
+								165
+							]
+						],
+						"settings":
+						{
+							"auto_name": "main.scss",
+							"incomplete_sync": null,
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 604,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								217,
+								570
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "site/mc_mods/index.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 541,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								541,
+								541
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Markdown Extended/Syntaxes/Markdown Extended.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "site/mc_mods/_config.yml",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2183,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1636,
+								1636
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/YAML/YAML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "modloader/scatteredFeature/README.md",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 944,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								944,
+								944
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Markdown Extended/Syntaxes/Markdown Extended.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 6,
+					"file": "site/mc_mods/modloader.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1719,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								750,
+								750
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Markdown Extended/Syntaxes/Markdown Extended.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 24.0
+	},
+	"input":
+	{
+		"height": 48.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.5,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.SFTP":
+	{
+		"height": 420.0
+	},
+	"output.doc":
+	{
+		"height": 0.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "MC_Mods.sublime-project",
+	"replace":
+	{
+		"height": 44.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"C:\\Proyectos\\remote\\destom02_projects.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 370.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

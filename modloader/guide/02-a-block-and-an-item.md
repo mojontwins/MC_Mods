@@ -454,7 +454,7 @@ In the mod class we just instantiate it and give it a proper icon. Note how we a
 				.setMaxStackSize(16)
 				.setItemName("throwableItem");
 
-	]
+	}
 ```
 
 This obviously, does nothing. But we'll need it soon. 
