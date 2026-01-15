@@ -29,7 +29,6 @@ url: https://mojontwins.github.io/MC_Mods # the base hostname & protocol for you
 github_username: mojontwins
 
 # Build settings
-theme: minima
 plugins:
   - jekyll-feed
   - jekyll-paginate
@@ -37,8 +36,7 @@ plugins:
 sass:
     sass_dir: _sass
 
-minima:
-  skin: dark
+remote_theme: songzivong/dark-minima
 
 # Exclude from processing.
 # The following items will not be processed, by default.
