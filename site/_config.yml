@@ -32,6 +32,7 @@ github_username: mojontwins
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-paginate
 
 sass:
     sass_dir: _sass
@@ -58,3 +59,13 @@ minima:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+header_pages:
+  - fullconversion.md
+  - modloader.md
+  - bta175.md 
+  - older.md
+  - about.md
+
+paginate: 5
+paginate_path: "/blog/page:num/"
