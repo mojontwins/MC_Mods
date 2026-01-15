@@ -24,8 +24,8 @@ description: >- # this means to ignore newlines until "baseurl:"
   na_th_an loves Golden Age Minecraft (versions covered vary but basicly we all should know what we mean) and creates 
   mods for them, including tiny fixes or changes, ModLoader based stuff, or full conversion mods / alternate timeline
   based versions of Minecraft.
-baseurl: "MC_Mods" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: /MC_Mods # the subpath of your site, e.g. /blog
+url: https://mojontwins.github.io/MC_Mods # the base hostname & protocol for your site, e.g. http://example.com
 github_username: mojontwins
 
 # Build settings
