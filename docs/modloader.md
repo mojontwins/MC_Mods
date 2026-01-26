@@ -98,7 +98,7 @@ Add **ModLoaderMP_Server** to `minecraft_server.jar`, create a `mods` folder in 
 
 #### Conflicts
 
-This mod adds one block and one item. If you find conflict with your existing modpack, just edit the .cfg and assign different IDs. You can also enable or disable individual structures. Launch the game for the first time to generate `mod_enhancedVanillaStructures.cfg` in the `config` folder:
+This mod adds three blocks. If you find conflict with your existing modpack, just edit the .cfg and assign different IDs. You can also enable or disable individual structures. Launch the game for the first time to generate `mod_enhancedVanillaStructures.cfg` in the `config` folder:
 
 ```cfg
 	blockChainID=160
