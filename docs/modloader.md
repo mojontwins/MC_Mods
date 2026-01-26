@@ -25,11 +25,11 @@ This mod backports 1.3.2's Scattered Feature, that is Jungle and Desert temples,
 
 #### Client
 
-Add ModLoader and ModLoaderMP to minecraft.jar, create a `mods` folder in `.minecraft` and put `[1.2.5]-ScatteredFeature-1.0.zip` inside. This mod should be compatible with other ModLoader mods.
+Add **ModLoader** and **ModLoaderMP** to `minecraft.jar`, create a `mods` folder in `.minecraft` and put `[1.2.5]-ScatteredFeature-1.0.zip` inside. This mod should be compatible with other ModLoader mods.
 
 #### Server
 
-Add ModLoaderMP_Server to minecraft_server.jar, create a `mods` folder in `.minecraft` and put `[1.2.5]-ScatteredFeature-1.0_server.zip` inside.
+Add **ModLoaderMP_Server** to `minecraft_server.jar`, create a `mods` folder in `.minecraft` and put `[1.2.5]-ScatteredFeature-1.0_server.zip` inside.
 
 #### Conflicts
 
@@ -51,11 +51,11 @@ This mod adds custom writable books and bookshelves to store them. It was inspir
 
 #### Client
 
-Add ModLoader and ModLoaderMP to minecraft.jar, create a `mods` folder in `.minecraft` and copy `mod_BetterBooks-v0.1.zip` inside. This mod should be compatible with other ModLoader mods.
+Add **ModLoader** and **ModLoaderMP** to `minecraft.jar`, create a `mods` folder in `.minecraft` and copy `mod_BetterBooks-v0.1.zip` inside. This mod should be compatible with other ModLoader mods.
 
 #### Server
 
-Add ModLoaderMP_Server to minecraft_server.jar, create a `mods` folder in `.minecraft` and copy `mod_BetterBooks-v0.1_server.zip` inside.
+Add **ModLoaderMP_Server** to `minecraft_server.jar`, create a `mods` folder in `.minecraft` and copy `mod_BetterBooks-v0.1_server.zip` inside.
 
 #### Conflicts
 
@@ -90,15 +90,26 @@ Adds early release mineshafts and strongholds to beta. Requires **Better Structu
 
 #### Client
 
-Add ModLoader and ModLoaderMP to minecraft.jar, create a `mods` folder in `.minecraft` and copy `mod_betterStructureAPI-v01.zip` and `mod_enhancedVanillaStructures-v0.1.zip` inside.
+Add **ModLoader** and **ModLoaderMP** to `minecraft.jar`, create a `mods` folder in `.minecraft` and copy `mod_betterStructureAPI-v01.zip` and `mod_enhancedVanillaStructures-v0.1.zip` inside.
 
 #### Server
 
-Add ModLoaderMP_Server to minecraft_server.jar, create a `mods` folder in `.minecraft` and copy `mod_betterStructureAPI-v01_server.zip` and `mod_enhancedVanillaStructures-v0.1_server.zip` inside.
+Add **ModLoaderMP_Server** to `minecraft_server.jar`, create a `mods` folder in `.minecraft` and copy `mod_betterStructureAPI-v01_server.zip` and `mod_enhancedVanillaStructures-v0.1_server.zip` inside.
 
 #### Conflicts
 
-This mod adds one block and one item. If you find conflict with your existing modpack, just edit the .cfg and assign different IDs.
+This mod adds one block and one item. If you find conflict with your existing modpack, just edit the .cfg and assign different IDs. You can also enable or disable individual structures. Launch the game for the first time to generate `mod_enhancedVanillaStructures.cfg` in the `config` folder:
+
+```cfg
+	blockChainID=160
+	blockFenceIronID=161
+	blockStoneBricksID=162
+	generateMineshafts=true
+	generateStrongholds=true
+	generateMountainMineshafts=true
+```
+
+**Mineshafts** are slightly more pretty early release vanilla mineshafts. **Strongholds** obviously don't feature a portal room and may generate in the surface. **Mountain mineshafts** are mineshafts that may spawn above sea level (i.e. in hills or mountains).
 
 ### Download & sources
 
