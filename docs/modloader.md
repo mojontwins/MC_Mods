@@ -80,7 +80,7 @@ The mod itself doesn't add structures, it only provides an API.
 
 To understand how to add structures you can study the sources of Enhanced Vanilla Structures which adds enhanced versions of Mineshafts and Strongholds to beta.
 
-* [Better Structure API](https://github.com/mojontwins/MC_Mods/tree/master/modloader/betterStructureAPI).
+* [Better Structure API](https://github.com/mojontwins/MC_Mods/tree/master/modloader/structureMods).
 
 ## Enhanced vanilla structures for b1.7.3
 
@@ -102,5 +102,6 @@ This mod adds one block and one item. If you find conflict with your existing mo
 
 ### Download & sources
 
-* [Get them from Github](https://github.com/mojontwins/MC_Mods/tree/master/modloader/enhancedVanillaStructures).
-* [Better Structure API](https://github.com/mojontwins/MC_Mods/tree/master/modloader/betterStructureAPI).
+* [Get them from Github](https://github.com/mojontwins/MC_Mods/tree/master/modloader/structureMods).
+
+**Remember that you need both `mod_BetterStructureAPI` & `mod_enhancedVanillaStructures`**
