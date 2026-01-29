@@ -6,7 +6,7 @@ permalink: /infhell2/
 
 ![A nice forest by a lake](/assets/img/2024-01-08_22.47.29.png)
 
-**InfHell** is a full conversion mod for b1.7.3 that attempts to retain the early Alpha feel of Minecraft while adding tons of content. In fact, the mod was initially oriented to generate big cities full of zombies, but evolved since then to feature biomes, very complex structures, new mods, new gameplay, and many, many more things. This is not an alternate timeline inspired mod or something like that nor tries to be anything, it's just what I like of the Alpha vibes with lots of content I enjoy.
+**InfHell** is a full conversion mod for b1.7.3 that attempts to retain the early Alpha feel of Minecraft while adding tons of content. In fact, the mod was initially oriented to generate big cities full of zombies, but evolved since then to feature biomes, very complex structures, new mobs, new gameplay, and many, many more things. This is not an alternate timeline inspired mod or something like that nor tries to be anything, it's just what I like of the Alpha vibes with lots of content I enjoy.
 
 To play, download the latest version below and apply it as a jarmod to b1.7.3. You can find it in the Mods menu in Betacraft, anyways. For the server, patch the vanilla b1.7.3 server with the contents of the server zip.
 
