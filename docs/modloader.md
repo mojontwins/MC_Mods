@@ -30,7 +30,7 @@ Add **ModLoader** and **ModLoaderMP** to `minecraft.jar`, create a `mods` folder
 
 #### Server
 
-Add **ModLoaderMP_Server** to `minecraft_server.jar`, create a `mods` folder in `.minecraft` and put `[1.2.5]-ScatteredFeature-1.0_server.zip` inside.
+Add **ModLoaderMP_Server** to `minecraft_server.jar`, create a `mods` folder where the server is and put `[1.2.5]-ScatteredFeature-1.0_server.zip` inside.
 
 #### Conflicts
 
@@ -52,7 +52,7 @@ This mod adds custom writable books and bookshelves to store them. It was inspir
 
 #### Client
 
-Add **ModLoader** and **ModLoaderMP** to `minecraft.jar`, create a `mods` folder in `.minecraft` and copy `mod_BetterBooks-v0.1.zip` inside. This mod should be compatible with other ModLoader mods.
+Add **ModLoader** and **ModLoaderMP** to `minecraft.jar`, create a `mods` folder where the server is and copy `mod_BetterBooks-v0.1.zip` inside. This mod should be compatible with other ModLoader mods.
 
 #### Server
 
@@ -95,7 +95,7 @@ Add **ModLoader** and **ModLoaderMP** to `minecraft.jar`, create a `mods` folder
 
 #### Server
 
-Add **ModLoaderMP_Server** to `minecraft_server.jar`, create a `mods` folder in `.minecraft` and copy `mod_betterStructureAPI-v01_server.zip` and `mod_enhancedVanillaStructures-v0.1_server.zip` inside.
+Add **ModLoaderMP_Server** to `minecraft_server.jar`, create a `mods` folder where the server is and copy `mod_betterStructureAPI-v01_server.zip` and `mod_enhancedVanillaStructures-v0.1_server.zip` inside.
 
 #### Conflicts
 
