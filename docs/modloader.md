@@ -2,6 +2,7 @@
 layout: page
 title: ModLoader stuff
 permalink: /modloader/
+nav: yes
 ---
 
 # What is this?

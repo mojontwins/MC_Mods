@@ -2,6 +2,7 @@
 layout: page
 title: Older
 permalink: /older/
+nav: yes
 ---
 
 Here you will find some of my older mods and / or experiments. Most of them are abandoned right now, but I might resome or fix stuff if somebody is interested.

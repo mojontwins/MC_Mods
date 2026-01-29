@@ -2,6 +2,7 @@
 layout: page
 title: Full Conversions
 permalink: /fullconversion/
+nav: yes
 ---
 
 Those are my full conversion mods that may receive updates. Full conversion as in non-compatible, heavy modifications distributed as jar mods for beta or early release.
