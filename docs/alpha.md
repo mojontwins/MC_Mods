@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Alpha ML project
-permalink: /bta175/
+permalink: /alpha/
 nav: yes
 ---
 
