@@ -586,7 +586,7 @@
 			"file": "docs/modloader.md",
 			"settings":
 			{
-				"buffer_size": 5930,
+				"buffer_size": 5943,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -601,10 +601,34 @@
 			}
 		},
 		{
-			"file": "/C/Users/na_th/Desktop/b166.md",
+			"file": "docs/alpha.md",
 			"settings":
 			{
-				"buffer_size": 573,
+				"buffer_size": 1602,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "DECLARE SUB openrecuadre (yyg, alto, ancho, sha1, sha2, c1, c2)\nDECLARE SUB button (y, x, c1, c2, x$)\nDECLARE SUB centra (y, t$)\nDECLARE SUB manto (c1, c2)\nDIM h$(3)\nDIM y(4)\nDIM help$(4)\nDIM opt$(4)\nCLS\nSCREEN 0\nON ERROR GOTO errortrap\nVIEW PRINT 1 TO 25\nLOCATE 24, 1\nCOLOR 7, 1\nPRINT \"  Pulsa una tecla para comenzar ³ Introduce ' men£ ' siempre que quieras usarlo \"\nLOCATE 1, 1\nCOLOR 7, 1\nPRINT \"  Compilador Lokosoft LBasic versi¢n 6.00 áeta. (C)opyright 1994 by Loko Soft   \"\nCOLOR 7, 0\nLOCATE 3, 1\nPRINT \"*\";\nDO: LOOP WHILE INKEY$ = \"\"\nGOSUB menu\neditar:\nVIEW PRINT 2 TO 23\nLOCATE 3, 1\ninput1:\nerr1 = 0\nLINE INPUT \"* >Introduce el nombre del programa a hacer: \"; n$\ninput2:\nLINE INPUT \"* >Introduce el n£mero de bloque de programa (000-999)\"; m$\nIF LEN(n$) > 8 OR n$ = \"\" THEN GOTO input1\nIF LEN(m$) <> 3 THEN GOTO input2\nFOR n = 1 TO LEN(m$)\nmm$ = MID$(m$, n, 1)\nIF ASC(mm$) < ASC(\"0\") OR ASC(mm$) > ASC(\"9\") THEN GOTO input2\nNEXT\nPRINT\nGOSUB convierteenmayusculas\nPRINT \"  > \" + n$ + \".\" + m$ + \" <      ÀÄ\u0010 ¨OK?\"\nPRINT\ninput3:\nLINE INPUT \"* >(S/N): \"; s$\nIF ASC(s$) < ASC(\"a\") THEN PRINT : PRINT \"... Por favor, escribe en MINéSCULAS\": GOTO input3\nIF s$ = \"s\" THEN GOTO okdone\nIF s$ = \"n\" THEN GOTO input1\nIF s$ <> \"s\" AND s$ <> \"n\" THEN PRINT \"... Por favor, escribe 's' (SÖ) ¢ 'n' (NO).\": GOTO input3\nokdone:\nPRINT\nPRINT \"* > OK. Empezar s a trabajar con el bloque N§ \" + m$ + \" de \" + n$ + \".\"\nPRINT\ninput4:\nLINE INPUT \"* > Introduce PATH (Pulsa ENTER para path actual):\"; path$\nPRINT\nPRINT \"PATH: \";\nIF path$ = \"\" THEN PRINT \"Actual.\"\nIF path$ <> \"\" THEN PRINT path$: path$ = path$ + \"\\\"\nPRINT\ninput5:\nINPUT \"* > ¨Seguro? (s/n)\"; s$\nIF ASC(s$) < ASC(\"a\") THEN PRINT : PRINT \"... Por favor, escribe en MINéSCULAS\": GOTO input5\nIF s$ = \"s\" THEN GOTO stt\nIF s$ = \"n\" THEN GOTO input4\nIF s$ <> \"s\" AND s$ <> \"n\" THEN PRINT \"... Por favor, escribe 's' (SÖ) ¢ 'n' (NO).\": GOTO input5\nstt:\nk$ = path$ + n$ + \".\" + m$\nON ERROR GOTO errortrap\nOPEN k$ FOR OUTPUT AS #1\nIF err1 = 1 THEN GOTO input1\nPRINT\nPRINT\nPRINT \"Ready...\"\nPRINT\nstart:\nLINE INPUT \"* \"; p$\nIF p$ = \"cursor\" THEN GOTO cursorset\nIF p$ = \"cls\" THEN GOTO clsset\nIF p$ = \"beep\" THEN GOTO beepset\nIF p$ = \"draw\" THEN GOTO drawset\nIF LEN(p$) >= 5 AND LEFT$(p$, 5) = \"print\" THEN GOTO printset\nIF LEN(p$) > 5 AND LEFT$(p$, 5) = \"color\" THEN GOTO colorset\nIF LEN(p$) > 4 AND LEFT$(p$, 4) = \"play\" THEN GOTO playset\nIF p$ = \"choice\" THEN GOTO choiceset\nIF LEN(p$) >= 5 AND LEFT$(p$, 5) = \"pause\" THEN GOTO pauseset\nIF LEN(p$) > 6 AND LEFT$(p$, 6) = \"centra\" THEN GOTO centraset\nIF p$ = \"end\" THEN GOTO endset\nIF p$ = \"save\" THEN GOTO saveset\nIF p$ = \"quit\" THEN GOTO quitset\nPRINT\nGOTO start\nEND\nconvierteenmayusculas:\nn2$ = \"\"\nFOR n = 1 TO LEN(n$)\nnn$ = MID$(n$, n, 1)\nLET nn$ = CHR$(ASC(nn$) - 32)\nn2$ = n2$ + nn$\nNEXT\nn$ = n2$\nn2$ = \"\"\nRETURN\nerrortrap:\nBEEP\nPRINT\nPRINT \"* > ERROR!\"\nPRINT\nPRINT \"* > ERROR\"; ERR; \"en dispositivo.\"\nerr1 = 1\nSELECT CASE ERR\n     CASE 76: PRINT \"* > Error en el PATH (Path no existe)\":  RESUME NEXT\n     CASE 64: PRINT \"* > Nombre de archivo INCORRECTO\":  RESUME NEXT\n     CASE 75: PRINT \"* > Error de acceso en RUTA / ARCHIVO\": RESUME NEXT\n     CASE 58: PRINT \"* > Archivo ya existe, cree otro n£mero\":  RESUME NEXT\n     CASE 71: PRINT \"* > La unidad \" + LEFT$(path$, 2) + \" no est  lista\": RESUME NEXT\n     CASE 62: GOTO ok01\nEND SELECT\nRESUME NEXT\nnewpath:\nLINE INPUT \"* > Nuevo PATH...\"; path$\nRETURN\nnewnumber:\nLINE INPUT \"* > Nuevo numero...\"; m$\nRETURN\ncursorset:\nPRINT #1, \"@\"\nstinput:\nINPUT \"Nueva 'X' (1-80)\"; x\nIF x > 80 OR x < 1 THEN GOTO stinput\nPRINT #1, STR$(x)\nndinput:\nINPUT \"Nueva 'Y' (1-23)\"; y\nIF y > 23 OR y < 1 THEN GOTO ndinput\nPRINT #1, STR$(y)\nGOTO start\nclsset:\nPRINT #1, \"=\"\nGOTO start\nbeepset:\nPRINT #1, \"#\"\nGOTO start\ndrawset:\nCLS\nFOR n = 2 TO 10\nLOCATE n, 1\nCOLOR 7, 0\nPRINT SPACE$(80)\nLOCATE 9 + n, 1\n'COLOR 7, 4\n'PRINT SPACE$(80)\nNEXT\nopenrecuadre 9 + 6, 8, 76, 0, 4, 15, 4\nCOLOR 7, 4\nLOCATE 12, 4\nPRINT \"É q  Í w  » e   Ì r  Ë t  ¹ y  Ê u\"\nLOCATE 14, 4\nPRINT \"º a  Û s  ³ d      1-0 Colores 1er Plano. MAYS+1-0 Colores fondo\"\nLOCATE 16, 4\nPRINT \"È z  Ä x  ¼ c   Î v  ° b  ± n  ² m\"\nLOCATE 18, 4\nPRINT \"ESC Ä\u0010 acabar\"\nCOLOR 7, 0\ny = 2\nx = 1\nPRINT #1, \"d\"\nst:\nLOCATE y, x\nPRINT \"ò\"\nk$ = INKEY$\nLOCATE y, x\n'IF INKEY$ = \"\" THEN GOTO st\nPRINT k$\nSELECT CASE k$\nCASE CHR$(27): CLS : PRINT #1, \"<END>\": GOTO start\nCASE \" \": PRINT #1, \" \": x = x + 1: IF x = 81 THEN x = 1: y = y + 1: ' PRINT k$\nCASE \"q\": PRINT #1, \"É\": x = x + 1: IF x = 81 THEN x = 1: y = y + 1: ' PRINT k$\nCASE \"w\": PRINT #1, \"Í\": x = x + 1: IF x = 81 THEN x = 1: y = y + 1: ' PRINT k$\nCASE \"e\": PRINT #1, \"»\": x = x + 1: IF x = 81 THEN x = 1: y = y + 1: ' PRINT k$\nCASE \"r\": PRINT #1, \"Ì\": x = x + 1: IF x = 81 THEN x = 1: y = y + 1: ' PRINT k$\nCASE \"t\": PRINT #1, \"Ë\": x = x + 1: IF x = 81 THEN x = 1: y = y + 1: ' PRINT k$\nCASE \"y\": PRINT #1, \"¹\": x = x + 1: IF x = 81 THEN x = 1: y = y + 1: ' PRINT k$\nCASE \"u\": PRINT #1, \"Ê\": x = x + 1: IF x = 81 THEN x = 1: y = y + 1: ' PRINT k$\nCASE \"a\": PRINT #1, \"º\": x = x + 1: IF x = 81 THEN x = 1: y = y + 1: ' PRINT k$\nCASE \"s\": PRINT #1, \"Û\": x = x + 1: IF x = 81 THEN x = 1: y = y + 1: ' PRINT k$\nCASE \"d\": PRINT #1, \"³\": x = x + 1: IF x = 81 THEN x = 1: y = y + 1: ' PRINT k$\nCASE \"z\": PRINT #1, \"È\": x = x + 1: IF x = 81 THEN x = 1: y = y + 1: ' PRINT k$\nCASE \"x\": PRINT #1, \"Ä\": x = x + 1: IF x = 81 THEN x = 1: y = y + 1: ' PRINT k$\nCASE \"c\": PRINT #1, \"¼\": x = x + 1: IF x = 81 THEN x = 1: y = y + 1: ' PRINT k$\nCASE \"v\": PRINT #1, \"Î\": x = x + 1: IF x = 81 THEN x = 1: y = y + 1: ' PRINT k$\nCASE \"b\": PRINT #1, \"°\": x = x + 1: IF x = 81 THEN x = 1: y = y + 1: ' PRINT k$\nCASE \"n\": PRINT #1, \"±\": x = x + 1: IF x = 81 THEN x = 1: y = y + 1: ' PRINT k$\nCASE \"m\": PRINT #1, \"²\": x = x + 1: IF x = 81 THEN x = 1: y = y + 1: ' PRINT k$\nCASE \"1\": PRINT #1, \"1\": 'x = x + 1: IF x = 81 THEN x = 1: y = y + 1': PRINT k$\nCASE \"2\": PRINT #1, \"2\": 'x = x + 1: IF x = 81 THEN x = 1: y = y + 1': PRINT k$\nCASE \"3\": PRINT #1, \"3\": 'x = x + 1: IF x = 81 THEN x = 1: y = y + 1': PRINT k$\nCASE \"4\": PRINT #1, \"4\": 'x = x + 1: IF x = 81 THEN x = 1: y = y + 1': PRINT k$\nCASE \"5\": PRINT #1, \"5\": 'x = x + 1: IF x = 81 THEN x = 1: y = y + 1': PRINT k$\nCASE \"6\": PRINT #1, \"6\": 'x = x + 1: IF x = 81 THEN x = 1: y = y + 1': PRINT k$\nCASE \"7\": PRINT #1, \"7\": 'x = x + 1: IF x = 81 THEN x = 1: y = y + 1': PRINT k$\nCASE \"0\": PRINT #1, \"0\": 'x = x + 1: IF x = 81 THEN x = 1: y = y + 1\nCASE \"!\": PRINT #1, \"!\": 'x = x + 1: IF x = 81 THEN x = 1: y = y + 1\nCASE CHR$(34): PRINT #1, CHR$(34): ' x = x + 1: IF x = 81 THEN x = 1: y = y + 1\nCASE \"ú\": PRINT #1, \"ú\": ' x = x + 1: IF x = 81 THEN x = 1: y = y + 1\nCASE \"$\": PRINT #1, \"$\": ' x = x + 1: IF x = 81 THEN x = 1: y = y + 1\nCASE \"%\": PRINT #1, \"%\": ' x = x + 1: IF x = 81 THEN x = 1: y = y + 1\nCASE \"&\": PRINT #1, \"&\": ' x = x + 1: IF x = 81 THEN x = 1: y = y + 1\nCASE \"/\": PRINT #1, \"/\": ' x = x + 1: IF x = 81 THEN x = 1: y = y + 1\nCASE \"=\": PRINT #1, \"=\": ' x = x + 1: IF x = 81 THEN x = 1: y = y + 1\nEND SELECT\nGOTO st\nSTOP\nprintset:\nIF p$ = \"print\" THEN PRINT #1, \"p\": GOTO start\ntext$ = RIGHT$(p$, LEN(p$) - 6)\nPRINT #1, \"p\" + text$ + \" \"\nGOTO start\ncolorset:\na$ = p$\nIF LEN(a$) = 5 THEN PRINT : PRINT \"... ¨Pero se puede saber qu‚ pretendes?\": PRINT \"Si pones COLOR, debes especificar el color de 1er plano, y el de 2§.\": PRINT\nc$ = MID$(a$, 7, 2)\nd$ = MID$(a$, 10, 2)\ne$ = MID$(a$, 9, 1)\nIF e$ <> \",\" THEN PRINT : PRINT \"Oyeeee... ­Que hay una 'coma' entre los dos n£meros, no un '\" + e$ + \"'\": PRINT \"Pero, como soy muy listo, te lo paso, y lo acepto, hala.\"\nk$ = MID$(c$, 1, 1)\nGOSUB comprobacion\nk$ = MID$(c$, 2, 1)\nGOSUB comprobacion\nk$ = MID$(d$, 1, 1)\nGOSUB comprobacion\nk$ = MID$(d$, 2, 1)\nGOSUB comprobacion\np$ = \"c\" + c$ + d$\nPRINT #1, p$\nGOTO start\ncomprobacion:\nIF k$ < \"0\" OR k$ > \"9\" THEN PRINT : PRINT \"­­Error de s¡ntaxis!!. Has metido un '\" + k$ + \"' en vez de un n£mero.\": GOTO start\nRETURN\nplayset:\nnota$ = RIGHT$(p$, LEN(p$) - 5)\nPRINT #1, \"-\" + nota$\nGOTO start\nchoiceset:\np$ = \"\"\nPRINT : PRINT\nPRINT \"** CHOICE **\"\np$ = p$ + \"*\"\nrepeaters:\nPRINT\nPRINT \"¨Cu ntas opciones? (M ximo 3)\"\nINPUT a\nIF a > 3 OR a < 1 THEN GOTO repeaters\nrepeaters2:\nPRINT\nPRINT \"¨Cu l es la verdadera? (de 1 a \" + STR$(a) + \")\"\nINPUT b\nIF b < 1 OR b > a THEN GOTO repeaters2\np$ = p$ + STR$(a) + STR$(b)\nFOR n = 1 TO a\nPRINT \"> Introduce el texto que aparecer  una vez metido el n§ \" + STR$(n) + \":\"\nLINE INPUT t$\np$ = p$ + t$ + \")\"\nNEXT\nPRINT\nPRINT \"** OK! **\"\nPRINT\nPRINT #1, p$\nGOTO start\npauseset:\nIF p$ = \"pause\" THEN PRINT #1, \"?\": GOTO start\nIF p$ = \"pause 0\" THEN PRINT #1, \"¨\": GOTO start\nPRINT\nPRINT \"* > O 'Pause' ¢ 'Pause 0'... ¨OK?\"\nGOTO start\ncentraset:\ntext$ = RIGHT$(p$, LEN(p$) - 6)\nPRINT #1, \"‡\" + text$ + \" \"\nGOTO start\nendset:\nPRINT\nPRINT \"¨ Seguro ?\"\nPRINT\nPRINT \"Esto har  que el programa dividido en bloques finalice y se cree un\"\nPRINT \"cargador para el programa. Tras esta opci¢n no podr s seguir haciendo\"\nPRINT \"m s bloques de programa.\"\nPRINT\nLINE INPUT \"(s ¢ n)  \"; q$\nIF q$ = \"s\" THEN GOTO endd\nIF q$ = \"n\" THEN GOTO start\nGOTO start\nendd:\nOPEN path$ + n$ + \".lbs\" FOR OUTPUT AS #2\nPRINT #2, m$\nCLOSE #2\nPRINT\nPRINT \"Salvando este £ltimo bloque (\" + m$ + \").\"\nPRINT\nPRINT #1, \"<FIN>\"\nCLOSE #1\nPRINT\nPRINT \"Pulsa una tecla para reiniciar el LBasic 6.0\"\nDO: LOOP WHILE INKEY$ = \"\": RUN\nsaveset:\nPRINT\nPRINT #1, \"<FIN>\"\nCLOSE #1\nPRINT\nPRINT \"Pulsa una tecla para reiniciar el LBasic 6.0\"\nDO: LOOP WHILE INKEY$ = \"\": RUN\nquitset:\nPRINT\nPRINT \"¨¨ Seguro que quieres regresar al MS DOS ??\"\nLINE INPUT \"* > (s ¢ n)\"; q$\nIF q$ = \"s\" THEN SYSTEM\nGOTO start\nselectthecolor:\nBEEP\nLOCATE 22, 1\nPRINT \"... acabas de poner otro color.\"\nRETURN\nmenu:\nVIEW PRINT\nLOCATE 1, 1\nCOLOR 7, 1\nPRINT \"  Editar  ³  Corregir  ³  Ejecutar un programa  ³  Imprimir programa  ³        \"\nchoice = 1\ny(1) = 1\ny(2) = 12\ny(3) = 25\ny(4) = 50\nopt$(1) = \"  Editar  \"\nopt$(2) = \"  Corregir  \"\nopt$(3) = \"  Ejecutar un programa  \"\nopt$(4) = \"  Imprimir programa  \"\nhelp$(1) = \"Para hacer un programa\"\nhelp$(2) = \"Para hacer correcciones en un programa\"\nhelp$(3) = \"Para jugar a un programa que tu hayas hecho\"\nhelp$(4) = \"Para imprimir un programa que tu hayas hecho\"\nFOR n = 1 TO 4\nhelp$(n) = help$(n) + SPACE$(80 - LEN(help$(n)))\nNEXT\nkodansha:\nGOSUB imprimir\nk$ = INKEY$\nSELECT CASE k$\nCASE CHR$(0) + \"K\": GOSUB left\nCASE CHR$(0) + \"M\": GOSUB right\nCASE CHR$(13): GOSUB intro\nEND SELECT\nGOTO kodansha\nimprimir:\nLOCATE 1, y(choice)\nCOLOR 9, 7\nPRINT opt$(choice)\nVIEW PRINT 1 TO 25\nLOCATE 24, 1\nCOLOR 7, 1\nPRINT help$(choice)\nRETURN\nborrar:\nLOCATE 1, y(choice)\nCOLOR 7, 1\nPRINT opt$(choice)\nRETURN\nleft:\nIF choice > 1 THEN GOSUB borrar: choice = choice - 1\nRETURN\nright:\nIF choice < 4 THEN GOSUB borrar: choice = choice + 1\nRETURN\nintro:\nCOLOR 7, 0\nIF choice = 1 THEN GOTO editar\nIF choice = 2 THEN GOTO corregir\nIF choice = 3 THEN GOTO ejecutar\nIF choice = 4 THEN GOTO imprimirr\nRETURN\ncorregir:\nVIEW PRINT 2 TO 23\nCLS\nPRINT\nPRINT \"  Corregir  \"\ncorregir2:\nPRINT\nPRINT \"Introduce el path donde est  tu programa.\"\nPRINT\nerr1 = 0\nLINE INPUT \"* > \"; pp$\nFILES pp$ + \"\\\"\nIF err1 = 1 THEN GOTO corregir2\nPRINT\nPRINT \"¨Est  aqu¡ tu programa?\"\nPRINT\nLINE INPUT \"* > (s)¡ o (n)o...\"; w$\nIF w$ = \"n\" THEN GOTO corregir2\nCHDIR q$\ncorregir3:\nPRINT\nPRINT \"Introduce Nombre y Extensi¢n del programa a corregir...\"\nPRINT\nLINE INPUT \"* > Nombre y extensi¢n:\"; q$\nerr1 = 0\nOPEN pp$ + q$ FOR INPUT AS #1\nIF err1 = 1 THEN GOTO corregir3\nOPEN pp$ + \"renombre\" FOR OUTPUT AS #2\nPRINT\nCLS\nlin = 1\nlolo:\nCLS\nINPUT #1, n$\nPRINT\nCOLOR 15\nPRINT \"L¡nea\"; lin; \"del programa \"; q$\nCOLOR 7\nPRINT\nPRINT n$\nIF n$ = \"<FIN>\" THEN GOTO neww\nPRINT\nLINE INPUT \"¨Corregir? (s)¡ ¢ (n)o.\"; a$\nIF a$ = \"s\" THEN GOTO corregir4 ELSE a$ = n$: GOTO siguiente\ncorregir4:\nPRINT\nPRINT \"Nueva l¡nea:\"\nPRINT\nLINE INPUT a$\nsiguiente:\nPRINT #2, a$\nlin = lin + 1\nGOTO lolo\nneww:\nCLOSE #1\nPRINT #2, \"<FIN>\"\nCLOSE #2\nKILL pp$ + q$\nNAME pp$ + \"renombre\" AS pp$ + q$\nPRINT\nPRINT \"pulsa una tecla\"\nDO: LOOP WHILE INKEY$ = \"\"\nRUN\nEND\nejecutar:\nCLS\nPRINT\nPRINT \"                    EJECUTAR UN PROGRAMA\"\nPRINT\nPRINT \"Introduce el path, el s¡mbolo '\\' y el nombre sin indicar la extensi¢n\"\nPRINT \"del programa a ejecutar. El ordenador buscar  ese nombre con la extensi¢n\"\nPRINT \"'.lbs', que es el controlador. Para que ese controlador haya sido escri-\"\nPRINT \"to, tienes que haber puesto en el editor la opci¢n 'end', la cual finaliza\"\nPRINT \"el programa y crea un archivo con el n£mero de bloques...\"\nPRINT\nPRINT \"¨Hiciste eso con el programa que vas a cargar?\"\nLINE INPUT \"(s)¡ ¢ (n)o \"; q$\nIF q$ = \"n\" THEN PRINT : PRINT \"Pulsa una tecla para reiniciar LBasic 6.0\": DO: LOOP WHILE INKEY$ = \"\": RUN\nPRINT\nPRINT \"Bien, pues introduce el path, el s¡mbolo '\\' y el nombre sin extensi¢n.\"\nPRINT\nLINE INPUT nombre$\nerr1 = 0\nOPEN nombre$ + \".lbs\" FOR INPUT AS #1\nIF err1 = 1 THEN DO: LOOP WHILE INKEY$ = \"\": RUN\nerr1 = 0\nc1 = 7\nc2 = 0\nPRINT\nINPUT #1, m$\nCLOSE #1\n'obtengo el n£mero de bloques\nnumerodebloques = VAL(m$)\n'ahora empiezo a ejecutar los bloques uno por uno\nFOR currentblock = 0 TO numerodebloques\nm1$ = STR$(currentblock)                             ' Para obtener el n£mero del bloque\nm2$ = RIGHT$(m1$, LEN(m1$) - 1)           ' actual realizo estas operaciones\nm3$ = STRING$(3 - LEN(m2$), \"0\") + m2$    ' con cadenas y obtengo 'm3$'.\n'ahora obtengo el nombre del bloque actual\nbloqueactual$ = nombre$ + \".\" + m3$       ' por ejemplo: 'NADIA.000'\n'abro el archivo #1 para entrada de datos\nOPEN bloqueactual$ FOR INPUT AS #1\nCLS\ncentra 12, \"Empezando bloque \" + m2$\nDO: LOOP WHILE INKEY$ = \"\"\nCLS\nlin = 1\n' empieza el programa que lee los datos del archivo\nleer:\nINPUT #1, a$       ' La variable 'a$' contendr  la l¡nea en curso.\nIF a$ = \"<FIN>\" THEN GOTO ok01: ' se acab¢ el bloque...\ng$ = MID$(a$, 1, 1)' La variable 'g$' contendr  la 1¦ letra (Indicador)\nSELECT CASE g$     ' ahora comprobaremos qu‚ letra contiene 'g$'.\nCASE \"=\": CLS\nCASE \"#\": BEEP\nCASE \"¨\": DO: LOOP WHILE INKEY$ = \"\"\nCASE \"?\": SLEEP 1\nCASE \"c\": GOSUB runcolor\nCASE \"*\": GOSUB runchoice\nCASE \"p\": GOSUB runprint\nCASE \"‡\": GOSUB runcentra\nCASE \"@\": INPUT #1, x: INPUT #1, y: LOCATE y, x\nCASE \"d\": GOSUB rundraw\nCASE \"-\": GOSUB runplay\nEND SELECT\nlin = lin + 1\nGOTO leer\nok01:\nPRINT \"Pulsa una tecla\"\nDO: LOOP WHILE INKEY$ = \"\"\nCLOSE #1\nNEXT\nPRINT \"0, OK, 0:1\"\nDO: LOOP WHILE INKEY$ = \"\": RUN\nruncolor:\nd$ = MID$(a$, 2, 2)\ne$ = MID$(a$, 4, 2)\nd = VAL(d$)\ne = VAL(e$)\nCOLOR d, e\nc1 = d\nc2 = e\nRETURN\nrunchoice:\nnu$ = MID$(a$, 3, 1): num = VAL(nu$)\nve$ = MID$(a$, 5, 1): ver = VAL(ve$)\nx = 5\nFOR n = 1 TO num\nh$(n) = \"\"\nrepeatdone:\nx = x + 1\nIF MID$(a$, x, 1) = \")\" THEN GOTO nextdone\nh$(n) = h$(n) + MID$(a$, x, 1)\nGOTO repeatdone\nnextdone:\nNEXT\nPRINT\nINPUT r\nIF r = ver THEN GOTO pass ELSE PRINT h$(r): PRINT \"... ­GAME OVER!\": RUN\npass:\nPRINT h$(r)\nPRINT\nRETURN\nrunprint:\nh$ = RIGHT$(a$, LEN(a$) - 1)\nPRINT h$\nRETURN\nruncentra:\ncentra:\nh$ = RIGHT$(a$, LEN(a$) - 1)\nl = 40 - LEN(h$) / 2\nPRINT TAB(l); h$\nRETURN\nrundraw:\n' variables de dibujo\nx = 1  'variables de posici¢n\ny = 1  'en la pantalla.\ncc1 = c1' color actual. (1er plano)\ncc2 = c2' idem antes. (fondo)\n' ahora comienza el bloque lee-datos:\nbloqueleer:\nINPUT #1, a$ 'lee el dato y lo pone en 'a$'\nIF a$ = \"<END>\" THEN COLOR c1, c2: RETURN 'pone el color verdadero y ­adi¢s!\nLOCATE y, x\nIF a$ = \"1\" OR a$ = \"2\" OR a$ = \"3\" OR a$ = \"4\" OR a$ = \"5\" OR a$ = \"6\" OR a$ = \"7\" OR a$ = \"0\" OR a$ = \"!\" OR a$ = CHR$(34) OR a$ = \"ú\" OR a$ = \"$\" OR a$ = \"%\" OR a$ = \"&\" OR a$ = \"/\" OR a$ = \"=\" THEN GOSUB selectcolors: GOTO nexff\nPRINT a$\nx = x + 1\nIF x >= 81 THEN x = 1: y = y + 1\nnexff:\nGOTO bloqueleer\nselectcolors:\nIF a$ = \"1\" OR a$ = \"2\" OR a$ = \"3\" OR a$ = \"4\" OR a$ = \"5\" OR a$ = \"6\" OR a$ = \"7\" OR a$ = \"0\" THEN cc1 = VAL(a$) + 8\nIF a$ = \"!\" THEN cc2 = 1\nIF a$ = CHR$(34) THEN cc2 = 2\nIF a$ = \"ú\" THEN cc2 = 3\nIF a$ = \"$\" THEN cc2 = 4\nIF a$ = \"%\" THEN cc2 = 5\nIF a$ = \"&\" THEN cc2 = 6\nIF a$ = \"/\" THEN cc2 = 7\nIF a$ = \"=\" THEN cc2 = 0\nCOLOR cc1, cc2\nRETURN\nRETURN\nrunplay:\nerr1 = 0\nnota$ = RIGHT$(a$, LEN(a$) - 1)\nPLAY nota$\nIF err1 = 1 THEN PRINT \"­ Error en la l¡nea \" + STR$(lin) + \" en el bloque \" + m2$ + \" en notas !\"\nerr1 = 0\nRETURN\nimprimirr:\n\nSUB button (y, x, c1, c2, x$)\nLOCATE y, x\nPRINT \"  Intro  \"\nLOCATE y + 1, x + 2\nPRINT STRING$(9, \"Û\")\nDO\nLOOP WHILE INKEY$ <> CHR$(13)\nLOCATE y, x\nPRINT STRING$(9, x$)\nLOCATE y + 1, x + 2\nPRINT \"  Intro  \"\nFOR n = 1 TO 1000\nNEXT\nEND SUB\n\nSUB centra (y, t$)\nLOCATE y, 40 - LEN(t$) / 2\nPRINT t$\nEND SUB\n\nSUB manto (c1, c2)\nCOLOR c1, c2\nVIEW PRINT 1 TO 25\nFOR n = 0 TO 25\nPRINT STRING$(80, \"°\")\nNEXT\nVIEW PRINT\nEND SUB\n\nSUB openrecuadre (yyg, alto, ancho, sha1, sha2, c1, c2)\nalto = alto / 2\nancho = ancho / 2\nFOR n = 2 TO alto\nCOLOR c1, c2\nLOCATE yyg - n, 38\nPRINT \"ÚÄÄ¿\"\nLOCATE yyg + n, 38\nPRINT \"ÀÄÄÙ\"\nLOCATE yyg - (n - 1), 38\nPRINT \"³  ³\"\nLOCATE yyg + n - 1, 38\nPRINT \"³  ³\"\nFOR a = 1 TO 200\nNEXT\nNEXT\nLOCATE yyg, 40: PRINT \" \"\nFOR n = 2 TO ancho\nFOR y = yyg - alto TO yyg + alto\nCOLOR c1, c2\nIF y = yyg - alto OR y = yyg + alto THEN LOCATE y, 40 - (n - 1): PRINT \"Ä\": LOCATE y, 40 + n - 1: PRINT \"Ä\"\nIF y = yyg - alto THEN LOCATE y, 40 - n: PRINT \"Ú\": LOCATE y, 40 + n: PRINT \"¿\"\nIF y = yyg + alto THEN LOCATE y, 40 - n: PRINT \"À\": LOCATE y, 40 + n: PRINT \"Ù\"\nIF y <> yyg - alto AND y <> yyg + alto THEN LOCATE y, 40 - n: PRINT \"³ \": LOCATE y, 40 + n - 1: PRINT \" ³\"\nCOLOR sha1, sha2\nLOCATE y + 1, 40 + n + 1: PRINT \"²²\"\nIF y = yyg + alto THEN LOCATE y + 1, 40 - n + 2: PRINT \"²²²\"\nNEXT\nNEXT\nCOLOR c1, c2\nEND SUB\n\n",
+			"file": "/H/ATO/D1/LBASIC/LBASIC_6.BAS",
+			"file_size": 18061,
+			"file_write_time": 124103592040000000,
+			"settings":
+			{
+				"buffer_size": 17413,
+				"encoding": "Western (Windows 1252)",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "Cunnilingus LORA\n\nExamples:\n\na woman's vulva is visible. A second woman walks into the frame from the right side, leaning in. Her tongue flicks and sucks rhythmically on the clitoris. The recipient's hips make small, involuntary circles and twitches of pleasure. Her vagina gets wet and shiny, full of saliva and drooling from the second woman's mouth. The scene is intimate, sensual, and focused on the detailed motion. Masterpiece, high detail, realistic skin texture, cinematic lighting.\nSide view, camera positioned on the left side of a woman, focused on her vulva. Her legs are spread. The camera slowly pans leftwards, following the motion as a second woman enters the frame from the right. The second woman leans in, her tongue flicks and sucks rhythmically on the clitoris. The recipient's hips twitch and make small circles of pleasure. Intimate, sensual, masterpiece, high detail, realistic skin texture, wet, shiny, drooling saliva.\nCamera starts with a medium shot on a woman's face, then pivots on a dolly in a smooth arc to the left, ending in a close-up side view of her vulva from the left side. Her legs are spread. A second woman enters the frame from the right, leaning in to perform cunnilingus. Her tongue flicks and sucks rhythmically. Detailed view of the motion: involuntary hip twitches, wet, shiny skin covered in saliva. The scene is intimate and sensual. Masterpiece, ultra-realistic, cinematic lighting, high detail, skin texture, motion blur on the camera movement.\na woman's body from a side angle, her legs spread. Close-up from the left side on her vulva. A second woman walks into the frame from the right side, leaning in. Her tongue flicks and sucks rhythmically on the clitoris. The recipient's hips make small, involuntary circles and twitches of pleasure. Her vagina gets wet and shiny, full of saliva and drooling from the second woman's mouth. The scene is intimate, sensual, and focused on the detailed motion. Masterpiece, ultra-detailed, photorealistic skin texture.\nHave fun! 😜\n\n",
+			"file": "/C/Users/na_th/Desktop/prompts.txt",
+			"file_size": 0,
+			"file_write_time": 134145767676654433,
+			"settings":
+			{
+				"buffer_size": 2025,
 				"line_ending": "Windows"
 			}
 		}
@@ -694,8 +718,6 @@
 		"/D/Git/MC_Mods/docs/_includes",
 		"/D/Git/MC_Mods/docs/_layouts",
 		"/D/Git/MC_Mods/docs/_posts",
-		"/D/Git/MC_Mods/docs/assets",
-		"/D/Git/MC_Mods/docs/assets/img",
 		"/D/Git/MC_Mods/modloader"
 	],
 	"file_history":
@@ -1097,7 +1119,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 11,
 					"type": "text"
 				},
 				{
@@ -1127,7 +1149,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 10,
 					"type": "text"
 				},
 				{
@@ -1157,7 +1179,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 9,
 					"type": "text"
 				},
 				{
@@ -1187,13 +1209,13 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 8,
 					"type": "text"
 				}
 			]
 		},
 		{
-			"selected": 5,
+			"selected": 7,
 			"sheets":
 			[
 				{
@@ -1221,7 +1243,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
@@ -1249,7 +1271,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
@@ -1277,7 +1299,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
@@ -1286,7 +1308,7 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5930,
+						"buffer_size": 5943,
 						"regions":
 						{
 						},
@@ -1305,7 +1327,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
@@ -1333,16 +1355,44 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
 					"buffer": 9,
-					"file": "/C/Users/na_th/Desktop/b166.md",
+					"file": "docs/alpha.md",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 573,
+						"buffer_size": 1602,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								695,
+								978
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "/H/ATO/D1/LBASIC/LBASIC_6.BAS",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 17413,
 						"regions":
 						{
 						},
@@ -1355,7 +1405,35 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
+							"syntax": "Packages/VBDotNet/vbdotnet.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 3565.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "/C/Users/na_th/Desktop/prompts.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2025,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2025,
+								2025
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
