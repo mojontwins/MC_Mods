@@ -29,15 +29,17 @@ This will be my Alpha 1.1.2_01 related modding project anytime soon. The idea is
 
 I especifically don't want to fix bugs 'cause they are heavily explotied by actual a1.1.2_01 players (i.e. Mongster) and those are part of the experience that makes Alpha worth playing on its own. **I just want something that lets me add optional contents easily**. Optional as in you don't want it you leave the mod out.
 
-Planned mods:
+Planned Modloader mods:
 
 - Silk touch in gold tools.
-- New matherial tier to provide "efficiency".
+- New material tier to provide "efficiency".
 - Crying Obsidian set spawn thing.
 - Chocolate quest, of course.
 - Stuff I like from Infhell.
 - More zombies.
 - City generation.
+- Baby animals
+
 
 Whenever I start doing this I'll keep a diary here.
 
