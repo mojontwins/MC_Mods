@@ -523,8 +523,24 @@
 			"file": "docs/alpha.md",
 			"settings":
 			{
-				"buffer_size": 3171,
+				"buffer_size": 3344,
 				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "docs/earlyaether.md",
+			"settings":
+			{
+				"buffer_size": 9154,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"settings":
+			{
+				"buffer_size": 0,
 				"line_ending": "Windows"
 			}
 		},
@@ -538,10 +554,18 @@
 			}
 		},
 		{
-			"file": "docs/_posts/2025-12-01-hello.md",
+			"file": "/C/Users/na_th/AppData/Local/Temp/7zO8E50B1EB/ModLoader.java",
 			"settings":
 			{
-				"buffer_size": 670,
+				"buffer_size": 30093,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "docs/infhell2.md",
+			"settings":
+			{
+				"buffer_size": 6718,
 				"line_ending": "Windows"
 			}
 		}
@@ -628,16 +652,14 @@
 	[
 		"/D/Git/MC_Mods",
 		"/D/Git/MC_Mods/docs",
-		"/D/Git/MC_Mods/docs/_includes",
-		"/D/Git/MC_Mods/docs/_layouts",
 		"/D/Git/MC_Mods/docs/_posts",
-		"/D/Git/MC_Mods/docs/assets",
-		"/D/Git/MC_Mods/docs/assets/files",
-		"/D/Git/MC_Mods/docs/assets/img",
 		"/D/Git/MC_Mods/modloader"
 	],
 	"file_history":
 	[
+		"/C/Users/na_th/AppData/Local/Temp/7zO4D4491EF/ModLoaderMp.java",
+		"/C/Users/na_th/AppData/Local/Temp/7zO4D4E7E1E/BaseModMp.java",
+		"/C/Users/na_th/Desktop/prompts.md",
 		"/D/Git/MC_Mods/docs/about.md",
 		"/D/Git/MC_Mods/docs/bta175.md",
 		"/D/Git/MC_Mods/docs/fullconversion.md",
@@ -762,10 +784,7 @@
 		"/C/Proyectos/entregas/Entrega-FicherosJunta_1.4.2.0/instrucciones.txt",
 		"/C/Proyectos/entregas/Entrega-FicherosJunta_1.4.4.0/instrucciones.txt",
 		"/C/Users/jcastano/AppData/Local/Temp/7zOCB9F6CE8/instrucciones.txt",
-		"/C/Users/jcastano/AppData/Local/Temp/7zO43022AA8/instrucciones.md",
-		"/C/Proyectos/2020/20201110a - Entrega Ficheros Junta 1.5.0.0/instrucciones--1.2--20201118a.txt",
-		"/C/Proyectos/2022/20220405a - Ficheros v1.8.0.0 - clamav, uidshort, tags, misc/instrucciones.md",
-		"/C/Users/jcastano/AppData/Local/Temp/7zO87605994/instrucciones.md"
+		"/C/Users/jcastano/AppData/Local/Temp/7zO43022AA8/instrucciones.md"
 	],
 	"find":
 	{
@@ -1007,7 +1026,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -1016,15 +1035,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3171,
+						"buffer_size": 3344,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3109,
-								3109
+								1527,
+								1527
 							]
 						],
 						"settings":
@@ -1032,20 +1051,76 @@
 							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 180.0,
+						"translation.y": 210.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "docs/earlyaether.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9154,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								8975,
+								8975
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2493.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
 		},
 		{
-			"selected": 0,
+			"selected": 2,
 			"sheets":
 			[
 				{
-					"buffer": 1,
+					"buffer": 3,
 					"file": "docs/_posts/2026-02-04-early-aether-for-b1.2_02.md",
 					"semi_transient": false,
 					"settings":
@@ -1069,16 +1144,16 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "docs/_posts/2025-12-01-hello.md",
-					"semi_transient": true,
+					"buffer": 4,
+					"file": "/C/Users/na_th/AppData/Local/Temp/7zO8E50B1EB/ModLoader.java",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 670,
+						"buffer_size": 30093,
 						"regions":
 						{
 						},
@@ -1091,13 +1166,43 @@
 						],
 						"settings":
 						{
+							"syntax": "Packages/Java/Java.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "docs/infhell2.md",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 6718,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								152,
+								152
+							]
+						],
+						"settings":
+						{
 							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 1,
 					"type": "text"
 				}
 			]

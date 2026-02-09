@@ -141,25 +141,25 @@ Our proxy for BlockFire will be very simple
 
 There isn't a proper abstraction for a Dimension in minecraft, which sucks. There've been simple mods that address this situation from early on. The Pudelhund's Dimension API didn't come out until early release. ShockAPI added Dimension abstraction too, but it didn't come out until b1.7.3. As I don't know any better, I'm making my own Dimension abstraction layer that I can reuse / port to other versions.
 
-In order to not having to change any base classes, this library will do the dimmension hopping itself. This process is triggered from `EntityPlayerSP` which calls `Minecraft.usePortal`. So we are proxying `EntityPlayerSP`. `Minecraft.thePlayer` object is created at `PlayerController.func_4087_b`.
-
-Maybe we can patch this ingame: whenever the world changes, replace entityPlayer with our proxy. I'm not seeing a hook in the main tick in this version of Modloader, but there's a weird `RunOSDHooks` which may be usable. That one receives `mc` and a boolean indicating if a GUI screen is open or not.
-
-But I'm not going anywhere, when I get control, thePlayer is already created and I'm not being successful in replacing it. I wanted to change `PlayerController` but I can't do that, either. I'm going to think about this.
-
-Maybe I don't have to do this and I can use `OSDHook` to detect `timeInPortal` and do my thing right before the main vanilla code does.
-
-Or something completely different:
+In order to not having to change any base classes, this library will do the dimmension hopping itself. This process is triggered from `EntityPlayerSP` which calls `Minecraft.usePortal`. Maybe I can use `OSDHook` keep my own set of variables and do the portalling myself with different triggers.
 
 1.- The portal block implements `IBlockPortal` which makes it implement `getDimension ()`.
 2.- When the portal block collides with the player, a counter is started to do the animation, which will be performed in `OSDHook`, and the IBlockPortal is stored.
 3.- When the counter gets to 1.0F, my mod's `usePortal` is called. It will use the stored `IBlockPortal` to know the dimension and do the thing.
 
-Nop
+New portal blocks have to set the mods variables the same way vanilla Portal blocks set EntityPlayerSP's variables. The actual teleporting will be performed by the mod as well when timeInPortal reaches 1.0F.
 
-My latest tests imply that I have to hijack the player for this to work. Or have my go at enhancing ModLoader to support custom dimensions natively.
+### Blocks
 
-I'll sleep over this.
-  
+Aerclouds have to stop the player from falling and not cause damage but Entity's fallDistance is protected, so we have to...
 
+```java
+	public void onEntityCollidedWithBlock(World world, int i, int j, int k, Entity entity) {
+		try {
+			Field fallDistanceF = entity.getClass().getDeclaredFields()[34]; // 34 is "fall distance"
+			fallDistanceF.setAccessible(true);
+			fallDistanceF.set(entity, 0.0F);
+		} catch (Exception e) {}
+	}
+```
 
