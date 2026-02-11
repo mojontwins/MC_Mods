@@ -532,8 +532,105 @@
 			"file": "docs/earlyaether.md",
 			"settings":
 			{
-				"buffer_size": 9154,
+				"buffer_size": 8927,
 				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "\tpublic boolean isAABBInIBlockPortal(AxisAlignedBB aabb) {\n\t\tint x1 = MathHelper.floor_double(aabb.minX);\n\t\tint x2 = MathHelper.floor_double(aabb.maxX + 1.0D);\n\t\tint y1 = MathHelper.floor_double(aabb.minY);\n\t\tint y2 = MathHelper.floor_double(aabb.maxY + 1.0D);\n\t\tint z1 = MathHelper.floor_double(aabb.minZ);\n\t\tint z2 = MathHelper.floor_double(aabb.maxZ + 1.0D);\n\n\t\tfor(int x = x1; x < x2; ++x) {\n\t\t\tfor(int y = y1; y < y2; ++y) {\n\t\t\t\tfor(int z = z1; z < z2; ++z) {\n\t\t\t\t\tBlock b = Block.blocksList[this.getBlockId(x, y, z)];\n\t\t\t\t\tif (b instanceof IBlockPortal) return true;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\n\t\treturn false;\n\t}",
+			"settings":
+			{
+				"buffer_size": 607,
+				"line_ending": "Windows",
+				"name": "public boolean isAABBInIBlockPortal(AxisAlignedBB"
+			}
+		},
+		{
+			"file": "/D/Cosas/Kodaichi/b12_02/minecraft/src/net/minecraft/src/mod_AetherBlocks.java",
+			"settings":
+			{
+				"buffer_size": 3437,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/na_th/AppData/Local/Temp/7zO8E50B1EB/ModLoader.java",
+			"settings":
+			{
+				"buffer_size": 30093,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/D/Cosas/Kodaichi/b12_02/minecraft/src/net/minecraft/src/MobSpawnerBase.java",
+			"settings":
+			{
+				"buffer_size": 4756,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/D/Cosas/Kodaichi/b12_02/minecraft/src/net/minecraft/src/MobSpawnerAether.java",
+			"settings":
+			{
+				"buffer_size": 439,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/D/Cosas/Kodaichi/b12_02/minecraft/src/net/minecraft/src/mod_Moa.java",
+			"settings":
+			{
+				"buffer_size": 1073,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/D/Cosas/Kodaichi/b12_02/minecraft/src/net/minecraft/src/mod_Aether.java",
+			"settings":
+			{
+				"buffer_size": 8874,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/D/Cosas/Kodaichi/b12_02/minecraft/src/net/minecraft/src/spawnlist.java",
+			"settings":
+			{
+				"buffer_size": 7268,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/D/Cosas/Kodaichi/b12_02/minecraft/src/net/minecraft/src/mod_Aerwhale.java",
+			"settings":
+			{
+				"buffer_size": 477,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/D/Cosas/Kodaichi/b12_02/minecraft/src/net/minecraft/src/BlockAercloud.java",
+			"settings":
+			{
+				"buffer_size": 273,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/D/Cosas/Kodaichi/b12_02/minecraft/src/net/minecraft/src/BlockHolyStone.java",
+			"settings":
+			{
+				"buffer_size": 270,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/D/Cosas/Kodaichi/b12_02/minecraft/src/net/minecraft/src/BlockZaniteOre.java",
+			"settings":
+			{
+				"buffer_size": 270,
 				"line_ending": "Windows"
 			}
 		},
@@ -554,10 +651,10 @@
 			}
 		},
 		{
-			"file": "/C/Users/na_th/AppData/Local/Temp/7zO8E50B1EB/ModLoader.java",
+			"file": "/D/Cosas/Kodaichi/b12_02/minecraft/src/net/minecraft/src/bAPortal.java",
 			"settings":
 			{
-				"buffer_size": 30093,
+				"buffer_size": 4165,
 				"line_ending": "Windows"
 			}
 		},
@@ -566,6 +663,14 @@
 			"settings":
 			{
 				"buffer_size": 6718,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/D/Cosas/Kodaichi/b12_02/minecraft/src/net/minecraft/src/mod_AetherTerrain.java",
+			"settings":
+			{
+				"buffer_size": 769,
 				"line_ending": "Windows"
 			}
 		}
@@ -657,6 +762,8 @@
 	],
 	"file_history":
 	[
+		"/D/Cosas/Kodaichi/b12_02/minecraft/src/net/minecraft/src/mod_Whirly.java",
+		"/D/Cosas/Kodaichi/b12_02/minecraft/src/net/minecraft/src/mod_Aether.java",
 		"/C/Users/na_th/AppData/Local/Temp/7zO4D4491EF/ModLoaderMp.java",
 		"/C/Users/na_th/AppData/Local/Temp/7zO4D4E7E1E/BaseModMp.java",
 		"/C/Users/na_th/Desktop/prompts.md",
@@ -782,13 +889,11 @@
 		"/C/Cosas/process_edificios_multisede/multisedes.txt",
 		"/C/Users/jcastano/AppData/Local/Temp/7zO8B7C1458/instrucciones.txt",
 		"/C/Proyectos/entregas/Entrega-FicherosJunta_1.4.2.0/instrucciones.txt",
-		"/C/Proyectos/entregas/Entrega-FicherosJunta_1.4.4.0/instrucciones.txt",
-		"/C/Users/jcastano/AppData/Local/Temp/7zOCB9F6CE8/instrucciones.txt",
-		"/C/Users/jcastano/AppData/Local/Temp/7zO43022AA8/instrucciones.md"
+		"/C/Proyectos/entregas/Entrega-FicherosJunta_1.4.4.0/instrucciones.txt"
 	],
 	"find":
 	{
-		"height": 26.0
+		"height": 54.0
 	},
 	"find_in_files":
 	{
@@ -863,6 +968,22 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"uTerrain",
+			"bAPORTAL",
+			"surfaceBiomes",
+			"items",
+			"loadSprites",
+			"var12",
+			"var11",
+			"var10",
+			"var9",
+			"var8",
+			"var7",
+			"var6",
+			"var5",
+			"var4",
+			"var3",
+			"var1",
 			"cmdrecompclt",
 			"fixesclient",
 			"srcclient",
@@ -974,30 +1095,26 @@
 			"subtab-localshare",
 			"User and Groups",
 			"\"User and Groups\"",
-			"usuarios y grupos",
-			"grupos",
-			"app-settings",
-			"Content-Security-Policy",
-			"opensans",
-			"opensans regular",
-			"texgyreheros",
-			"gettitle",
-			"acceso alternativo",
-			"10.10.0",
-			"10.8",
-			"10.240.243.167",
-			"getiOSClientUrl",
-			"defaultiOSClientUrl",
-			"descargado no coincide con",
-			"El archivo descargado no coincide con el archivo de comprobación",
-			"423"
+			"usuarios y grupos"
 		],
 		"highlight": true,
 		"in_selection": false,
 		"preserve_case": false,
-		"regex": true,
+		"regex": false,
 		"replace_history":
 		[
+			"b",
+			"z",
+			"y",
+			"x",
+			"z2x",
+			"z2",
+			"z1",
+			"y2",
+			"y1",
+			"x2",
+			"x1",
+			"aabb",
 			"* \\1 [",
 			"[\\3 \\1](https://www.mojontwins.com/infhell/\\1)\\n",
 			"[\\2 \\1](https://www.mojontwins.com/infhell/\\1)\\n",
@@ -1020,13 +1137,13 @@
 		"reverse": false,
 		"show_context": true,
 		"use_buffer2": true,
-		"whole_word": false,
+		"whole_word": true,
 		"wrap": true
 	},
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 8,
 			"sheets":
 			[
 				{
@@ -1051,10 +1168,10 @@
 							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 210.0,
+						"translation.y": 180.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 12,
 					"type": "text"
 				},
 				{
@@ -1063,15 +1180,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 9154,
+						"buffer_size": 8927,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								8975,
-								8975
+								8817,
+								8817
 							]
 						],
 						"settings":
@@ -1080,14 +1197,359 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2493.0,
+						"translation.y": 2088.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 11,
 					"type": "text"
 				},
 				{
 					"buffer": 2,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 607,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								607,
+								0
+							]
+						],
+						"settings":
+						{
+							"auto_name": "public boolean isAABBInIBlockPortal(AxisAlignedBB",
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 14,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/D/Cosas/Kodaichi/b12_02/minecraft/src/net/minecraft/src/mod_AetherBlocks.java",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3437,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2782,
+								2797
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Java/Java.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 304.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/C/Users/na_th/AppData/Local/Temp/7zO8E50B1EB/ModLoader.java",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 30093,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								18127,
+								18127
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Java/Java.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 7604.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/D/Cosas/Kodaichi/b12_02/minecraft/src/net/minecraft/src/MobSpawnerBase.java",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4756,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1755,
+								1929
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Java/Java.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 845.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/D/Cosas/Kodaichi/b12_02/minecraft/src/net/minecraft/src/MobSpawnerAether.java",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 439,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								50,
+								28
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Java/Java.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "/D/Cosas/Kodaichi/b12_02/minecraft/src/net/minecraft/src/mod_Moa.java",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1073,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								706,
+								706
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Java/Java.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "/D/Cosas/Kodaichi/b12_02/minecraft/src/net/minecraft/src/mod_Aether.java",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8874,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2276,
+								2284
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Java/Java.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 253.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "/D/Cosas/Kodaichi/b12_02/minecraft/src/net/minecraft/src/spawnlist.java",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7268,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5434,
+								5447
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Java/Java.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2354.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "/D/Cosas/Kodaichi/b12_02/minecraft/src/net/minecraft/src/mod_Aerwhale.java",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 477,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								214,
+								122
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Java/Java.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "/D/Cosas/Kodaichi/b12_02/minecraft/src/net/minecraft/src/BlockAercloud.java",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 273,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								72,
+								270
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Java/Java.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 13,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "/D/Cosas/Kodaichi/b12_02/minecraft/src/net/minecraft/src/BlockHolyStone.java",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 270,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								99,
+								172
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Java/Java.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 15,
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "/D/Cosas/Kodaichi/b12_02/minecraft/src/net/minecraft/src/BlockZaniteOre.java",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 270,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								172,
+								98
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Java/Java.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 16,
+					"type": "text"
+				},
+				{
+					"buffer": 14,
 					"semi_transient": false,
 					"settings":
 					{
@@ -1110,17 +1572,17 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 18,
 					"type": "text"
 				}
 			]
 		},
 		{
-			"selected": 2,
+			"selected": 4,
 			"sheets":
 			[
 				{
-					"buffer": 3,
+					"buffer": 15,
 					"file": "docs/_posts/2026-02-04-early-aether-for-b1.2_02.md",
 					"semi_transient": false,
 					"settings":
@@ -1132,8 +1594,8 @@
 						"selection":
 						[
 							[
-								1893,
-								1893
+								1604,
+								1604
 							]
 						],
 						"settings":
@@ -1144,7 +1606,36 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 16,
+					"file": "/D/Cosas/Kodaichi/b12_02/minecraft/src/net/minecraft/src/bAPortal.java",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4165,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								340,
+								193
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Java/Java.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -1174,11 +1665,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 19,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 17,
 					"file": "docs/infhell2.md",
 					"semi_transient": true,
 					"settings":
@@ -1190,8 +1681,8 @@
 						"selection":
 						[
 							[
-								152,
-								152
+								755,
+								755
 							]
 						],
 						"settings":
@@ -1202,7 +1693,36 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 17,
+					"type": "text"
+				},
+				{
+					"buffer": 18,
+					"file": "/D/Cosas/Kodaichi/b12_02/minecraft/src/net/minecraft/src/mod_AetherTerrain.java",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 769,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								769,
+								769
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Java/Java.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -1296,7 +1816,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 0,
+	"selected_group": 1,
 	"settings":
 	{
 	},
@@ -1304,7 +1824,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 412.0,
+	"side_bar_width": 250.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

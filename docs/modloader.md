@@ -117,3 +117,7 @@ This mod adds three blocks. If you find conflict with your existing modpack, jus
 * [Get them from Github](https://github.com/mojontwins/MC_Mods/tree/master/modloader/structureMods).
 
 **Remember that you need both `mod_BetterStructureAPI` & `mod_enhancedVanillaStructures`**
+
+## Early Aether Fix
+
+For some reason I want to make the early Aether mod indev version for beta 1.2 work properly and without requiring base classes. I also want to make it behave not overflowing the lighting system - it generates its "terrain" during population which is overkill, more so with a lighting engine this old. [I'm documenting my progress here]({{site.baseurl}}/MC_Mods/earlyaether/).
