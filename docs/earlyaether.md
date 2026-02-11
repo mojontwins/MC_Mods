@@ -41,25 +41,25 @@ I think this may be interesting. The original is there for archival, but I think
 This is what I had to do:
 
 * Modloader / Modloader MP for b1.2_02, or at least the version that's available in the MCArchive, don't work out of the box. I had to fix them. So I...
-	* Set up b1.2_02 in RMCPJ.
-	* Decompile.
-	* Fixed the sources in eclipse.
-	* `Build` in RMCPJ.
-	* Got zips with the fixed Modloader mod for the client and the server.
+    * Set up b1.2_02 in RMCPJ.
+    * Decompile.
+    * Fixed the sources in eclipse.
+    * `Build` in RMCPJ.
+    * Got zips with the fixed Modloader mod for the client and the server.
 * Now I need an environment where the Modloader modded jars are the base version. So I...
-	* Set up b1.2_02 in RMCPJ
-	* Patch the jars with the zips generated in the previous step.
-	* Decompile.
-	* `Build` in RMCPJ produces empty zips -> I did it right.
+    * Set up b1.2_02 in RMCPJ
+    * Patch the jars with the zips generated in the previous step.
+    * Decompile.
+    * `Build` in RMCPJ produces empty zips -> I did it right.
 
 ### Fix to modloader
 
 You won't be able to make this work from Eclipse unless you Patch modloader towards the end of `init`, right after it calls `readFromClassPath` you should add:
 
 ```java
-	readFromClassPath(var3);
-	// Fix so it works from Eclipse:
-	addModDirectory(var3.getParentFile(), ModLoader.class.getClassLoader());
+    readFromClassPath(var3);
+    // Fix so it works from Eclipse:
+    addModDirectory(var3.getParentFile(), ModLoader.class.getClassLoader());
 ```
 
 Otherwise it won't load mods from Eclipse, only when built.
@@ -75,66 +75,77 @@ Portal activation code is triggered from `BlockFire`, in a very Notchy hardcoded
 You can use your proxy to refine whatever you want. In this case, we'll be detecting glowstone to fire up our own portal.
 
 ```java
-	public void replaceBlock(Block originalBlock, Block newBlock, boolean tooling) {
-		
-		// Find the block we want to replace in Block, and overwrite it
-		
-		try {
-			Field[] blockFields = Block.class.getDeclaredFields();
-			
-			for (int i = 0; i < blockFields.length; i ++) {
-				// b is final and can't be overwritten so...
-				blockFields[i].setAccessible(true);
-				blockFields[i].set(null, newBlock);
-			}
-			
-			if (tooling) {
-				// Block may be affected by tools, so we have to patch them.
-				
-				Item[] items = Item.itemsList;
-				for (Item item : items) {
-					if(item instanceof ItemTool) {
-						// blocksEffectiveAgainst is the first field in ItemTool:
-						Field blocksEffectiveAgainstF = ItemTool.class.getDeclaredFields()[0];
-						blocksEffectiveAgainstF.setAccessible(true);
-						Block[] blocksEffectiveAgainst = (Block[]) blocksEffectiveAgainstF.get(item);
-						
-						// Search if the original block is in the array; if so: substitute & break;
-						for(int i = 0; i < blocksEffectiveAgainst.length; i ++) {
-							if (blocksEffectiveAgainst[i].equals(originalBlock)) {
-								blocksEffectiveAgainst[i] = newBlock;
-								blocksEffectiveAgainstF.set(item, blocksEffectiveAgainst);
-								break;
-							}
-						}
-					}
-				}
-				
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+    public void replaceBlock(Block originalBlock, Block newBlock, boolean tooling) {
+        // Find the block we want to replace in Block, and overwrite it
+        try {
+            Field modifiersField = Field.class.getDeclaredField("modifiers");
+            modifiersField.setAccessible(true);
+            
+            Field[] blockFields = Block.class.getDeclaredFields();
+            
+            for (int i = 0; i < blockFields.length; i ++) {
+                Block b = null;
+                
+                try {
+                    b = (Block)blockFields[i].get(null);
+                } catch (Exception e) { }
+                
+                if (b == originalBlock) {
+                    // b is final and can't be overwritten so...
+                    blockFields[i].setAccessible(true);
+                    modifiersField.setInt(blockFields[i], blockFields[i].getModifiers() & ~Modifier.FINAL);
+                    blockFields[i].set(null, newBlock);
+                }
+            }
+            
+            if (tooling) {
+                // Block may be affected by tools, so we have to patch them.
+                
+                for (Item item : Item.itemsList) {
+                    if(item instanceof ItemTool) {
+                        // blocksEffectiveAgainst is the first field in ItemTool:
+                        Field blocksEffectiveAgainstF = ItemTool.class.getDeclaredFields()[0];
+                        blocksEffectiveAgainstF.setAccessible(true);
+                        Block[] blocksEffectiveAgainst = (Block[]) blocksEffectiveAgainstF.get(item);
+                        
+                        // Search if the original block is in the array; if so: substitute & break;
+                        for(int i = 0; i < blocksEffectiveAgainst.length; i ++) {
+                            if (blocksEffectiveAgainst[i].equals(originalBlock)) {
+                                blocksEffectiveAgainst[i] = newBlock;
+                                blocksEffectiveAgainstF.set(item, blocksEffectiveAgainst);
+                                break;
+                            }
+                        }
+                    }
+                }
+                
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        System.out.println ("Replaced " + originalBlock.getClass() + " with " + newBlock.getClass());
+    }
 ```
 
 Our proxy for BlockFire will be very simple
 
 ```java
-	public class BlockFireProxy extends BlockFire {
+    public class BlockFireProxy extends BlockFire {
 
-		protected BlockFireProxy(int id, int texId) {
-			super(id, texId);
-		}
-		
-		// We patch this method to allow for our custom portal to fire up as well
-		@Override
-		public void onBlockAdded(World world, int x, int y, int z) {
-			if(world.getBlockId(x, y - 1, z) == Block.lightStone.blockID) {
-				// Do our portal
-				
-			} else super.onBlockAdded(world, x, y, z);
-		}
-	}
+        protected BlockFireProxy(int id, int texId) {
+            super(id, texId);
+        }
+        
+        // We patch this method to allow for our custom portal to fire up as well
+        @Override
+        public void onBlockAdded(World world, int x, int y, int z) {
+            if(world.getBlockId(x, y - 1, z) == Block.lightStone.blockID) {
+                // Do our portal
+                
+            } else super.onBlockAdded(world, x, y, z);
+        }
+    }
 ```
 
 ### A new Dimension
@@ -154,13 +165,13 @@ New portal blocks have to set the mods variables the same way vanilla Portal blo
 Aerclouds have to stop the player from falling and not cause damage but Entity's fallDistance is protected, so we have to...
 
 ```java
-	public void onEntityCollidedWithBlock(World world, int i, int j, int k, Entity entity) {
-		try {
-			Field fallDistanceF = entity.getClass().getDeclaredFields()[34]; // 34 is "fall distance"
-			fallDistanceF.setAccessible(true);
-			fallDistanceF.set(entity, 0.0F);
-		} catch (Exception e) {}
-	}
+    public void onEntityCollidedWithBlock(World world, int i, int j, int k, Entity entity) {
+        try {
+            Field fallDistanceF = entity.getClass().getDeclaredFields()[34]; // 34 is "fall distance"
+            fallDistanceF.setAccessible(true);
+            fallDistanceF.set(entity, 0.0F);
+        } catch (Exception e) {}
+    }
 ```
 
 ### Tricky portal shenanigans
@@ -172,15 +183,15 @@ It wouldn't be so difficult if Modloader for b1.2 did actually work in Eclipse. 
 Another thing - the code I use to run the portal is running from the GUI hook so it means it doesn't run at the game pace i.e. 20 ticks per second. This is the first thing I must ensure: make it work at the correct rate. Later modloaders have a proper tick hook. Gotta solve this and make my own tick hook SOMEHOW lol. Let's see the main tick method in Minecraft in case I can do something very creative. OR get my own timer and run with every tick from inside the OSD hook.
 
 ```java
-	@Override
-	public void OSDHook(Minecraft mc, boolean inGUI) {
-		this.timer.updateTimer();
-		
-		for(int i = 0; i < this.timer.elapsedTicks; i ++) {
-			this.tick(mc);
-		}
-		
-	}
+    @Override
+    public void OSDHook(Minecraft mc, boolean inGUI) {
+        this.timer.updateTimer();
+        
+        for(int i = 0; i < this.timer.elapsedTicks; i ++) {
+            this.tick(mc);
+        }
+        
+    }
 ```
 
 Also - I have to solve what happens if you die in the Aether. Will this we wise enough to put you in the proper dimension? Hmmm. 
@@ -188,14 +199,14 @@ Also - I have to solve what happens if you die in the Aether. Will this we wise 
 When you die, `Minecraft.respawn()` is executed, which jumps directly to `usePortal` if the current world provider won't let you respawn (which is the case). In this version, usePortal just switches from 0->-1 or from -1->0. If you happen to have a different value in `player.dimension`. which is the case, i.e. 1, it will set -1 as a destination :-/.
 
 ```java
-	public void usePortal() {
-		if(this.thePlayer.dimension == -1) {
-			this.thePlayer.dimension = 0;
-		} else {
-			this.thePlayer.dimension = -1;
-		}
-		// ...
-	}
+    public void usePortal() {
+        if(this.thePlayer.dimension == -1) {
+            this.thePlayer.dimension = 0;
+        } else {
+            this.thePlayer.dimension = -1;
+        }
+        // ...
+    }
 ```
 
 This is BAD. If you die in the Aether you will respawn in the Nether. Not cool. How can I change this behavior with the tools I have... I don't know yet. If `Player.dimension` wasn't used elsewhere I could just set it to -1 for custom dimensions - it is only used so the server can tell which dimension it is working, and not elsewhere. So this hack may work... For this version, at least. I will need a proper Dimension mod with proper hooks if I ever port this to a later version.
