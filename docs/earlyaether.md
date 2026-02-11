@@ -173,6 +173,11 @@ Aerclouds have to stop the player from falling and not cause damage but Entity's
         } catch (Exception e) {}
     }
 ```
+### Lighting
+
+Generating the Aether overflows everything big time in many ways. It is using the population stage (that stage that sets a few trees and some flowers, maybe a waterfal, tops, in Vanilla) to generate big islands that overflow the "legal 2x2 chunk area" in every direction, placing thousands of blocks that enqueue a pending relight operation each.
+
+My idea is proxying the world.setBlock calls so it bypasses the normal setBlock and puts stuff directly into the data arrays of Chunk without performing a relight and mark the chunk "dirty" in a set, then, at the end of the process, do an "initial" relight to each dirty chunk in the same way it is performed when chunks are generated. This way the amount of relight checks should decrease dramatically, but I don't really know if this is going to work :D 
 
 ### Tricky portal shenanigans
 
@@ -211,10 +216,48 @@ When you die, `Minecraft.respawn()` is executed, which jumps directly to `usePor
 
 This is BAD. If you die in the Aether you will respawn in the Nether. Not cool. How can I change this behavior with the tools I have... I don't know yet. If `Player.dimension` wasn't used elsewhere I could just set it to -1 for custom dimensions - it is only used so the server can tell which dimension it is working, and not elsewhere. So this hack may work... For this version, at least. I will need a proper Dimension mod with proper hooks if I ever port this to a later version.
 
-Problem: if you exit the game while in the aether, you will be in the nether when you load back...  This needs a different solution. For instance "let me respawn in the aether" + "set the aether spawn point to the portal coordinates".
+Problem: Have to check this -> if you exit the game while in the aether, you will be in the nether when you load back? What is saved to worldType? ...  This needs a different solution. For instance "let me respawn in the aether" + "set the aether spawn point to the portal coordinates".
 
-### Lighting
+Not a good solution either. This is what happens when level.dat exists, i.e. when the World is loaded:
 
-Generating the Aether overflows everything big time in many ways. It is using the population stage (that stage that sets a few trees and some flowers, maybe a waterfal, tops, in Vanilla) to generate big islands that overflow the "legal 2x2 chunk area" in every direction, placing thousands of blocks that enqueue a pending relight operation each.
+```java
+    if(var18.exists()) {
+        try {
+            NBTTagCompound var8 = CompressedStreamTools.func_1138_a(new FileInputStream(var18));
+            NBTTagCompound var9 = var8.getCompoundTag("Data");
+            this.randomSeed = var9.getLong("RandomSeed");
+            this.spawnX = var9.getInteger("SpawnX");
+            this.spawnY = var9.getInteger("SpawnY");
+            this.spawnZ = var9.getInteger("SpawnZ");
+            this.worldTime = var9.getLong("Time");
+            this.sizeOnDisk = var9.getLong("SizeOnDisk");
+            if(var9.hasKey("Player")) {
+                this.nbtCompoundPlayer = var9.getCompoundTag("Player");
+                int var10 = this.nbtCompoundPlayer.getInteger("Dimension");
+                if(var10 == -1) {
+                    var17 = new WorldProviderHell();
+                }
+            }
+        } catch (Exception var14) {
+            var14.printStackTrace();
+        }
+    }
+```
 
-My idea is proxying the world.setBlock calls so it bypasses the normal setBlock and puts stuff directly into the data arrays of Chunk without performing a relight and mark the chunk "dirty" in a set, then, at the end of the process, do an "initial" relight to each dirty chunk in the same way it is performed when chunks are generated. This way the amount of relight checks should decrease dramatically, but I don't really know if this is going to work :D 
+If dimension is -1 it will go to hell, otherwise it will be in the overworld. So if I fix making the player able to respawn in the aether (i.e. dimension remains 1), it will spawn in the overworld upon reloading.  If I don't, it will respawn in the nether. No solution is good. 
+
+I wanted to avoid this but it seems that I need a proper Dimension API as a JAR mod... URM. The original has world patched so it loads the proper dimension. Can I Proxy "world"? I doubt that.
+
+### A Dimension Mod
+
+So we are throwing away our ModLoader based mod_MTDimension and do a proper jarmod that can sit alongside ModLoader (or not!). So it should not modify any classes that modloader modifies.
+
+What do I need? 
+
+* `UsePortal` in Minecraft.java ? Or I could just not use it as I have to modifiy `EntityPlayerSP` anyways.
+* `EntityPlayerSP` - the `timeInPortal` shit is here. 
+* `The portal effect is in `GUIIngame` ... which needs to be modified by Modloader. Unless I find a different way to do this, it seems that it won't be able to use a custom overlay.
+* `World` needs to be multiple dimension aware.
+* I can use the same `Dimension` objects I was using and also need to implement a new `UsePortal`.
+
+I'll check any existing early dimension mods to get some inspiration.
