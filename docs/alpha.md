@@ -16,7 +16,7 @@ This will be my Alpha 1.1.2_01 related modding project anytime soon. The idea is
 	- [ ] Seed / Snow covered in the server.properties.
 - [ ] FOV Slider which many people want (not me).
 - [X] 256 block IDs usable (edits Chunk/World)
-- [ ] Fixed armor behaviour, 'cause Armors in alpha are basicly useless.
+- [X] Fixed armor behaviour, 'cause Armors in alpha are basicly useless.
 - [X] Item subtypes & metadata based subblocks. (ItemBlockWithMeta)
 - [X] Fixed block breaking behavior, with the correct durations and drops. - also for wooden planks! [ ] Add wooden planks to test.
 - [ ] Fixed boats - only the "too easy to break" and "drop itself".
@@ -34,21 +34,13 @@ This will be my Alpha 1.1.2_01 related modding project anytime soon. The idea is
 - [X] Lighting overflow.
 - [X] Fix less ores in negative coordinates.
 - [ ] Fix wool (add metadata for colors, DO NOT use textures but colorizer)
+- [X] Correct drops! Revise all blocks.
+- [X] Fix Gui edit sign.
+- [ ] Metadata in server<->client block placement
 - ???
 - Some optimizations.
 
 I especifically don't want to fix bugs 'cause they are heavily explotied by actual a1.1.2_01 players (i.e. Mongster) and those are part of the experience that makes Alpha worth playing on its own. **I just want something that lets me add optional contents easily**. Optional as in you don't want it you leave the mod out.
-
-Planned Modloader mods:
-
-- [ ] Silk touch in gold tools.
-- [ ] New material tier to provide "efficiency".
-- [ ] Crying Obsidian set spawn thing.
-- [ ] Chocolate quest, of course.
-- [ ] Stuff I like from Infhell.
-- [ ] More zombies.
-- [ ] City generation.
-- [ ] Baby animals
 
 Whenever I start doing this I'll keep a diary here.
 
@@ -80,5 +72,16 @@ After all, we have RAM aplenty these days. But the anvil side of things that's c
 
 ## Modloader Mods Ideas
 
-* Snowy mountains, so there's snow in non snowy worlds and you can build with it.
+- [ ] Snowy mountains, so there's snow in non snowy worlds and you can build with it.
+- [ ] Silk touch in gold tools.
+- [ ] New material tier to provide "efficiency".
+- [ ] Crying Obsidian set spawn thing.
+- [ ] Chocolate quest, of course.
+- [ ] Stuff I like from Infhell.
+- [ ] More zombies.
+- [ ] City generation.
+- [ ] Baby animals
 
+## Sshs
+
+[Current sources]]({{site.baseurl}}/assets/files/A_112_ML_latest_src.zip) .
