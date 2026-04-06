@@ -12,13 +12,14 @@ This will be my Alpha 1.1.2_01 related modding project anytime soon. The idea is
 - [X] Simple SinglePlayerCommands for debugging, needs world.enableCheats.
 - [X] Coordinates in F3 GUI.
 - [/] Enter Seed when creating a new world.
-	- [ ] Select "snow covered" YES/NOW/RANDOM (like vanilla)
+	- [X] Select "snow covered" YES/NOW/RANDOM (like vanilla)
 	- [ ] Seed / Snow covered in the server.properties.
 - [ ] FOV Slider which many people want (not me).
 - [X] 256 block IDs usable (edits Chunk/World)
 - [ ] Fixed armor behaviour, 'cause Armors in alpha are basicly useless.
-- [ ] Fixed block breaking behavior, with the correct durations and drops.
-- [ ] Fixed boats.
+- [X] Item subtypes & metadata based subblocks. (ItemBlockWithMeta)
+- [X] Fixed block breaking behavior, with the correct durations and drops. - also for wooden planks! [ ] Add wooden planks to test.
+- [ ] Fixed boats - only the "too easy to break" and "drop itself".
 - [X] Burning wood produces coal.
 - [ ] Release leaf decay (less chunk updates)
 - [X] Release falling sand (no lag in farlands, less chunk updates)
@@ -28,6 +29,11 @@ This will be my Alpha 1.1.2_01 related modding project anytime soon. The idea is
 - [X] Remember last used server.
 - [ ] 256 blocks tall?
 - [ ] Dehardcode atlas size & make it bigger?
+- [ ] Sky & Indev mapgens, SMP, etc
+- [X] Fix to inconsistent caves (random seed not consistent in cave digging)
+- [X] Lighting overflow.
+- [X] Fix less ores in negative coordinates.
+- [ ] Fix wool (add metadata for colors, DO NOT use textures but colorizer)
 - ???
 - Some optimizations.
 
@@ -66,4 +72,13 @@ Updating those should reduce a vast amount of chunk updates. Also, falling sand 
 
 Need a new text box in the GUI.
 
+### 256 blocks tall without going full-anvil
+
+After all, we have RAM aplenty these days. But the anvil side of things that's cool is the sub-chunks that allow for better works. Anyhow I know there are 256 block tall mods out there for alpha. Let's look at what they do.
+
+* I've seen an implementation that just adds a new set of arrays to the mix and uses them if y >= 128, in Chunk, but the it goes and ticks the same exact number of random blocks per tick, hence making random stuff twice as slow? - nope, it randomly ticks only the bottom (original) half of the world ... Hum... It also gets clever and it only updates light in the extra space if it "exists".
+
+## Modloader Mods Ideas
+
+* Snowy mountains, so there's snow in non snowy worlds and you can build with it.
 
