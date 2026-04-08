@@ -11,9 +11,9 @@ This will be my Alpha 1.1.2_01 related modding project anytime soon. The idea is
 - [X] McRegion save format.
 - [X] Simple SinglePlayerCommands for debugging, needs world.enableCheats.
 - [X] Coordinates in F3 GUI.
-- [/] Enter Seed when creating a new world.
+- [X] Enter Seed when creating a new world.
 	- [X] Select "snow covered" YES/NOW/RANDOM (like vanilla)
-	- [ ] Seed / Snow covered in the server.properties.
+	- [X] Seed / Snow covered in the server.properties.
 - [ ] FOV Slider which many people want (not me).
 - [X] 256 block IDs usable (edits Chunk/World)
 - [X] Fixed armor behaviour, 'cause Armors in alpha are basicly useless.
@@ -21,14 +21,12 @@ This will be my Alpha 1.1.2_01 related modding project anytime soon. The idea is
 - [X] Fixed block breaking behavior, with the correct durations and drops. - also for wooden planks! [ ] Add wooden planks to test.
 - [ ] Fixed boats - only the "too easy to break" and "drop itself".
 - [X] Burning wood produces coal.
-- [ ] Release leaf decay (less chunk updates)
+- [X] Release leaf decay (less chunk updates)
 - [X] Release falling sand (no lag in farlands, less chunk updates)
 - [X] Falling sand visible in SMP (i.e. adding it to the entity tracker)
 - [X] Track entity paintings.
 - [X] Send "this is a winter world" server->client.
 - [X] Remember last used server.
-- [ ] 256 blocks tall?
-- [ ] Dehardcode atlas size & make it bigger?
 - [ ] Sky & Indev mapgens, SMP, etc
 - [X] Fix to inconsistent caves (random seed not consistent in cave digging)
 - [X] Lighting overflow.
@@ -36,9 +34,11 @@ This will be my Alpha 1.1.2_01 related modding project anytime soon. The idea is
 - [ ] Fix wool (add metadata for colors, DO NOT use textures but colorizer)
 - [X] Correct drops! Revise all blocks.
 - [X] Fix Gui edit sign.
-- [ ] Metadata in server<->client block placement
+- [X] Metadata in server<->client block placement
 - ???
 - Some optimizations.
+- [ ] 256 blocks tall?
+- [ ] Dehardcode atlas size & make it bigger?
 
 I especifically don't want to fix bugs 'cause they are heavily explotied by actual a1.1.2_01 players (i.e. Mongster) and those are part of the experience that makes Alpha worth playing on its own. **I just want something that lets me add optional contents easily**. Optional as in you don't want it you leave the mod out.
 
@@ -51,6 +51,10 @@ Starting point is the merged codebase RMCPJ 1.2 produces which seems to work (ya
 ### Snow Covered server->client
 
 When the server sends the last Packet1Login to the Client (`NetServerHandler.doLogin()`), it sends it as a dummy signal with "", "", 0. I'm using that 0 (protocol Number) to signal if the world in the server is snow covered (1). `NetClientHandler.handleLogin (p1l)` will set SnowCovered in `this.worldClient` upon reading this value.
+
+### World generator
+
+No such concept exists in this version. There's no world provider, WorldInfo, WorldType, etc. I don't want to go gun-ho with this. I just need an enum which gets saved with the world and a ways to transfer that enum value Server->Client. I can encode many more things in the dummy protocol number, I can index a worldType on that value >> 1.
 
 ## Release leaves / sand
 
@@ -70,6 +74,19 @@ After all, we have RAM aplenty these days. But the anvil side of things that's c
 
 * I've seen an implementation that just adds a new set of arrays to the mix and uses them if y >= 128, in Chunk, but the it goes and ticks the same exact number of random blocks per tick, hence making random stuff twice as slow? - nope, it randomly ticks only the bottom (original) half of the world ... Hum... It also gets clever and it only updates light in the extra space if it "exists".
 
+Will leave this for later.
+
+### Wool 
+
+This looked simple but implied many changes:
+
+- Update the crafting manager to allow for Itemstacks as ingredients.
+- Also to support shapeless recipes.
+
+Now I have to make the game able to produce every dye. I'm still solving some. Blue for instance. Might add blue flowers to produce light blue dye that can be combined to make it more dense and produce blue, given the lack of lapis lazuli.
+
+I know this is too much to add, but I like wool. 
+
 ## Modloader Mods Ideas
 
 - [ ] Snowy mountains, so there's snow in non snowy worlds and you can build with it.
@@ -81,6 +98,7 @@ After all, we have RAM aplenty these days. But the anvil side of things that's c
 - [ ] More zombies.
 - [ ] City generation.
 - [ ] Baby animals
+
 
 ## Sshs
 
