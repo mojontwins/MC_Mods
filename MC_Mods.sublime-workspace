@@ -523,18 +523,93 @@
 			"file": "docs/alpha.md",
 			"settings":
 			{
-				"buffer_size": 3344,
+				"buffer_size": 9948,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"contents": "Insert into SMS.WABA_SENDER_CONFIGURATIONS (ID,API_KEY,SENDER_NAME,USERNAME,PASSWORD,SOURCE_NUMBER,PLATFORM_ID,PLATFORM_PARTNER_ID,NAMESPACE,EVENT_REPORT_GATES,EXTERNAL_WEBHOOK_URL,EXTERNAL_WEBHOOK_ENABLED,ACTIVE,CREATED_AT,UPDATED_AT) values ('1','bT6$wY1\\&sD9fG3!hJ7n','Test Link Mobility','UmV0EEhv','rkoBCJm9N7hs7jze','+447797883917','CGI','21666','80343e40_4c1a_4173_aac7_87b5593c3439','fre3VNoR','https://webhook-externo.com/webhook','0','1',to_timestamp('18/02/26 12:49:15,788988000','DD/MM/RR HH24:MI:SSXFF'),to_timestamp('18/02/26 12:49:15,788988000','DD/MM/RR HH24:MI:SSXFF'));\nInsert into SMS.WABA_SENDER_CONFIGURATIONS (ID,API_KEY,SENDER_NAME,USERNAME,PASSWORD,SOURCE_NUMBER,PLATFORM_ID,PLATFORM_PARTNER_ID,NAMESPACE,EVENT_REPORT_GATES,EXTERNAL_WEBHOOK_URL,EXTERNAL_WEBHOOK_ENABLED,ACTIVE,CREATED_AT,UPDATED_AT) values ('2','j64Z5Fm$2wRM6\\&q8!nZ','SANDETEL','XogZfFlO','mZMKuxANFLD4yekD','+34699527793','CGI','28322','80343e40_4c1a_4173_aac7_87b5593c3439','rRcm1N1Y','https://webhook-externo.com/webhook','0','1',to_timestamp('10/03/26 13:29:15,788988000','DD/MM/RR HH24:MI:SSXFF'),to_timestamp('10/03/26 13:29:15,788988000','DD/MM/RR HH24:MI:SSXFF'));\nInsert into SMS.WABA_SENDER_CONFIGURATIONS (ID,API_KEY,SENDER_NAME,USERNAME,PASSWORD,SOURCE_NUMBER,PLATFORM_ID,PLATFORM_PARTNER_ID,NAMESPACE,EVENT_REPORT_GATES,EXTERNAL_WEBHOOK_URL,EXTERNAL_WEBHOOK_ENABLED,ACTIVE,CREATED_AT,UPDATED_AT) values ('3','u$pBeFg\\&9fYH2PnzE!n','TuTurno','UmV0EEhv','rkoBCJm9N7hs7jze','+447797883917','CGI','21666','80343e40_4c1a_4173_aac7_87b5593c3439','fre3VNoR','https://webhook-externo.com/webhook','0','1',to_timestamp('10/03/26 13:30:15,788988000','DD/MM/RR HH24:MI:SSXFF'),to_timestamp('10/03/26 13:30:15,788988000','DD/MM/RR HH24:MI:SSXFF'));\nInsert into SMS.WABA_SENDER_CONFIGURATIONS (ID,API_KEY,SENDER_NAME,USERNAME,PASSWORD,SOURCE_NUMBER,PLATFORM_ID,PLATFORM_PARTNER_ID,NAMESPACE,EVENT_REPORT_GATES,EXTERNAL_WEBHOOK_URL,EXTERNAL_WEBHOOK_ENABLED,ACTIVE,CREATED_AT,UPDATED_AT) values ('4','uT$9abLKLwW1!mvpA\\&Q','SAS','UmV0EEhv','rkoBCJm9N7hs7jze','+447797883917','CGI','21666','80343e40_4c1a_4173_aac7_87b5593c3439','fre3VNoR','https://webhook-externo.com/webhook','0','1',to_timestamp('10/03/26 13:35:15,788988000','DD/MM/RR HH24:MI:SSXFF'),to_timestamp('10/03/26 13:35:15,788988000','DD/MM/RR HH24:MI:SSXFF'));\n",
+			"file": "/C/Lair/cosas/mc/125/clean_vanilla_125/src/minecraft/net/minecraft/src/GuiFurnace.java",
 			"settings":
 			{
-				"buffer_size": 2315,
-				"line_ending": "Windows",
-				"name": "Insert into SMS.WABA_SENDER_CONFIGURATIONS (ID,API"
+				"buffer_size": 1350,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Lair/cosas/mc/125/clean_vanilla_125/src/minecraft/net/minecraft/src/ContainerFurnace.java",
+			"settings":
+			{
+				"buffer_size": 3343,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Lair/cosas/mc/125/modloader/src/minecraft/net/minecraft/src/NetHandler.java",
+			"settings":
+			{
+				"buffer_size": 7736,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Lair/cosas/mc/125/modloader/src/minecraft/net/minecraft/client/Minecraft.java",
+			"settings":
+			{
+				"buffer_size": 63073,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Lair/cosas/mc/125/modloader/src/minecraft/net/minecraft/src/TileEntityFurnace.java",
+			"settings":
+			{
+				"buffer_size": 6820,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Lair/cosas/mc/125/modloader/src/minecraft/net/minecraft/src/EnumCreatureType.java",
+			"settings":
+			{
+				"buffer_size": 908,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Lair/cosas/mc/a112_01_ML/Main/minecraft_merged/src/net/minecraft/src/World.java",
+			"settings":
+			{
+				"buffer_size": 61001,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/jcastano/Desktop/LOGS EN CICA.txt",
+			"settings":
+			{
+				"buffer_size": 495,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "update oc_users set password='3|$argon2id$v=19$m=65536,t=4,p=1$DDZxswlOuqQCTpk3kthQug$gIL94TIvKf0DWsNfUDlCKn63ynP/bgFZpImnjAWg2gk' where uid='admin';\n",
+			"file": "/C/Proyectos/entregas/Entrega-FicherosJunta_2.0.0.0/db_fixes_pre.sql",
+			"file_size": 0,
+			"file_write_time": 134200200667248515,
+			"settings":
+			{
+				"buffer_size": 150,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows"
 			}
 		}
 	],
@@ -623,6 +698,16 @@
 	],
 	"file_history":
 	[
+		"/C/Users/jcastano/Desktop/pikapika.txt",
+		"/C/Lair/cosas/mc/Inslands/Main/src/minecraft/net/minecraft/world/level/World.java",
+		"/C/Users/jcastano/Downloads/contacts (5).vcf",
+		"/C/Lair/cosas/mc/bta175_TEMP/README.md",
+		"/C/Users/jcastano/AppData/Local/Temp/7zOC3817C2F/World.java",
+		"/C/Users/jcastano/AppData/Local/Temp/7zOC38983BB/ChunkProviderSky.java",
+		"/C/Users/jcastano/AppData/Local/Temp/7zOC381CAAB/ChunkProviderDesert.java",
+		"/C/Users/jcastano/AppData/Local/Temp/7zOC3870A18/WorldBlockPositionType.java",
+		"/C/Users/jcastano/AppData/Local/Temp/7zOC38DC548/WorldGenerator.java",
+		"/C/Users/jcastano/AppData/Local/Temp/7zOC38D6B98/aaa2.java",
 		"/C/git/MC_Mods/docs/_posts/2026-02-04-early-aether-for-b1.2_02.md",
 		"/C/git/MC_Mods/docs/alpha.md",
 		"/C/git/MC_Mods/docs/earlyaether.md",
@@ -740,17 +825,7 @@
 		"/C/Users/jcastano/Downloads/metadata (1).xml",
 		"/C/Proyectos/remote/desowncl02/owncloud--10.8.0.0/config/config.php",
 		"/C/Proyectos/remote/desowncl02/nextcloud/themes/theme-jda/core/templates/layout.base.php",
-		"/C/Users/jcastano/Downloads/metadata.xml",
-		"/C/Proyectos/remote/desowncl02/owncloud--10.8.0.0/orphans.php",
-		"/C/Proyectos/remote/desowncl02/nextcloud/themes/theme-new-jda/core/templates/layout.user.php",
-		"/C/Proyectos/remote/descon01/consigna/public/css/estilo.css",
-		"/C/Proyectos/remote/desowncl02/nextcloud/themes/theme-new-jda/core/css/variables.scss",
-		"/C/Proyectos/remote/descon01/consigna/app/views/cabecera.php",
-		"/C/Users/jcastano/AppData/Local/Temp/7zOC1298392/README.md",
-		"/C/Proyectos/remote/desowncl02/nextcloud/themes/theme-new-jda/defaults.php",
-		"/C/Proyectos/remote/desowncl02/nextcloud/config/config.php",
-		"/C/Cosas/check_mail_uid/check_mail_uid.php",
-		"/C/Proyectos/remote/desowncl02/nextcloud/themes/theme-new-jda/apps/files/img/app.svg"
+		"/C/Users/jcastano/Downloads/metadata.xml"
 	],
 	"find":
 	{
@@ -761,6 +836,7 @@
 		"height": 134.0,
 		"where_history":
 		[
+			"C:\\git\\MC_Mods\\bta175_modloader",
 			"C:\\Proyectos\\remote\\desowncl02\\nextcloud\\apps\\user_saml",
 			"C:\\Proyectos\\remote\\desowncl02\\nextcloud\\apps\\user_ldap",
 			"C:\\Proyectos\\remote\\desowncl02\\nextcloud\\apps",
@@ -829,6 +905,28 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"^- ",
+			"- ",
+			"playAuxSFX",
+			"sfx",
+			"worldType",
+			"chunkprovider",
+			"package",
+			"ingredientIds",
+			"resultStack0",
+			"id",
+			"resultStack5",
+			"resultStack3",
+			"resultStack2",
+			"var4",
+			"var7",
+			"var3",
+			"var9",
+			"var8",
+			"var6",
+			"var5",
+			"var2",
+			"var1",
 			"&",
 			"uTerrain",
 			"bAPORTAL",
@@ -934,36 +1032,29 @@
 			"overwriteprotocol",
 			"owncloud-public",
 			"link",
-			"publicUploadEnabled",
-			"allow-public-upload",
-			"isPublicUploadEnabled",
-			"_isPublicFolderUploadPossible",
-			"publicUploadFilePossible",
-			"public-link-modal",
-			"534",
-			"label-alternativo",
-			"login-new-big-button",
-			"googleapis",
-			"url\\(.+\\)",
-			"background.png",
-			"basic-light",
-			"_require_queue",
-			"sandetel.js",
-			"grupos",
-			"usuarios",
-			"localSharesLabel",
-			"subtab-localshare",
-			"shareLabel",
-			"subtab-localshare",
-			"User and Groups",
-			"\"User and Groups\""
+			"publicUploadEnabled"
 		],
 		"highlight": true,
 		"in_selection": false,
 		"preserve_case": false,
-		"regex": false,
+		"regex": true,
 		"replace_history":
 		[
+			"* ",
+			"c",
+			"i",
+			"id",
+			"c",
+			"ingredientsMap",
+			"j",
+			"rowStr",
+			"recipeStr",
+			"rowStr",
+			"i",
+			"h",
+			"w",
+			"ingredients",
+			"resultStack",
 			"\\&",
 			"b",
 			"z",
@@ -1014,15 +1105,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3344,
+						"buffer_size": 9948,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								911,
-								911
+								6155,
+								6155
 							]
 						],
 						"settings":
@@ -1033,10 +1124,296 @@
 							"syntax": "Packages/Markdown Extended/Syntaxes/Markdown Extended.sublime-syntax"
 						},
 						"translation.x": 0.0,
+						"translation.y": 2256.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/C/Lair/cosas/mc/125/clean_vanilla_125/src/minecraft/net/minecraft/src/GuiFurnace.java",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1350,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Java/Java.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/C/Lair/cosas/mc/125/clean_vanilla_125/src/minecraft/net/minecraft/src/ContainerFurnace.java",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3343,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Java/Java.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/C/Lair/cosas/mc/125/modloader/src/minecraft/net/minecraft/src/NetHandler.java",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7736,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7308,
+								7224
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Java/Java.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2560.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/C/Lair/cosas/mc/125/modloader/src/minecraft/net/minecraft/client/Minecraft.java",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 63073,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								59661,
+								59820
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Java/Java.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 25936.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/C/Lair/cosas/mc/125/modloader/src/minecraft/net/minecraft/src/TileEntityFurnace.java",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6820,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Java/Java.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1987.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/C/Lair/cosas/mc/125/modloader/src/minecraft/net/minecraft/src/EnumCreatureType.java",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 908,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								513,
+								513
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Java/Java.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "/C/Lair/cosas/mc/a112_01_ML/Main/minecraft_merged/src/net/minecraft/src/World.java",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 61001,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Java/Java.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "/C/Users/jcastano/Desktop/LOGS EN CICA.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 495,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								474,
+								493
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "/C/Proyectos/entregas/Entrega-FicherosJunta_2.0.0.0/db_fixes_pre.sql",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 150,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								150,
+								150
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/SQL/SQL.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
 					"type": "text"
 				}
 			]
@@ -1046,11 +1423,11 @@
 			"sheets":
 			[
 				{
-					"buffer": 1,
+					"buffer": 10,
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2315,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
@@ -1058,20 +1435,22 @@
 						[
 							[
 								0,
-								2315
+								0
 							]
 						],
 						"settings":
 						{
-							"auto_name": "Insert into SMS.WABA_SENDER_CONFIGURATIONS (ID,API",
+							"auto_name": "",
 							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
 							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 10,
 					"type": "text"
 				}
 			]
@@ -1131,7 +1510,7 @@
 	"project": "MC_Mods.sublime-project",
 	"replace":
 	{
-		"height": 72.0
+		"height": 44.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1165,7 +1544,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 1,
+	"selected_group": 0,
 	"settings":
 	{
 	},
